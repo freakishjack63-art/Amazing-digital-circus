@@ -6,20 +6,17 @@ from discord.ext import commands
 from keep_alive import keep_alive
 
 TOKEN = os.environ.get("BOT_TOKEN", "")
-
 if not TOKEN:
     raise SystemExit("[ERROR] No BOT_TOKEN found in Replit Secrets.")
 
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix="!", intents=intents)
 
-
 @bot.event
 async def on_ready():
     await bot.tree.sync()
     print(f"The Amazing Digital Circus is open! Logged in as {bot.user}")
     print("Slash commands synced. Bot works in servers and DMs.")
-
 
 CAINE_RESPONSES = {
     ("hello", "hi", "hey", "howdy", "greetings", "sup", "yo"): [
@@ -128,7 +125,6 @@ CAINE_FALLBACKS = [
     "Noted! Caine's response is: *jazz hands* and also perhaps a light game of something. 🎪",
 ]
 
-
 def caine_reply(message: str) -> str:
     msg = message.lower()
     matches = []
@@ -139,83 +135,42 @@ def caine_reply(message: str) -> str:
         return random.choice(matches)
     return random.choice(CAINE_FALLBACKS)
 
-
 @bot.tree.command(name="hello", description="Welcome to the Amazing Digital Circus!")
 async def hello(interaction: discord.Interaction):
-    await interaction.response.send_message(
-        f"*Welcome to the Amazing Digital Circus, {interaction.user.mention}!* 🎪\n"
-        "Don't panic — everything is totally fine here. Totally."
-    )
-
+    await interaction.response.send_message(f"*Welcome to the Amazing Digital Circus, {interaction.user.mention}!* 🎪\nDon't panic — everything is totally fine here. Totally.")
 
 @bot.tree.command(name="pomni", description="Get a Pomni quote")
 async def pomni(interaction: discord.Interaction):
-    quotes = [
-        "\"I need to find a way out of here... there HAS to be a way out of here.\"",
-        "\"Why is this happening to me?\"",
-        "\"I don't want to go abstract. I can't go abstract.\"",
-        "\"Does anyone else feel like screaming right now, or is it just me?\"",
-    ]
+    quotes = ["\"I need to find a way out of here... there HAS to be a way out of here.\"","\"Why is this happening to me?\"","\"I don't want to go abstract. I can't go abstract.\"","\"Does anyone else feel like screaming right now, or is it just me?\""]
     await interaction.response.send_message(f"🔴 **Pomni:** {random.choice(quotes)}")
-
 
 @bot.tree.command(name="caine", description="Get a Caine quote")
 async def caine(interaction: discord.Interaction):
-    quotes = [
-        "\"Welcome, welcome, WELCOME! Every day is a new adventure in my circus!\"",
-        "\"Oh don't worry about THAT. Let's focus on the FUN!\"",
-        "\"I made this world for you. Isn't it WONDERFUL?\"",
-        "\"A new game! How DELIGHTFUL!\"",
-    ]
+    quotes = ["\"Welcome, welcome, WELCOME! Every day is a new adventure in my circus!\"","\"Oh don't worry about THAT. Let's focus on the FUN!\"","\"I made this world for you. Isn't it WONDERFUL?\"","\"A new game! How DELIGHTFUL!\""]
     await interaction.response.send_message(f"🎩 **Caine:** {random.choice(quotes)}")
-
 
 @bot.tree.command(name="jax", description="Get a Jax quote")
 async def jax(interaction: discord.Interaction):
-    quotes = [
-        "\"Relax, it's just a game. Or is it? ... It is. Probably.\"",
-        "\"Oh lighten up, it's not like anything here is REAL.\"",
-        "\"I'm not a bad guy, I'm just having fun. There's a difference.\"",
-        "\"You're all way too stressed for people who can't die.\"",
-    ]
+    quotes = ["\"Relax, it's just a game. Or is it? ... It is. Probably.\"","\"Oh lighten up, it's not like anything here is REAL.\"","\"I'm not a bad guy, I'm just having fun. There's a difference.\"","\"You're all way too stressed for people who can't die.\""]
     await interaction.response.send_message(f"🐰 **Jax:** {random.choice(quotes)}")
-
 
 @bot.tree.command(name="gangle", description="Get a Gangle quote")
 async def gangle(interaction: discord.Interaction):
-    await interaction.response.send_message(
-        "🎭 **Gangle:** *puts on comedy mask* \"Everything is okay! "
-        "*mask falls off* Oh no...\""
-    )
-
+    await interaction.response.send_message("🎭 **Gangle:** *puts on comedy mask* \"Everything is okay! *mask falls off* Oh no...\"")
 
 @bot.tree.command(name="ragatha", description="Get a Ragatha quote")
 async def ragatha(interaction: discord.Interaction):
-    quotes = [
-        "\"We just have to stay positive! That's all we can do.\"",
-        "\"It's okay to be scared. I'm scared too, sometimes.\"",
-        "\"Don't give up! We'll figure this out together.\"",
-    ]
+    quotes = ["\"We just have to stay positive! That's all we can do.\"","\"It's okay to be scared. I'm scared too, sometimes.\"","\"Don't give up! We'll figure this out together.\""]
     await interaction.response.send_message(f"🌸 **Ragatha:** {random.choice(quotes)}")
-
 
 @bot.tree.command(name="kinger", description="Get a Kinger quote")
 async def kinger(interaction: discord.Interaction):
-    quotes = [
-        "\"THE WALLS ARE CAVING IN— oh wait, no they're not. Never mind.\"",
-        "\"I've been here the longest. I don't remember how long. That's fine.\"",
-        "\"*shuffles chess pieces nervously*\"",
-    ]
+    quotes = ["\"THE WALLS ARE CAVING IN— oh wait, no they're not. Never mind.\"","\"I've been here the longest. I don't remember how long. That's fine.\"","\"*shuffles chess pieces nervously*\""]
     await interaction.response.send_message(f"♟️ **Kinger:** {random.choice(quotes)}")
-
 
 @bot.tree.command(name="zooble", description="Get a Zooble quote")
 async def zooble(interaction: discord.Interaction):
-    await interaction.response.send_message(
-        "🔧 **Zooble:** \"Can everyone just CALM DOWN for five seconds? "
-        "Some of us are trying to not have an existential crisis over here.\""
-    )
-
+    await interaction.response.send_message("🔧 **Zooble:** \"Can everyone just CALM DOWN for five seconds? Some of us are trying to not have an existential crisis over here.\"")
 
 @bot.tree.command(name="abstract", description="Abstract yourself or another performer 🌀")
 @app_commands.describe(user="Who should be abstracted? (leave empty for yourself)")
@@ -229,198 +184,89 @@ async def abstract(interaction: discord.Interaction, user: discord.Member = None
     ]
     await interaction.response.send_message(random.choice(messages))
 
-
 @bot.tree.command(name="game", description="Caine starts a new game for you")
 async def game(interaction: discord.Interaction):
-    games = [
-        "🎠 A carousel that spins a *little* too fast...",
-        "🃏 A card game where the rules change every round!",
-        "🎯 Target practice. The targets shoot back.",
-        "🏰 An escape room. (You won't escape.)",
-        "🎪 A talent show judged by Caine himself!",
-        "🌀 A maze. The walls are alive. Good luck!",
-        "🎭 A play where nobody knows their lines. Including the script.",
-        "🧩 A puzzle with one too many pieces. Or one too few. Caine forgot.",
-    ]
-    await interaction.response.send_message(
-        f"🎩 **Caine:** A new GAME has begun!\n"
-        f"Today's adventure: **{random.choice(games)}**\n\n"
-        "Try not to think about what lies beyond the tent. 🎪"
-    )
-
+    games = ["🎠 A carousel that spins a *little* too fast...","🃏 A card game where the rules change every round!","🎯 Target practice. The targets shoot back.","🏰 An escape room. (You won't escape.)","🎪 A talent show judged by Caine himself!","🌀 A maze. The walls are alive. Good luck!","🎭 A play where nobody knows their lines. Including the script.","🧩 A puzzle with one too many pieces. Or one too few. Caine forgot."]
+    await interaction.response.send_message(f"🎩 **Caine:** A new GAME has begun!\nToday's adventure: **{random.choice(games)}**\n\nTry not to think about what lies beyond the tent. 🎪")
 
 @bot.tree.command(name="circus", description="About The Amazing Digital Circus")
 async def circus(interaction: discord.Interaction):
-    embed = discord.Embed(
-        title="🎪 The Amazing Digital Circus",
-        description=(
-            "A colorful nightmare dressed up as a carnival!\n\n"
-            "Trapped in a digital world, six performers must endure "
-            "Caine's games — or risk going **abstract**..."
-        ),
-        color=0x9B59B6
-    )
-    embed.add_field(name="🔴 Pomni",   value="The new arrival. Desperately wants out.", inline=True)
-    embed.add_field(name="🎩 Caine",   value="The ringmaster. Enthusiastic. Suspicious.", inline=True)
-    embed.add_field(name="🐰 Jax",     value="The troublemaker. Finds it all hilarious.", inline=True)
+    embed = discord.Embed(title="🎪 The Amazing Digital Circus", description="A colorful nightmare dressed up as a carnival!\n\nTrapped in a digital world, six performers must endure Caine's games — or risk going **abstract**...", color=0x9B59B6)
+    embed.add_field(name="🔴 Pomni", value="The new arrival. Desperately wants out.", inline=True)
+    embed.add_field(name="🎩 Caine", value="The ringmaster. Enthusiastic. Suspicious.", inline=True)
+    embed.add_field(name="🐰 Jax", value="The troublemaker. Finds it all hilarious.", inline=True)
     embed.add_field(name="🌸 Ragatha", value="Kind-hearted optimist holding it together.", inline=True)
-    embed.add_field(name="♟️ Kinger",  value="Been here longest. Most unhinged.", inline=True)
-    embed.add_field(name="🔧 Zooble",  value="Done with everyone's nonsense.", inline=True)
+    embed.add_field(name="♟️ Kinger", value="Been here longest. Most unhinged.", inline=True)
+    embed.add_field(name="🔧 Zooble", value="Done with everyone's nonsense.", inline=True)
     embed.set_footer(text="Every day is a new adventure. (You can't leave.)")
     await interaction.response.send_message(embed=embed)
 
-
 @bot.tree.command(name="fortune", description="Caine tells your digital fortune")
 async def fortune(interaction: discord.Interaction):
-    fortunes = [
-        "🎩 The tent grows larger today, but the exit remains... elusive.",
-        "🌀 You will meet a strange clown. You already have.",
-        "🎠 Good things come to those who don't look too closely at the walls.",
-        "🎪 Your future is bright! Please do not look directly at your future.",
-        "🃏 A great opportunity awaits — but so does Jax, unfortunately.",
-        "🔮 The digital void stares back. Try waving. It's polite.",
-        "♟️ Kinger has foreseen your destiny. He won't say what it is. He's shaking.",
-        "🌸 Ragatha says it'll be okay. She's probably right. Probably.",
-    ]
-    await interaction.response.send_message(
-        f"🔮 **Caine gazes into the digital crystal ball...**\n\n"
-        f"*{random.choice(fortunes)}*"
-    )
-
+    fortunes = ["🎩 The tent grows larger today, but the exit remains... elusive.","🌀 You will meet a strange clown. You already have.","🎠 Good things come to those who don't look too closely at the walls.","🎪 Your future is bright! Please do not look directly at your future.","🃏 A great opportunity awaits — but so does Jax, unfortunately.","🔮 The digital void stares back. Try waving. It's polite.","♟️ Kinger has foreseen your destiny. He won't say what it is. He's shaking.","🌸 Ragatha says it'll be okay. She's probably right. Probably."]
+    await interaction.response.send_message(f"🔮 **Caine gazes into the digital crystal ball...**\n\n*{random.choice(fortunes)}*")
 
 @bot.tree.command(name="rate", description="Caine rates something out of 10")
 @app_commands.describe(thing="What should Caine rate?")
 async def rate(interaction: discord.Interaction, thing: str):
     score = random.randint(0, 10)
-    comments = {
-        range(0, 3):   "Absolutely dreadful. Even the void is better.",
-        range(3, 5):   "Hmm. Needs more glitter and existential dread.",
-        range(5, 7):   "Adequate! Not circus-worthy, but I've seen worse.",
-        range(7, 9):   "OH how DELIGHTFUL! I'm almost impressed!",
-        range(9, 11):  "PERFECT! A true masterpiece of the digital realm! 🎪",
-    }
+    comments = {range(0,3):"Absolutely dreadful. Even the void is better.",range(3,5):"Hmm. Needs more glitter and existential dread.",range(5,7):"Adequate! Not circus-worthy, but I've seen worse.",range(7,9):"OH how DELIGHTFUL! I'm almost impressed!",range(9,11):"PERFECT! A true masterpiece of the digital realm! 🎪"}
     comment = next(v for k, v in comments.items() if score in k)
-    await interaction.response.send_message(
-        f"🎩 **Caine rates \"{thing}\":** `{score}/10`\n*{comment}*"
-    )
-
+    await interaction.response.send_message(f"🎩 **Caine rates \"{thing}\":** `{score}/10`\n*{comment}*")
 
 @bot.tree.command(name="roast", description="Caine roasts someone circus-style 🔥")
 @app_commands.describe(user="Who should Caine roast?")
 async def roast(interaction: discord.Interaction, user: discord.Member):
-    roasts = [
-        f"🎩 {user.mention}? Oh I TRIED to make a game for them once. The game quit. *the game quit.* 🎪",
-        f"🎩 Ah, {user.mention}. Even Kinger — who has forgotten what year it is — remembers to be more interesting than them.",
-        f"🎩 {user.mention} walked into the circus and the clowns asked *them* to leave. For being too much. 🤡",
-        f"🎩 I once made a maze specifically for {user.mention}. They found the exit immediately. It was the most disappointing day of my life.",
-        f"🎩 {user.mention} is the reason I added a second void. The first void complained. 🌀",
-        f"🎩 Jax is mean to everyone but even HE gives {user.mention} a little extra. Says it's too easy otherwise. 🐰",
-        f"🎩 {user.mention} tried the carousel once. The carousel stopped voluntarily. We don't talk about it. 🎠",
-    ]
+    roasts = [f"🎩 {user.mention}? Oh I TRIED to make a game for them once. The game quit. *the game quit.* 🎪",f"🎩 Ah, {user.mention}. Even Kinger — who has forgotten what year it is — remembers to be more interesting than them.",f"🎩 {user.mention} walked into the circus and the clowns asked *them* to leave. For being too much. 🤡",f"🎩 I once made a maze specifically for {user.mention}. They found the exit immediately. It was the most disappointing day of my life.",f"🎩 {user.mention} is the reason I added a second void. The first void complained. 🌀",f"🎩 Jax is mean to everyone but even HE gives {user.mention} a little extra. Says it's too easy otherwise. 🐰",f"🎩 {user.mention} tried the carousel once. The carousel stopped voluntarily. We don't talk about it. 🎠"]
     await interaction.response.send_message(random.choice(roasts))
-
 
 @bot.tree.command(name="clown", description="Caine declares someone a clown 🤡")
 @app_commands.describe(user="Who is the clown?")
 async def clown(interaction: discord.Interaction, user: discord.Member):
-    responses = [
-        f"🎩 After careful consideration and zero hesitation: **{user.mention} is a clown.** 🤡\nCaine has spoken.",
-        f"🤡 **{user.mention}** — you have been officially inducted into the Circus Clown Hall of Fame.\n*confetti falls* This is not a compliment.",
-        f"🎩 The clown detector has been going off for a while now and Caine has traced it to **{user.mention}**. 🤡\n*honk*",
-        f"🤡 Ladies and gentlemen, your newest clown: **{user.mention}**!\n*the other clowns applaud nervously*",
-    ]
+    responses = [f"🎩 After careful consideration and zero hesitation: **{user.mention} is a clown.** 🤡\nCaine has spoken.",f"🤡 **{user.mention}** — you have been officially inducted into the Circus Clown Hall of Fame.\n*confetti falls* This is not a compliment.",f"🎩 The clown detector has been going off for a while now and Caine has traced it to **{user.mention}**. 🤡\n*honk*",f"🤡 Ladies and gentlemen, your newest clown: **{user.mention}**!\n*the other clowns applaud nervously*"]
     await interaction.response.send_message(random.choice(responses))
-
 
 @bot.tree.command(name="8ball", description="Ask the digital circus crystal ball a question 🔮")
 @app_commands.describe(question="What's your question?")
 async def eightball(interaction: discord.Interaction, question: str):
-    answers = [
-        "🎩 The circus says: **YES.** Enthusiastically. Suspiciously enthusiastically.",
-        "🌀 **Absolutely not.** The void has spoken.",
-        "🎪 **Signs point to yes!** Though the signs are painted on haunted carnival boards, so.",
-        "🎩 **It is certain.** Caine has already planned a game around it.",
-        "🔮 **Very doubtful.** Even Kinger thinks that's unlikely. He doesn't remember why.",
-        "🎠 **Ask again later.** Caine is busy with the carousel. It won't stop spinning.",
-        "🎩 **Yes** — but at what cost? *Caine laughs, won't elaborate.*",
-        "🌀 **No.** The answer is no. Please stop asking. The void is tired.",
-        "🎪 **Outlook good!** Unless you're asking about an exit. Then: no.",
-        "🤡 **Cannot predict now.** A clown is blocking the crystal ball. We're handling it.",
-        "🎩 **Without a doubt!** This is going in the next game. You're welcome.",
-        "🌸 Ragatha says **yes** and she genuinely means it. That's rare. Take it.",
-    ]
-    embed = discord.Embed(
-        description=f"🔮 *{question}*\n\n{random.choice(answers)}",
-        color=0x9B59B6
-    )
+    answers = ["🎩 The circus says: **YES.** Enthusiastically. Suspiciously enthusiastically.","🌀 **Absolutely not.** The void has spoken.","🎪 **Signs point to yes!** Though the signs are painted on haunted carnival boards, so.","🎩 **It is certain.** Caine has already planned a game around it.","🔮 **Very doubtful.** Even Kinger thinks that's unlikely. He doesn't remember why.","🎠 **Ask again later.** Caine is busy with the carousel. It won't stop spinning.","🎩 **Yes** — but at what cost? *Caine laughs, won't elaborate.*","🌀 **No.** The answer is no. Please stop asking. The void is tired.","🎪 **Outlook good!** Unless you're asking about an exit. Then: no.","🤡 **Cannot predict now.** A clown is blocking the crystal ball. We're handling it.","🎩 **Without a doubt!** This is going in the next game. You're welcome.","🌸 Ragatha says **yes** and she genuinely means it. That's rare. Take it."]
+    embed = discord.Embed(description=f"🔮 *{question}*\n\n{random.choice(answers)}", color=0x9B59B6)
     embed.set_footer(text="The Amazing Digital Circus Crystal Ball™")
     await interaction.response.send_message(embed=embed)
-
 
 @bot.tree.command(name="ship", description="Caine ships two performers together 💕")
 @app_commands.describe(user1="First person", user2="Second person")
 async def ship(interaction: discord.Interaction, user1: discord.Member, user2: discord.Member):
     score = random.randint(0, 100)
-    if score < 20:
-        verdict = "Absolutely not. Even the void wouldn't put these two together. 🌀"
-    elif score < 40:
-        verdict = "Hmm. Unlikely. Jax gives it a week. 🐰"
-    elif score < 60:
-        verdict = "Adequate! Like a game with missing pieces — could work! 🧩"
-    elif score < 80:
-        verdict = "Oh how SWEET! Ragatha is already planning something. 🌸"
-    else:
-        verdict = "PERFECT MATCH! Caine demands a circus wedding IMMEDIATELY! 🎪🎩"
-    await interaction.response.send_message(
-        f"💕 **{user1.mention}** + **{user2.mention}**\n"
-        f"Compatibility: `{score}%`\n*{verdict}*"
-    )
-
+    if score < 20: verdict = "Absolutely not. Even the void wouldn't put these two together. 🌀"
+    elif score < 40: verdict = "Hmm. Unlikely. Jax gives it a week. 🐰"
+    elif score < 60: verdict = "Adequate! Like a game with missing pieces — could work! 🧩"
+    elif score < 80: verdict = "Oh how SWEET! Ragatha is already planning something. 🌸"
+    else: verdict = "PERFECT MATCH! Caine demands a circus wedding IMMEDIATELY! 🎪🎩"
+    await interaction.response.send_message(f"💕 **{user1.mention}** + **{user2.mention}**\nCompatibility: `{score}%`\n*{verdict}*")
 
 @bot.tree.command(name="trivia", description="Answer a TADC trivia question 🎪")
 async def trivia(interaction: discord.Interaction):
-    questions = [
-        ("What colour is Pomni's hat?", "Red", ["Blue", "Red", "Yellow", "Purple"]),
-        ("What is Caine's role in the circus?", "Ringmaster", ["Clown", "Performer", "Ringmaster", "Janitor"]),
-        ("Which character has been in the circus the longest?", "Kinger", ["Ragatha", "Jax", "Kinger", "Gangle"]),
-        ("What happens to performers who lose their minds?", "They go abstract", ["They disappear", "They go abstract", "They escape", "They become clowns"]),
-        ("What does Gangle wear?", "Comedy/tragedy masks", ["A top hat", "A jester hat", "Comedy/tragedy masks", "A crown"]),
-        ("What game does Kinger love?", "Chess", ["Checkers", "Chess", "Cards", "Mazes"]),
-    ]
+    questions = [("What colour is Pomni's hat?","Red",["Blue","Red","Yellow","Purple"]),("What is Caine's role in the circus?","Ringmaster",["Clown","Performer","Ringmaster","Janitor"]),("Which character has been in the circus the longest?","Kinger",["Ragatha","Jax","Kinger","Gangle"]),("What happens to performers who lose their minds?","They go abstract",["They disappear","They go abstract","They escape","They become clowns"]),("What does Gangle wear?","Comedy/tragedy masks",["A top hat","A jester hat","Comedy/tragedy masks","A crown"]),("What game does Kinger love?","Chess",["Checkers","Chess","Cards","Mazes"])]
     q, answer, options = random.choice(questions)
     random.shuffle(options)
-    opts_text = "\n".join(f"• {o}" for o in options)
-    embed = discord.Embed(
-        title="🎪 TADC Trivia!",
-        description=f"**{q}**\n\n{opts_text}",
-        color=0xFFD700
-    )
+    embed = discord.Embed(title="🎪 TADC Trivia!", description=f"**{q}**\n\n" + "\n".join(f"• {o}" for o in options), color=0xFFD700)
     embed.set_footer(text=f"Answer: {answer} — no cheating! 🎩")
     await interaction.response.send_message(embed=embed)
-
 
 @bot.tree.command(name="bubble", description="Trap someone in a Caine bubble 🫧")
 @app_commands.describe(user="Who gets bubbled?")
 async def bubble(interaction: discord.Interaction, user: discord.Member):
-    responses = [
-        f"🫧 **{user.mention}** has been placed in a protective Caine bubble!\n*it's for their own good. probably.* 🎩",
-        f"🎩 *pops a bubble around {user.mention}*\nThey're safe in there. From everything. Including exits. 🫧",
-        f"🫧 {user.mention} is now in a bubble!\n*Kinger tries to pop it*\n*Caine stops him*\nEverything is fine. 🎪",
-    ]
+    responses = [f"🫧 **{user.mention}** has been placed in a protective Caine bubble!\n*it's for their own good. probably.* 🎩",f"🎩 *pops a bubble around {user.mention}*\nThey're safe in there. From everything. Including exits. 🫧",f"🫧 {user.mention} is now in a bubble!\n*Kinger tries to pop it*\n*Caine stops him*\nEverything is fine. 🎪"]
     await interaction.response.send_message(random.choice(responses))
-
 
 @bot.tree.command(name="chat", description="Talk to Caine the ringmaster!")
 @app_commands.describe(message="What do you want to say to Caine?")
 async def chat(interaction: discord.Interaction, message: str):
     reply = caine_reply(message)
-    embed = discord.Embed(
-        description=f"🎩 **Caine says:**\n{reply}",
-        color=0xFFD700
-    )
+    embed = discord.Embed(description=f"🎩 **Caine says:**\n{reply}", color=0xFFD700)
     embed.set_footer(text=f"Asked by {interaction.user.display_name}")
     await interaction.response.send_message(embed=embed)
-
 
 @bot.tree.command(name="joinvc", description="Caine joins your voice channel!")
 async def joinvc(interaction: discord.Interaction):
@@ -437,13 +283,8 @@ async def joinvc(interaction: discord.Interaction):
         await interaction.response.send_message(f"🎩 **Caine sweeps into {channel.name}!**\n*adjusts top hat* The show must go on, wherever you are! 🎪")
     else:
         await channel.connect()
-        entries = [
-            f"🎩 **Caine has ARRIVED in {channel.name}!** Welcome, welcome, WELCOME! 🎪",
-            f"🎠 *Circus music plays as Caine glides into {channel.name}* The ringmaster is HERE!",
-            f"🎩 The Amazing Digital Circus comes to {channel.name}! Try not to panic. 🌀",
-        ]
+        entries = [f"🎩 **Caine has ARRIVED in {channel.name}!** Welcome, welcome, WELCOME! 🎪",f"🎠 *Circus music plays as Caine glides into {channel.name}* The ringmaster is HERE!",f"🎩 The Amazing Digital Circus comes to {channel.name}! Try not to panic. 🌀"]
         await interaction.response.send_message(random.choice(entries))
-
 
 @bot.tree.command(name="leavevc", description="Caine dramatically exits the voice channel")
 async def leavevc(interaction: discord.Interaction):
@@ -451,13 +292,10 @@ async def leavevc(interaction: discord.Interaction):
         await interaction.response.send_message("🎩 Caine isn't in a voice channel right now!", ephemeral=True)
         return
     await interaction.guild.voice_client.disconnect()
-    exits = [
-        "🎩 *Caine tips his hat and vanishes in a puff of digital smoke* The show... is on intermission. 🎪",
-        "🎩 **CAINE HAS LEFT THE BUILDING.**\n*he has not left the building. he cannot leave. but he left the vc.* 🌀",
-        "🎩 *bows dramatically* Until next time, performers. Caine will be... watching. 🎠",
-    ]
-    await interaction.response.send_message(random.choice(exits))
-
+    exits = ["🎩 *Caine tips his hat and vanishes in a puff of digital smoke* The show... is on intermission. 🎪","🎩 **CAINE HAS LEFT THE BUILDING.**\n*he has not left the building. he cannot leave. but he left the vc.* 🌀","🎩 *bows dramatically* Until next time, performers. Caine will be... watching. 🎠"]
+    await interaction.response.send_message(random.choice(exits))# ════════════════════════════════════════════════════════════
+#  TADC DEX SYSTEM
+# ════════════════════════════════════════════════════════════
 
 OWNER_ID = 1198527966972477505
 
@@ -563,7 +401,9 @@ async def dex(interaction: discord.Interaction, character: str):
     )
     if not data:
         names = ", ".join(f"`{v['name']}`" for v in all_chars.values())
-        await interaction.response.send_message(f"🎩 Caine doesn't recognise that performer! Try: {names}", ephemeral=True)
+        await interaction.response.send_message(
+            f"🎩 Caine doesn't recognise that performer! Try: {names}", ephemeral=True
+        )
         return
     stats_text = "\n".join(f"**{k}:** {v}" for k, v in data["stats"].items()) if data["stats"] else "*No stats on file*"
     embed = discord.Embed(
@@ -571,11 +411,11 @@ async def dex(interaction: discord.Interaction, character: str):
         description=data["description"],
         color=data["rarity_color"]
     )
-    embed.add_field(name="✨ Rarity",   value=data["rarity"],           inline=True)
-    embed.add_field(name="💬 Quote",    value=f"*\"{data['quote']}\"*", inline=False)
-    embed.add_field(name="📊 Stats",    value=stats_text,               inline=True)
-    embed.add_field(name="⚡ Ability",  value=data["ability"],          inline=False)
-    embed.add_field(name="💀 Weakness", value=data["weakness"],         inline=False)
+    embed.add_field(name="✨ Rarity",   value=data["rarity"],              inline=True)
+    embed.add_field(name="💬 Quote",    value=f"*\"{data['quote']}\"*",    inline=False)
+    embed.add_field(name="📊 Stats",    value=stats_text,                  inline=True)
+    embed.add_field(name="⚡ Ability",  value=data["ability"],             inline=False)
+    embed.add_field(name="💀 Weakness", value=data["weakness"],            inline=False)
     embed.set_footer(text="The Amazing Digital Circus Character Dex 🎪")
     await interaction.response.send_message(embed=embed)
 
@@ -584,7 +424,9 @@ async def dex(interaction: discord.Interaction, character: str):
 async def spawn(interaction: discord.Interaction):
     global _spawned_character
     if not _is_owner(interaction):
-        await interaction.response.send_message("🎩 Only the ringmaster's assistant can spawn performers!", ephemeral=True)
+        await interaction.response.send_message(
+            "🎩 Only the ringmaster's assistant can spawn performers!", ephemeral=True
+        )
         return
     all_chars = _all_characters()
     char_key = random.choice(list(all_chars.keys()))
@@ -605,7 +447,9 @@ async def spawn(interaction: discord.Interaction):
 async def claim(interaction: discord.Interaction):
     global _spawned_character
     if _spawned_character is None:
-        await interaction.response.send_message("🎩 No performer is on stage right now! Wait for a `/spawn`. 🎪", ephemeral=True)
+        await interaction.response.send_message(
+            "🎩 No performer is on stage right now! Wait for a `/spawn`. 🎪", ephemeral=True
+        )
         return
     char_key = _spawned_character
     data = _all_characters()[char_key]
@@ -623,4 +467,227 @@ async def claim(interaction: discord.Interaction):
 
 
 @bot.tree.command(name="collection", description="View your TADC character collection 🎪")
-@app_commands.describe(user="Whose
+@app_commands.describe(user="Whose collection? (leave empty for yours)")
+async def collection(interaction: discord.Interaction, user: discord.Member = None):
+    target = user if user else interaction.user
+    user_col = _collections.get(target.id, [])
+    if not user_col:
+        whose = "You have" if target == interaction.user else f"{target.display_name} has"
+        await interaction.response.send_message(
+            f"🎩 {whose} no performers yet! Wait for a `/spawn` to claim one. 🎪", ephemeral=True
+        )
+        return
+    counts = {}
+    for c in user_col:
+        counts[c] = counts.get(c, 0) + 1
+    lines = [f"{TADC_CHARACTERS[c]['emoji']} **{TADC_CHARACTERS[c]['name']}** x{n} — {TADC_CHARACTERS[c]['rarity']}"
+             for c, n in counts.items()]
+    embed = discord.Embed(
+        title=f"🎪 {target.display_name}'s Collection",
+        description="\n".join(lines),
+        color=0xFFD700
+    )
+    embed.set_footer(text=f"{len(user_col)} total performers collected 🎩")
+    await interaction.response.send_message(embed=embed)
+
+
+@bot.tree.command(name="give", description="[OWNER ONLY] Gift a character to someone")
+@app_commands.describe(user="Who to gift", character="Which character (pomni, caine, jax...)")
+async def give(interaction: discord.Interaction, user: discord.Member, character: str):
+    if not _is_owner(interaction):
+        await interaction.response.send_message(
+            "🎩 Only the ringmaster's assistant can gift performers!", ephemeral=True
+        )
+        return
+    data = TADC_CHARACTERS.get(character.lower())
+    if not data:
+        names = ", ".join(f"`{k}`" for k in TADC_CHARACTERS)
+        await interaction.response.send_message(f"🎩 Unknown character! Try: {names}", ephemeral=True)
+        return
+    if user.id not in _collections:
+        _collections[user.id] = []
+    _collections[user.id].append(character.lower())
+    await interaction.response.send_message(
+        f"🎩 **Caine gifts** {data['emoji']} **{data['name']}** to {user.mention}!\n*A generous ringmaster indeed.* 🎪"
+    )
+
+
+@bot.tree.command(name="addchar", description="[OWNER] Add a custom character to the spawn pool")
+@app_commands.describe(
+    name="Character name",
+    emoji="Emoji for this character",
+    rarity="Rarity: common / rare / epic / legendary / mythic",
+    description="Short description of the character",
+    ability="Their special ability",
+    weakness="Their weakness",
+)
+async def addchar(interaction: discord.Interaction, name: str, emoji: str, rarity: str,
+                  description: str, ability: str, weakness: str):
+    if not _is_owner(interaction):
+        await interaction.response.send_message("🎩 Owner only!", ephemeral=True)
+        return
+    rarity_key = rarity.lower()
+    if rarity_key not in RARITY_MAP:
+        keys = " / ".join(RARITY_MAP.keys())
+        await interaction.response.send_message(f"🎩 Unknown rarity! Use: {keys}", ephemeral=True)
+        return
+    rarity_label, rarity_color = RARITY_MAP[rarity_key]
+    key = name.lower()
+    _custom_chars[key] = {
+        "name": name, "emoji": emoji, "title": "Custom Performer",
+        "rarity": rarity_label, "rarity_color": rarity_color,
+        "description": description, "stats": {},
+        "quote": "Welcome to the Amazing Digital Circus!",
+        "ability": ability, "weakness": weakness, "custom": True,
+    }
+    await interaction.response.send_message(
+        f"✅ **{emoji} {name}** added to the circus!\n"
+        f"Rarity: {rarity_label}\n"
+        f"They'll appear in `/spawn`, `/dex`, and `/listchars`. 🎪"
+    )
+
+
+@bot.tree.command(name="listchars", description="List all characters in the spawn pool 📋")
+async def listchars(interaction: discord.Interaction):
+    all_chars = _all_characters()
+    tadc_lines = []
+    custom_lines = []
+    for d in all_chars.values():
+        line = f"{d['emoji']} **{d['name']}** — {d['rarity']}"
+        if d.get("custom"):
+            custom_lines.append(line)
+        else:
+            tadc_lines.append(line)
+    embed = discord.Embed(title="🎪 All Performers in the Circus", color=0xFFD700)
+    if tadc_lines:
+        embed.add_field(name="🎭 TADC Characters", value="\n".join(tadc_lines), inline=False)
+    if custom_lines:
+        embed.add_field(name="✨ Custom Characters", value="\n".join(custom_lines), inline=False)
+    embed.set_footer(text=f"{len(all_chars)} total performers 🎩")
+    await interaction.response.send_message(embed=embed)
+
+
+@bot.tree.command(name="addevent", description="[OWNER] Create a new circus event")
+@app_commands.describe(
+    name="Event name",
+    description="What happens during this event",
+    rare="Is this a rare/special event?",
+)
+async def addevent(interaction: discord.Interaction, name: str, description: str, rare: bool):
+    if not _is_owner(interaction):
+        await interaction.response.send_message("🎩 Owner only!", ephemeral=True)
+        return
+    if any(e["name"].lower() == name.lower() for e in _all_events):
+        await interaction.response.send_message(
+            f"🎩 An event called \"{name}\" already exists! Use `/startevent {name}` to run it.", ephemeral=True
+        )
+        return
+    event = {"name": name, "description": description, "rare": rare, "active": False, "runs": 0}
+    _all_events.append(event)
+    tag = "🌟 **RARE EVENT**" if rare else "🎪 Standard Event"
+    await interaction.response.send_message(
+        f"✅ Event \"{name}\" created! ({tag})\n"
+        f"Use `/startevent {name}` to launch it anytime. 🎩"
+    )
+
+
+@bot.tree.command(name="startevent", description="[OWNER] Start a circus event")
+@app_commands.describe(name="Name of the event to start")
+async def startevent(interaction: discord.Interaction, name: str):
+    global _active_event
+    if not _is_owner(interaction):
+        await interaction.response.send_message("🎩 Owner only!", ephemeral=True)
+        return
+    event = next((e for e in _all_events if e["name"].lower() == name.lower()), None)
+    if not event:
+        await interaction.response.send_message(
+            f"🎩 No event named \"{name}\"! Use `/addevent` to create it first.", ephemeral=True
+        )
+        return
+    if _active_event:
+        await interaction.response.send_message(
+            f"🎩 \"{_active_event['name']}\" is already running! Use `/endevent` first.", ephemeral=True
+        )
+        return
+    event["active"] = True
+    event["runs"] += 1
+    _active_event = event
+    color = 0xFFD700 if event["rare"] else 0xFF6B6B
+    tag = "🌟" if event["rare"] else "🎪"
+    embed = discord.Embed(
+        title=f"{tag} NEW EVENT: {event['name']}!",
+        description=event["description"],
+        color=color
+    )
+    if event["rare"]:
+        embed.add_field(name="✨ Special", value="This is a **RARE** event! Don't miss it!", inline=False)
+    embed.set_footer(text=f"Run #{event['runs']} • Use /endevent to end it 🎩")
+    await interaction.response.send_message(embed=embed)
+
+
+@bot.tree.command(name="endevent", description="[OWNER] End the current circus event")
+async def endevent(interaction: discord.Interaction):
+    global _active_event
+    if not _is_owner(interaction):
+        await interaction.response.send_message("🎩 Owner only!", ephemeral=True)
+        return
+    if not _active_event:
+        await interaction.response.send_message("🎩 No event is currently running!", ephemeral=True)
+        return
+    name = _active_event["name"]
+    _active_event["active"] = False
+    _active_event = None
+    await interaction.response.send_message(
+        f"🎩 \"{name}\" has ended!\n"
+        f"It's saved — use `/startevent {name}` to run it again anytime. 🎪"
+    )
+
+
+@bot.tree.command(name="events", description="See all circus events — past and active 📋")
+async def events_cmd(interaction: discord.Interaction):
+    if not _all_events:
+        await interaction.response.send_message(
+            "🎩 No events yet! The owner can create one with `/addevent`. 🎪", ephemeral=True
+        )
+        return
+    lines = []
+    for e in _all_events:
+        if e["active"]:
+            status = "🟢 **LIVE NOW**"
+        elif e["runs"] > 0:
+            status = f"⚫ Ended (ran {e['runs']}x)"
+        else:
+            status = "⬜ Not started yet"
+        tag = "🌟 Rare" if e["rare"] else "🎪 Standard"
+        lines.append(f"**{e['name']}** — {tag} • {status}\n*{e['description']}*")
+    embed = discord.Embed(
+        title="🎪 Circus Event History",
+        description="\n\n".join(lines),
+        color=0x9B59B6
+    )
+    embed.set_footer(text=f"{len(_all_events)} events created 🎩")
+    await interaction.response.send_message(embed=embed)
+
+
+@bot.tree.command(name="help", description="List all circus commands")
+async def help_command(interaction: discord.Interaction):
+    embed = discord.Embed(
+        title="🎪 Circus Commands",
+        description="All commands work in servers **and** DMs! Type `/` to browse them.",
+        color=0xFF6B6B
+    )
+    embed.add_field(name="🎭 Characters", value="`/pomni` `/caine` `/jax` `/gangle` `/ragatha` `/kinger` `/zooble`", inline=False)
+    embed.add_field(name="🎪 Fun",        value="`/abstract [@user]` `/game` `/fortune` `/rate <thing>` `/trivia` `/8ball <question>`", inline=False)
+    embed.add_field(name="🎯 Target",     value="`/roast @user` `/clown @user` `/bubble @user` `/ship @user1 @user2`", inline=False)
+    embed.add_field(name="📖 Dex",        value="`/dex <character>` — full character stats & info\n`/listchars` — all characters in the pool\n`/collection [@user]` — view collected characters\n`/claim` — claim a spawned character", inline=False)
+    embed.add_field(name="🎟️ Events",     value="`/events` — see all events (past & active)\n*(Owner: `/addevent` `/startevent` `/endevent` `/addchar` `/spawn` `/give`)*", inline=False)
+    embed.add_field(name="💬 Chat",       value="`/chat <message>` — talk to Caine in character!", inline=False)
+    embed.add_field(name="🔊 Voice",      value="`/joinvc` — Caine joins your VC\n`/leavevc` — Caine dramatically exits", inline=False)
+    embed.add_field(name="ℹ️ Info",       value="`/hello` `/circus` `/help`", inline=False)
+    embed.set_footer(text="Every day is a new adventure. (You can't leave.)")
+    await interaction.response.send_message(embed=embed)
+
+
+# ── Run ───────────────────────────────────────────────────────
+keep_alive()
+bot.run(TOKEN)
