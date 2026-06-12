@@ -76,8 +76,7 @@ CAINE_RESPONSES = {
     ("food", "eat", "hungry", "snack", "dinner", "lunch", "breakfast"): [
         "Food! Do digital beings even need food? FASCINATING question. Let's not think too hard about it.",
         "Hungry? The circus has a concession stand! I'm not sure what's in the food. Neither is the food.",
-        "Ah sustenance! Caine will arrange a FEAST. *produces
-  # ════════════════════════════════════════════════════════════
+        "Ah sustenance! Caine will arrange a FEAST. *produces # ════════════════════════════════════════════════════════════
 #  TADC DEX SYSTEM
 # ════════════════════════════════════════════════════════════
 
