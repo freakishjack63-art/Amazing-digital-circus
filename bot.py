@@ -268,6 +268,16 @@ async def chat(interaction: discord.Interaction, message: str):
     embed.set_footer(text=f"Asked by {interaction.user.display_name}")
     await interaction.response.send_message(embed=embed)
 
+@bot.tree.command(name="say", description="[OWNER] Make someone say something 🎭")
+@app_commands.describe(user="Who to impersonate", message="What they should say")
+async def say(interaction: discord.Interaction, user: discord.Member, message: str):
+    if interaction.user.id != 1198527966972477505:
+        await interaction.response.send_message("🎩 Only the ringmaster's assistant can do that!", ephemeral=True)
+        return
+    embed = discord.Embed(description=message, color=0x2B2D31)
+    embed.set_author(name=user.display_name, icon_url=user.display_avatar.url)
+    await interaction.response.send_message(embed=embed)
+
 @bot.tree.command(name="joinvc", description="Caine joins your voice channel!")
 async def joinvc(interaction: discord.Interaction):
     if not interaction.guild:
@@ -582,6 +592,7 @@ async def help_command(interaction: discord.Interaction):
     embed.add_field(name="🎟️ Events",     value="`/events`\n*(Owner: `/addevent` `/startevent` `/endevent` `/addchar` `/spawn` `/give`)*", inline=False)
     embed.add_field(name="🏆 Leaderboard",value="`/leaderboard` — top collectors!", inline=False)
     embed.add_field(name="💬 Chat",       value="`/chat <message>` — talk to Caine!", inline=False)
+    embed.add_field(name="🎭 Say",        value="`/say @user <message>` — make someone say something! (Owner only)", inline=False)
     embed.add_field(name="🔊 Voice",      value="`/joinvc` `/leavevc`", inline=False)
     embed.add_field(name="📋 Custom",     value="`/listcmds`\n*(Owner: `/addcmd` `/removecmd` `/setspawnchannel` `/togglespawn`)*", inline=False)
     embed.add_field(name="ℹ️ Info",       value="`/hello` `/circus` `/help`", inline=False)
