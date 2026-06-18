@@ -2,9 +2,21 @@ import os
 import json
 import random
 import discord
+from datetime import datetime
 from discord import app_commands
 from discord.ext import commands, tasks
 from keep_alive import keep_alive
+
+CUSTOM_CHAR_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/1/1e/Question_mark_%28Wikipedia%29.png"
+COLLECTION_PER_PAGE = 5
+
+def generate_char_id() -> str:
+    return ''.join(random.choices('0123456789ABCDEF', k=7))
+
+def _parse_entry(entry, idx: int = 0) -> dict:
+    if isinstance(entry, str):
+        return {"key": entry, "id": f"OLD{idx:04X}", "atk_bonus": 0, "hp_bonus": 0, "caught": "Unknown", "event": None}
+    return entry
 
 CUSTOM_CHARS_FILE = "custom_chars.json"
 
@@ -574,6 +586,8 @@ TADC_CHARACTERS = {
     "pomni": {
         "name": "Pomni", "emoji": "🔴", "title": "The New Arrival",
         "rarity": "⭐⭐⭐⭐⭐ Legendary", "rarity_color": 0xFF4444,
+        "image_url": "https://static.wikia.nocookie.net/amazingdigitalcircus/images/f/f3/Pomni.png/revision/latest",
+        "base_atk": 450, "base_hp": 420,
         "description": "The newest performer in the circus. Desperately searching for an exit and struggling to keep her sanity intact.",
         "stats": {"Sanity": 30, "Courage": 60, "Panic": 95, "Cuteness": 85},
         "quote": "I need to find a way out of here... there HAS to be a way out.",
@@ -583,6 +597,8 @@ TADC_CHARACTERS = {
     "caine": {
         "name": "Caine", "emoji": "🎩", "title": "The Ringmaster",
         "rarity": "🌟🌟🌟🌟🌟 MYTHIC", "rarity_color": 0xFFD700,
+        "image_url": "https://static.wikia.nocookie.net/amazingdigitalcircus/images/3/3b/Caine.png/revision/latest",
+        "base_atk": 900, "base_hp": 999,
         "description": "The all-powerful ringmaster who built the entire digital world. Enthusiastic, dramatic, and deeply suspicious.",
         "stats": {"Sanity": 999, "Power": 100, "Enthusiasm": 100, "Trustworthiness": 12},
         "quote": "Welcome, welcome, WELCOME! Every day is a new adventure!",
@@ -592,6 +608,8 @@ TADC_CHARACTERS = {
     "jax": {
         "name": "Jax", "emoji": "🐰", "title": "The Troublemaker",
         "rarity": "⭐⭐⭐⭐ Epic", "rarity_color": 0x9B59B6,
+        "image_url": "https://static.wikia.nocookie.net/amazingdigitalcircus/images/8/8d/Jax.png/revision/latest",
+        "base_atk": 310, "base_hp": 260,
         "description": "A tall rabbit who finds everything hilarious, especially other people's suffering. Not malicious — just deeply unbothered.",
         "stats": {"Sanity": 70, "Cruelty": 80, "Humour": 95, "Empathy": 5},
         "quote": "Relax, it's just a game. Or is it? ... It is. Probably.",
@@ -601,6 +619,8 @@ TADC_CHARACTERS = {
     "ragatha": {
         "name": "Ragatha", "emoji": "🌸", "title": "The Optimist",
         "rarity": "⭐⭐⭐⭐ Epic", "rarity_color": 0xFF69B4,
+        "image_url": "https://static.wikia.nocookie.net/amazingdigitalcircus/images/5/5d/Ragatha.png/revision/latest",
+        "base_atk": 270, "base_hp": 320,
         "description": "A cheerful rag doll who holds everything together with kindness and sheer willpower. Hiding more than she lets on.",
         "stats": {"Sanity": 65, "Kindness": 100, "Resilience": 90, "Honesty": 60},
         "quote": "We just have to stay positive! That's all we can do.",
@@ -610,6 +630,8 @@ TADC_CHARACTERS = {
     "kinger": {
         "name": "Kinger", "emoji": "♟️", "title": "The Veteran",
         "rarity": "⭐⭐⭐⭐⭐ Legendary", "rarity_color": 0xF39C12,
+        "image_url": "https://static.wikia.nocookie.net/amazingdigitalcircus/images/9/9d/Kinger.png/revision/latest",
+        "base_atk": 480, "base_hp": 390,
         "description": "A chess king who has been in the circus the longest. Deeply unhinged in the most loveable way. Knows things he won't say.",
         "stats": {"Sanity": 10, "Experience": 100, "Chess Skill": 100, "Memory": 3},
         "quote": "THE WALLS ARE CAVING IN— oh wait, no they're not. Never mind.",
@@ -619,6 +641,8 @@ TADC_CHARACTERS = {
     "gangle": {
         "name": "Gangle", "emoji": "🎭", "title": "The Emotional One",
         "rarity": "⭐⭐⭐ Rare", "rarity_color": 0x3498DB,
+        "image_url": "https://static.wikia.nocookie.net/amazingdigitalcircus/images/4/4c/Gangle.png/revision/latest",
+        "base_atk": 160, "base_hp": 140,
         "description": "A ribbon-bodied performer with comedy and tragedy masks. The tragedy mask is her real face. The comedy one is coping.",
         "stats": {"Sanity": 50, "Emotion": 100, "Fragility": 90, "Comedy": 40},
         "quote": "*comedy mask falls off* Oh no...",
@@ -628,6 +652,8 @@ TADC_CHARACTERS = {
     "zooble": {
         "name": "Zooble", "emoji": "🔧", "title": "The Realist",
         "rarity": "⭐⭐⭐ Rare", "rarity_color": 0x2ECC71,
+        "image_url": "https://static.wikia.nocookie.net/amazingdigitalcircus/images/6/64/Zooble.png/revision/latest",
+        "base_atk": 140, "base_hp": 170,
         "description": "A mismatched collection of parts who is absolutely done with everyone's nonsense. Surprisingly grounded.",
         "stats": {"Sanity": 75, "Patience": 15, "Sarcasm": 100, "Practicality": 95},
         "quote": "Can everyone just CALM DOWN for five seconds?",
@@ -646,12 +672,154 @@ _spawn_channel_id: int = None
 _custom_commands: dict = {}
 
 RARITY_MAP = {
-    "common":    ("⭐ Common",              0xAAAAAA),
-    "rare":      ("⭐⭐⭐ Rare",             0x3498DB),
-    "epic":      ("⭐⭐⭐⭐ Epic",           0x9B59B6),
-    "legendary": ("⭐⭐⭐⭐⭐ Legendary",    0xFF4444),
-    "mythic":    ("🌟🌟🌟🌟🌟 MYTHIC",      0xFFD700),
+    "common":    ("⭐ Common",              0xAAAAAA, 80,  80),
+    "rare":      ("⭐⭐⭐ Rare",             0x3498DB, 150, 150),
+    "epic":      ("⭐⭐⭐⭐ Epic",           0x9B59B6, 280, 280),
+    "legendary": ("⭐⭐⭐⭐⭐ Legendary",    0xFF4444, 450, 450),
+    "mythic":    ("🌟🌟🌟🌟🌟 MYTHIC",      0xFFD700, 800, 800),
 }
+
+
+# ════════════════════════════════════════════════════════════
+#  CATCH VIEW  (button-based claiming — one per spawn message)
+# ════════════════════════════════════════════════════════════
+
+class CatchView(discord.ui.View):
+    def __init__(self, pool: list, char_data_map: dict):
+        super().__init__(timeout=300)
+        self.pool = pool[:]
+        self.char_data_map = char_data_map
+        self.catchers: set = set()
+
+    @discord.ui.button(label="🎪 Catch me!", style=discord.ButtonStyle.blurple)
+    async def catch_button(self, interaction: discord.Interaction, button: discord.ui.Button):
+        uid = interaction.user.id
+        if uid in self.catchers:
+            await interaction.response.send_message(
+                "🎩 You already caught one from this batch — be fair to others! 🎪", ephemeral=True
+            )
+            return
+        if not self.pool:
+            await interaction.response.send_message(
+                "🎩 They've all been caught — try again next time! 🎪", ephemeral=True
+            )
+            return
+        char_key = self.pool.pop(random.randint(0, len(self.pool) - 1))
+        char_data = self.char_data_map[char_key]
+        self.catchers.add(uid)
+        if not self.pool:
+            button.disabled = True
+            button.label = "All caught! 🎉"
+            self.stop()
+        char_id = generate_char_id()
+        atk_bonus = random.randint(-25, 25)
+        hp_bonus  = random.randint(-25, 25)
+        now = datetime.now().strftime("%Y/%m/%d | %H:%M")
+        entry = {
+            "key": char_key,
+            "id": char_id,
+            "atk_bonus": atk_bonus,
+            "hp_bonus": hp_bonus,
+            "caught": now,
+            "event": _active_event["name"] if _active_event else None,
+        }
+        if uid not in _collections:
+            _collections[uid] = []
+        _collections[uid].append(entry)
+        atk_str = f"{atk_bonus:+}%"
+        hp_str  = f"{hp_bonus:+}%"
+        await interaction.response.edit_message(view=self)
+        if _active_event:
+            msg = (
+                f"{interaction.user.mention}, **{char_data['name']}** secured! "
+                f"(`#{char_id}` {atk_str}/{hp_str})\n"
+                f"🌟 *{_active_event['description']}*"
+            )
+        else:
+            msg = (
+                f"{interaction.user.mention}, **{char_data['name']}** secured! "
+                f"(`#{char_id}` {atk_str}/{hp_str})"
+            )
+        await interaction.followup.send(msg)
+
+    async def on_timeout(self):
+        for item in self.children:
+            item.disabled = True
+
+
+# ════════════════════════════════════════════════════════════
+#  COLLECTION VIEW  (paginated Ballsdex-style listing)
+# ════════════════════════════════════════════════════════════
+
+class CollectionView(discord.ui.View):
+    def __init__(self, target_name: str, entries: list, all_chars: dict, col_color: int):
+        super().__init__(timeout=120)
+        self.target_name = target_name
+        self.entries = entries
+        self.all_chars = all_chars
+        self.col_color = col_color
+        self.page = 0
+        self.total_pages = max(1, (len(entries) + COLLECTION_PER_PAGE - 1) // COLLECTION_PER_PAGE)
+        self._refresh_buttons()
+
+    def _refresh_buttons(self):
+        self.first_btn.disabled = (self.page == 0)
+        self.prev_btn.disabled  = (self.page == 0)
+        self.next_btn.disabled  = (self.page >= self.total_pages - 1)
+        self.last_btn.disabled  = (self.page >= self.total_pages - 1)
+
+    def _build_embed(self) -> discord.Embed:
+        start = self.page * COLLECTION_PER_PAGE
+        page_entries = self.entries[start:start + COLLECTION_PER_PAGE]
+        lines = []
+        for e in page_entries:
+            d = self.all_chars.get(e["key"])
+            if not d:
+                continue
+            base_atk = d.get("base_atk", 100)
+            base_hp  = d.get("base_hp",  100)
+            actual_atk = int(base_atk * (1 + e["atk_bonus"] / 100))
+            actual_hp  = int(base_hp  * (1 + e["hp_bonus"]  / 100))
+            atk_str = f"{e['atk_bonus']:+}%"
+            hp_str  = f"{e['hp_bonus']:+}%"
+            line = (
+                f"{d['emoji']} `#{e['id']}` **{d['name']}**\n"
+                f"ATK: {actual_atk}({atk_str}) • HP: {actual_hp}({hp_str}) • {e['caught']}"
+            )
+            if e.get("event"):
+                line += f"\n🎟️ *{e['event']}*"
+            lines.append(line)
+        embed = discord.Embed(
+            title=f"🎪 {self.target_name}'s Collection",
+            description="\n\n".join(lines) if lines else "*Nothing on this page!*",
+            color=self.col_color,
+        )
+        embed.set_footer(text=f"Page {self.page + 1}/{self.total_pages} • {len(self.entries)} total performers 🎩")
+        return embed
+
+    @discord.ui.button(label="◀◀", style=discord.ButtonStyle.blurple)
+    async def first_btn(self, interaction: discord.Interaction, button: discord.ui.Button):
+        self.page = 0
+        self._refresh_buttons()
+        await interaction.response.edit_message(embed=self._build_embed(), view=self)
+
+    @discord.ui.button(label="◀", style=discord.ButtonStyle.blurple)
+    async def prev_btn(self, interaction: discord.Interaction, button: discord.ui.Button):
+        self.page = max(0, self.page - 1)
+        self._refresh_buttons()
+        await interaction.response.edit_message(embed=self._build_embed(), view=self)
+
+    @discord.ui.button(label="▶", style=discord.ButtonStyle.blurple)
+    async def next_btn(self, interaction: discord.Interaction, button: discord.ui.Button):
+        self.page = min(self.total_pages - 1, self.page + 1)
+        self._refresh_buttons()
+        await interaction.response.edit_message(embed=self._build_embed(), view=self)
+
+    @discord.ui.button(label="▶▶", style=discord.ButtonStyle.blurple)
+    async def last_btn(self, interaction: discord.Interaction, button: discord.ui.Button):
+        self.page = self.total_pages - 1
+        self._refresh_buttons()
+        await interaction.response.edit_message(embed=self._build_embed(), view=self)
 
 
 def _all_characters() -> dict:
@@ -694,13 +862,12 @@ async def dex(interaction: discord.Interaction, character: str):
     await interaction.response.send_message(embed=embed)
 
 
-@bot.tree.command(name="spawn", description="[OWNER ONLY] Spawn character(s) to claim!")
+@bot.tree.command(name="spawn", description="[OWNER ONLY] Spawn character(s) to catch!")
 @app_commands.describe(
     character="Character to spawn (leave empty for random)",
     amount="How many to spawn (1–100, default 1)"
 )
 async def spawn(interaction: discord.Interaction, character: str = None, amount: int = 1):
-    global _spawned_characters
     if not _is_owner(interaction):
         await interaction.response.send_message(
             "🎩 Only the ringmaster's assistant can spawn performers!", ephemeral=True
@@ -710,9 +877,6 @@ async def spawn(interaction: discord.Interaction, character: str = None, amount:
     all_chars = _all_characters()
     if character:
         key = character.lower()
-        data = all_chars.get(key) or next(
-            (v for k, v in all_chars.items() if v["name"].lower() == key), None
-        )
         found_key = next(
             (k for k, v in all_chars.items() if k == key or v["name"].lower() == key), None
         )
@@ -722,109 +886,56 @@ async def spawn(interaction: discord.Interaction, character: str = None, amount:
                 f"🎩 Caine doesn't recognise that performer! Try: {names}", ephemeral=True
             )
             return
-        spawned_keys = [found_key] * amount
+        pool = [found_key] * amount
         data = all_chars[found_key]
     else:
-        spawned_keys = [random.choice(list(all_chars.keys())) for _ in range(amount)]
-        data = all_chars[spawned_keys[0]]
-    _spawned_characters.extend(spawned_keys)
-    event_color = (_active_event["rare"] and 0xFFD700 or 0xFF6B6B) if _active_event else data["rarity_color"]
+        pool = [random.choice(list(all_chars.keys())) for _ in range(amount)]
+        data = all_chars[pool[0]]
+    char_data_map = {k: all_chars[k] for k in set(pool)}
+    event_color = (0xFFD700 if _active_event and _active_event["rare"] else 0xFF6B6B) if _active_event else data["rarity_color"]
     event_banner = (
         f"\n\n🌟 **{_active_event['name']} EVENT!**\n*{_active_event['description']}*"
     ) if _active_event else ""
     if amount == 1:
-        desc = f"## {data['emoji']} {data['name']}\n*\"{data['quote']}\"*\n\nUse `/claim` to add them to your collection!{event_banner}"
-        footer = "First to /claim wins! 🎩"
+        title = "A wild performer has appeared!"
+        desc  = f"*\"{data['quote']}\"*{event_banner}"
+        img   = data.get("image_url") or CUSTOM_CHAR_IMAGE
     else:
-        unique = {}
-        for k in spawned_keys:
+        unique: dict = {}
+        for k in pool:
             unique[k] = unique.get(k, 0) + 1
         lines = "\n".join(
             f"{all_chars[k]['emoji']} **{all_chars[k]['name']}** ×{n}" for k, n in unique.items()
         )
-        desc = f"## 🎪 {amount} performers have appeared!\n{lines}\n\n`{amount}` people can each `/claim` one!{event_banner}"
-        footer = f"{amount} claims available 🎩"
-    embed = discord.Embed(
-        title="🎪 A wild performer has appeared!" if amount == 1 else f"🎪 {amount} performers appeared!",
-        description=desc,
-        color=event_color
-    )
-    if amount == 1:
-        embed.add_field(name="✨ Rarity", value=data["rarity"], inline=True)
-        embed.add_field(name="🎭 Title",  value=data["title"],  inline=True)
-    embed.set_footer(text=footer)
-    await interaction.response.send_message(embed=embed)
-
-
-@bot.tree.command(name="claim", description="Claim the currently spawned TADC character!")
-async def claim(interaction: discord.Interaction):
-    global _spawned_characters
-    if not _spawned_characters:
-        await interaction.response.send_message(
-            "🎩 No performer is on stage right now! Wait for a `/spawn`. 🎪", ephemeral=True
-        )
-        return
-    char_key = _spawned_characters.pop(0)
-    data = _all_characters()[char_key]
-    user_id = interaction.user.id
-    if user_id not in _collections:
-        _collections[user_id] = []
-    _collections[user_id].append(char_key)
-    remaining = len(_spawned_characters)
-    if _active_event:
-        event_color = 0xFFD700 if _active_event.get("rare") else 0xFF6B6B
-        event_name = _active_event["name"]
-        title = f"🌟 EVENT CLAIM! {interaction.user.display_name} snagged {data['emoji']} {data['name']}!"
-        desc = (
-            f"**{data['name']}** was claimed during the **{event_name}** event!\n"
-            f"*{_active_event['description']}*\n\n"
-            f"Use `/collection` to see your performers."
-        )
-        if remaining:
-            desc += f"\n\n*{remaining} performer{'s' if remaining > 1 else ''} still unclaimed!*"
-    else:
-        event_color = data["rarity_color"]
-        title = f"✅ {interaction.user.display_name} claimed {data['emoji']} {data['name']}!"
-        desc = f"**{data['name']}** has joined your collection!\nUse `/collection` to see all your performers. 🎪"
-        if remaining:
-            desc += f"\n\n*{remaining} performer{'s' if remaining > 1 else ''} still available — use `/claim`!*"
+        title = f"{amount} performers have appeared!"
+        desc  = f"{lines}{event_banner}"
+        img   = data.get("image_url") or CUSTOM_CHAR_IMAGE
     embed = discord.Embed(title=title, description=desc, color=event_color)
-    await interaction.response.send_message(embed=embed)
+    embed.set_image(url=img)
+    if amount == 1:
+        embed.add_field(name=f"{data['emoji']} {data['name']}", value=data["rarity"], inline=True)
+        embed.add_field(name="🎭 Title", value=data["title"], inline=True)
+    embed.set_footer(text=f"{'First to catch wins' if amount == 1 else f'{amount} catches available'} 🎩")
+    view = CatchView(pool, char_data_map)
+    await interaction.response.send_message(embed=embed, view=view)
 
 
 @bot.tree.command(name="collection", description="View your TADC character collection 🎪")
 @app_commands.describe(user="Whose collection? (leave empty for yours)")
 async def collection(interaction: discord.Interaction, user: discord.Member = None):
     target = user if user else interaction.user
-    user_col = _collections.get(target.id, [])
-    if not user_col:
+    raw_col = _collections.get(target.id, [])
+    if not raw_col:
         whose = "You have" if target == interaction.user else f"{target.display_name} has"
         await interaction.response.send_message(
-            f"🎩 {whose} no performers yet! Wait for a `/spawn` to claim one. 🎪", ephemeral=True
+            f"🎩 {whose} no performers yet! Catch one when a performer spawns. 🎪", ephemeral=True
         )
         return
     all_chars = _all_characters()
-    counts = {}
-    for c in user_col:
-        counts[c] = counts.get(c, 0) + 1
-    lines = []
-    for c, n in counts.items():
-        d = all_chars.get(c)
-        if d:
-            lines.append(f"{d['emoji']} **{d['name']}** ×{n} — {d['rarity']}")
-        else:
-            lines.append(f"❓ **Unknown** ×{n}")
-    if _active_event:
-        col_color = 0xFFD700 if _active_event.get("rare") else 0xFF6B6B
-        title = f"🌟 {target.display_name}'s Collection — {_active_event['name']} Event"
-        footer = f"{len(user_col)} performers collected • 🎪 Event active!"
-    else:
-        col_color = 0xFFD700
-        title = f"🎪 {target.display_name}'s Collection"
-        footer = f"{len(user_col)} total performers collected 🎩"
-    embed = discord.Embed(title=title, description="\n".join(lines), color=col_color)
-    embed.set_footer(text=footer)
-    await interaction.response.send_message(embed=embed)
+    entries = [_parse_entry(e, i) for i, e in enumerate(raw_col)]
+    col_color = (0xFFD700 if _active_event and _active_event.get("rare") else 0xFF6B6B) if _active_event else 0xFFD700
+    view = CollectionView(target.display_name, entries, all_chars, col_color)
+    await interaction.response.send_message(embed=view._build_embed(), view=view)
 
 
 @bot.tree.command(name="give", description="[OWNER ONLY] Gift character(s) to someone")
@@ -855,7 +966,18 @@ async def give(interaction: discord.Interaction, user: discord.Member, character
     data = all_chars[found_key]
     if user.id not in _collections:
         _collections[user.id] = []
-    _collections[user.id].extend([found_key] * amount)
+    now = datetime.now().strftime("%Y/%m/%d | %H:%M")
+    new_entries = []
+    for _ in range(amount):
+        new_entries.append({
+            "key": found_key,
+            "id": generate_char_id(),
+            "atk_bonus": random.randint(-25, 25),
+            "hp_bonus": random.randint(-25, 25),
+            "caught": now,
+            "event": None,
+        })
+    _collections[user.id].extend(new_entries)
     qty = f"×{amount:,}" if amount > 1 else ""
     await interaction.response.send_message(
         f"🎩 **Caine gifts** {data['emoji']} **{data['name']}** {qty} to {user.mention}!\n*A generous ringmaster indeed.* 🎪"
@@ -885,13 +1007,14 @@ async def addchar(interaction: discord.Interaction, name: str, emoji: str, rarit
         keys = " / ".join(RARITY_MAP.keys())
         await interaction.response.send_message(f"🎩 Unknown rarity! Use: {keys}", ephemeral=True)
         return
-    rarity_label, rarity_color = RARITY_MAP[rarity_key]
+    rarity_label, rarity_color, base_atk, base_hp = RARITY_MAP[rarity_key]
     key = name.lower()
     _custom_chars[key] = {
         "name": name, "emoji": emoji, "title": "Custom Performer",
         "rarity": rarity_label, "rarity_color": rarity_color,
+        "image_url": None, "base_atk": base_atk, "base_hp": base_hp,
         "description": description, "stats": {},
-        "quote": f"Welcome to the Amazing Digital Circus!",
+        "quote": "Welcome to the Amazing Digital Circus!",
         "ability": ability, "weakness": weakness, "custom": True,
     }
     _save_custom_chars()
@@ -1214,7 +1337,7 @@ async def help_command(interaction: discord.Interaction):
     embed.add_field(name="🎭 Characters", value="`/pomni` `/caine` `/jax` `/gangle` `/ragatha` `/kinger` `/zooble`", inline=False)
     embed.add_field(name="🎪 Fun",        value="`/abstract [@user]` `/game` `/fortune` `/rate <thing>` `/trivia` `/8ball <question>`", inline=False)
     embed.add_field(name="🎯 Target",     value="`/roast @user` `/clown @user` `/bubble @user` `/ship @user1 @user2`", inline=False)
-    embed.add_field(name="📖 Dex",        value="`/dex <character>` — full character stats & info\n`/listchars` — all characters in the pool\n`/collection [@user]` — view collected characters\n`/claim` — claim a spawned character", inline=False)
+    embed.add_field(name="📖 Dex",        value="`/dex <character>` — full character stats & info\n`/listchars` — all characters in the pool\n`/collection [@user]` — paginated Ballsdex-style collection", inline=False)
     embed.add_field(name="🤝 Trading",    value="`/trade @user offer:<char> want:<char>` — propose a TADC-style trade!\n*(Both users must own the characters being traded)*", inline=False)
     embed.add_field(name="🎟️ Events",     value="`/events` — see all events (past & active)\n*(Owner: `/addevent` `/startevent` `/endevent` `/addchar` `/spawn [char] [amount]` `/give @user char [amount]`)*", inline=False)
     embed.add_field(name="🏆 Leaderboard", value="`/leaderboard` — top collectors in the circus!", inline=False)
@@ -1232,7 +1355,6 @@ async def help_command(interaction: discord.Interaction):
 
 @tasks.loop(minutes=10)
 async def auto_spawn_task():
-    global _spawned_characters
     if not _auto_spawn_enabled or not _spawn_channel_id:
         return
     channel = bot.get_channel(_spawn_channel_id)
@@ -1241,22 +1363,23 @@ async def auto_spawn_task():
     all_chars = _all_characters()
     char_key = random.choice(list(all_chars.keys()))
     data = all_chars[char_key]
-    _spawned_characters.append(char_key)
     if _active_event:
         event_color = 0xFFD700 if _active_event.get("rare") else 0xFF6B6B
-        event_bonus = f"\n\n🌟 **{_active_event['name']} EVENT!**\n*{_active_event['description']}*"
+        event_banner = f"\n\n🌟 **{_active_event['name']} EVENT!**\n*{_active_event['description']}*"
     else:
         event_color = data["rarity_color"]
-        event_bonus = ""
+        event_banner = ""
     embed = discord.Embed(
-        title="🎪 A wild performer has appeared!",
-        description=f"## {data['emoji']} {data['name']}\n*\"{data['quote']}\"*\n\nUse `/claim` to add them to your collection!{event_bonus}",
+        title="A wild performer has appeared!",
+        description=f"*\"{data['quote']}\"*{event_banner}",
         color=event_color
     )
-    embed.add_field(name="✨ Rarity", value=data["rarity"], inline=True)
-    embed.add_field(name="🎭 Title",  value=data["title"],  inline=True)
-    embed.set_footer(text="Auto-spawn 🎩 • First to /claim wins!")
-    await channel.send(embed=embed)
+    embed.set_image(url=data.get("image_url") or CUSTOM_CHAR_IMAGE)
+    embed.add_field(name=f"{data['emoji']} {data['name']}", value=data["rarity"], inline=True)
+    embed.add_field(name="🎭 Title", value=data["title"], inline=True)
+    embed.set_footer(text="Auto-spawn 🎩 • First to catch wins!")
+    view = CatchView([char_key], {char_key: data})
+    await channel.send(embed=embed, view=view)
 
 
 # ════════════════════════════════════════════════════════════
