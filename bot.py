@@ -1,9 +1,31 @@
 import os
+import json
 import random
 import discord
 from discord import app_commands
 from discord.ext import commands, tasks
 from keep_alive import keep_alive
+
+CUSTOM_CHARS_FILE = "custom_chars.json"
+
+def _save_custom_chars():
+    try:
+        with open(CUSTOM_CHARS_FILE, "w") as f:
+            json.dump(_custom_chars, f, indent=2)
+    except Exception as e:
+        print(f"[WARN] Could not save custom chars: {e}")
+
+def _load_custom_chars():
+    global _custom_chars
+    try:
+        with open(CUSTOM_CHARS_FILE, "r") as f:
+            _custom_chars = json.load(f)
+        print(f"[INFO] Loaded {len(_custom_chars)} custom characters from disk.")
+    except FileNotFoundError:
+        _custom_chars = {}
+    except Exception as e:
+        print(f"[WARN] Could not load custom chars: {e}")
+        _custom_chars = {}
 
 # ============================================================
 #  BOT TOKEN — stored in Replit Secrets as  BOT_TOKEN
@@ -22,6 +44,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 # ── Startup ───────────────────────────────────────────────────
 @bot.event
 async def on_ready():
+    _load_custom_chars()
     await bot.tree.sync()
     print(f"The Amazing Digital Circus is open! Logged in as {bot.user}")
     print("Slash commands synced. Bot works in servers and DMs.")
@@ -613,7 +636,7 @@ TADC_CHARACTERS = {
     },
 }
 
-_spawned_character = None
+_spawned_characters: list = []
 _collections: dict = {}
 _custom_chars: dict = {}
 _all_events: list = []
@@ -671,49 +694,99 @@ async def dex(interaction: discord.Interaction, character: str):
     await interaction.response.send_message(embed=embed)
 
 
-@bot.tree.command(name="spawn", description="[OWNER ONLY] Spawn a random TADC character to claim!")
-async def spawn(interaction: discord.Interaction):
-    global _spawned_character
+@bot.tree.command(name="spawn", description="[OWNER ONLY] Spawn character(s) to claim!")
+@app_commands.describe(
+    character="Character to spawn (leave empty for random)",
+    amount="How many to spawn (1–100, default 1)"
+)
+async def spawn(interaction: discord.Interaction, character: str = None, amount: int = 1):
+    global _spawned_characters
     if not _is_owner(interaction):
         await interaction.response.send_message(
             "🎩 Only the ringmaster's assistant can spawn performers!", ephemeral=True
         )
         return
+    amount = max(1, min(amount, 100))
     all_chars = _all_characters()
-    char_key = random.choice(list(all_chars.keys()))
-    data = all_chars[char_key]
-    _spawned_character = char_key
+    if character:
+        key = character.lower()
+        data = all_chars.get(key) or next(
+            (v for k, v in all_chars.items() if v["name"].lower() == key), None
+        )
+        found_key = next(
+            (k for k, v in all_chars.items() if k == key or v["name"].lower() == key), None
+        )
+        if not found_key:
+            names = ", ".join(f"`{v['name']}`" for v in all_chars.values())
+            await interaction.response.send_message(
+                f"🎩 Caine doesn't recognise that performer! Try: {names}", ephemeral=True
+            )
+            return
+        spawned_keys = [found_key] * amount
+        data = all_chars[found_key]
+    else:
+        spawned_keys = [random.choice(list(all_chars.keys())) for _ in range(amount)]
+        data = all_chars[spawned_keys[0]]
+    _spawned_characters.extend(spawned_keys)
+    event_color = (_active_event["rare"] and 0xFFD700 or 0xFF6B6B) if _active_event else data["rarity_color"]
+    event_banner = f"\n\n🌟 **{_active_event['name']} EVENT SPAWN!**" if _active_event else ""
+    if amount == 1:
+        desc = f"## {data['emoji']} {data['name']}\n*\"{data['quote']}\"*\n\nUse `/claim` to add them to your collection!{event_banner}"
+        footer = "First to /claim wins! 🎩"
+    else:
+        unique = {}
+        for k in spawned_keys:
+            unique[k] = unique.get(k, 0) + 1
+        lines = "\n".join(
+            f"{all_chars[k]['emoji']} **{all_chars[k]['name']}** ×{n}" for k, n in unique.items()
+        )
+        desc = f"## 🎪 {amount} performers have appeared!\n{lines}\n\n`{amount}` people can each `/claim` one!{event_banner}"
+        footer = f"{amount} claims available 🎩"
     embed = discord.Embed(
-        title="🎪 A wild performer has appeared!",
-        description=f"## {data['emoji']} {data['name']}\n*\"{data['quote']}\"*\n\nType `/claim` to add them to your collection!",
-        color=data["rarity_color"]
+        title="🎪 A wild performer has appeared!" if amount == 1 else f"🎪 {amount} performers appeared!",
+        description=desc,
+        color=event_color
     )
-    embed.add_field(name="✨ Rarity", value=data["rarity"], inline=True)
-    embed.add_field(name="🎭 Title",  value=data["title"],  inline=True)
-    embed.set_footer(text="First to /claim wins! 🎩")
+    if amount == 1:
+        embed.add_field(name="✨ Rarity", value=data["rarity"], inline=True)
+        embed.add_field(name="🎭 Title",  value=data["title"],  inline=True)
+    embed.set_footer(text=footer)
     await interaction.response.send_message(embed=embed)
 
 
 @bot.tree.command(name="claim", description="Claim the currently spawned TADC character!")
 async def claim(interaction: discord.Interaction):
-    global _spawned_character
-    if _spawned_character is None:
+    global _spawned_characters
+    if not _spawned_characters:
         await interaction.response.send_message(
             "🎩 No performer is on stage right now! Wait for a `/spawn`. 🎪", ephemeral=True
         )
         return
-    char_key = _spawned_character
+    char_key = _spawned_characters.pop(0)
     data = _all_characters()[char_key]
     user_id = interaction.user.id
     if user_id not in _collections:
         _collections[user_id] = []
     _collections[user_id].append(char_key)
-    _spawned_character = None
-    embed = discord.Embed(
-        title=f"✅ {interaction.user.display_name} claimed {data['emoji']} {data['name']}!",
-        description=f"**{data['name']}** has joined your collection!\nUse `/collection` to see all your performers. 🎪",
-        color=data["rarity_color"]
-    )
+    remaining = len(_spawned_characters)
+    if _active_event:
+        event_color = 0xFFD700 if _active_event.get("rare") else 0xFF6B6B
+        event_name = _active_event["name"]
+        title = f"🌟 EVENT CLAIM! {interaction.user.display_name} snagged {data['emoji']} {data['name']}!"
+        desc = (
+            f"**{data['name']}** was claimed during the **{event_name}** event!\n"
+            f"🎪 A special catch — the circus is buzzing!\n"
+            f"Use `/collection` to see your performers."
+        )
+        if remaining:
+            desc += f"\n\n*{remaining} performer{'s' if remaining > 1 else ''} still unclaimed!*"
+    else:
+        event_color = data["rarity_color"]
+        title = f"✅ {interaction.user.display_name} claimed {data['emoji']} {data['name']}!"
+        desc = f"**{data['name']}** has joined your collection!\nUse `/collection` to see all your performers. 🎪"
+        if remaining:
+            desc += f"\n\n*{remaining} performer{'s' if remaining > 1 else ''} still available — use `/claim`!*"
+    embed = discord.Embed(title=title, description=desc, color=event_color)
     await interaction.response.send_message(embed=embed)
 
 
@@ -728,38 +801,62 @@ async def collection(interaction: discord.Interaction, user: discord.Member = No
             f"🎩 {whose} no performers yet! Wait for a `/spawn` to claim one. 🎪", ephemeral=True
         )
         return
+    all_chars = _all_characters()
     counts = {}
     for c in user_col:
         counts[c] = counts.get(c, 0) + 1
-    lines = [f"{TADC_CHARACTERS[c]['emoji']} **{TADC_CHARACTERS[c]['name']}** ×{n} — {TADC_CHARACTERS[c]['rarity']}"
-             for c, n in counts.items()]
-    embed = discord.Embed(
-        title=f"🎪 {target.display_name}'s Collection",
-        description="\n".join(lines),
-        color=0xFFD700
-    )
-    embed.set_footer(text=f"{len(user_col)} total performers collected 🎩")
+    lines = []
+    for c, n in counts.items():
+        d = all_chars.get(c)
+        if d:
+            lines.append(f"{d['emoji']} **{d['name']}** ×{n} — {d['rarity']}")
+        else:
+            lines.append(f"❓ **Unknown** ×{n}")
+    if _active_event:
+        col_color = 0xFFD700 if _active_event.get("rare") else 0xFF6B6B
+        title = f"🌟 {target.display_name}'s Collection — {_active_event['name']} Event"
+        footer = f"{len(user_col)} performers collected • 🎪 Event active!"
+    else:
+        col_color = 0xFFD700
+        title = f"🎪 {target.display_name}'s Collection"
+        footer = f"{len(user_col)} total performers collected 🎩"
+    embed = discord.Embed(title=title, description="\n".join(lines), color=col_color)
+    embed.set_footer(text=footer)
     await interaction.response.send_message(embed=embed)
 
 
-@bot.tree.command(name="give", description="[OWNER ONLY] Gift a character to someone")
-@app_commands.describe(user="Who to gift", character="Which character (pomni, caine, jax...)")
-async def give(interaction: discord.Interaction, user: discord.Member, character: str):
+@bot.tree.command(name="give", description="[OWNER ONLY] Gift character(s) to someone")
+@app_commands.describe(
+    user="Who to gift",
+    character="Which character (pomni, caine, jax...)",
+    amount="How many to give (1–100000, default 1)"
+)
+async def give(interaction: discord.Interaction, user: discord.Member, character: str, amount: int = 1):
     if not _is_owner(interaction):
         await interaction.response.send_message(
             "🎩 Only the ringmaster's assistant can gift performers!", ephemeral=True
         )
         return
-    data = TADC_CHARACTERS.get(character.lower())
-    if not data:
-        names = ", ".join(f"`{k}`" for k in TADC_CHARACTERS)
+    amount = max(1, min(amount, 100000))
+    all_chars = _all_characters()
+    key = character.lower()
+    data = all_chars.get(key) or next(
+        (v for v in all_chars.values() if v["name"].lower() == key), None
+    )
+    found_key = next(
+        (k for k, v in all_chars.items() if k == key or v["name"].lower() == key), None
+    )
+    if not found_key:
+        names = ", ".join(f"`{v['name']}`" for v in all_chars.values())
         await interaction.response.send_message(f"🎩 Unknown character! Try: {names}", ephemeral=True)
         return
+    data = all_chars[found_key]
     if user.id not in _collections:
         _collections[user.id] = []
-    _collections[user.id].append(character.lower())
+    _collections[user.id].extend([found_key] * amount)
+    qty = f"×{amount:,}" if amount > 1 else ""
     await interaction.response.send_message(
-        f"🎩 **Caine gifts** {data['emoji']} **{data['name']}** to {user.mention}!\n*A generous ringmaster indeed.* 🎪"
+        f"🎩 **Caine gifts** {data['emoji']} **{data['name']}** {qty} to {user.mention}!\n*A generous ringmaster indeed.* 🎪"
     )
 
 
@@ -795,10 +892,11 @@ async def addchar(interaction: discord.Interaction, name: str, emoji: str, rarit
         "quote": f"Welcome to the Amazing Digital Circus!",
         "ability": ability, "weakness": weakness, "custom": True,
     }
+    _save_custom_chars()
     await interaction.response.send_message(
         f"✅ **{emoji} {name}** added to the circus!\n"
         f"Rarity: {rarity_label}\n"
-        f"They'll appear in `/spawn`, `/dex`, and `/listchars`. 🎪"
+        f"They'll appear in `/spawn`, `/dex`, and `/listchars` — and survive restarts! 🎪"
     )
 
 
@@ -925,6 +1023,182 @@ async def events_cmd(interaction: discord.Interaction):
 
 
 # ════════════════════════════════════════════════════════════
+#  TRADE SYSTEM  (Ballsdex-style, TADC themed)
+# ════════════════════════════════════════════════════════════
+
+class TradeView(discord.ui.View):
+    def __init__(self, initiator: discord.Member, target: discord.Member,
+                 offer_key: str, want_key: str, offer_data: dict, want_data: dict):
+        super().__init__(timeout=120)
+        self.initiator_id = initiator.id
+        self.target_id = target.id
+        self.offer_key = offer_key
+        self.want_key = want_key
+        self.offer_data = offer_data
+        self.want_data = want_data
+        self.completed = False
+
+    @discord.ui.button(label="✅ Accept Trade", style=discord.ButtonStyle.green)
+    async def accept_trade(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if interaction.user.id != self.target_id:
+            await interaction.response.send_message(
+                "🎩 This trade proposal isn't addressed to you!", ephemeral=True
+            )
+            return
+        if self.completed:
+            await interaction.response.send_message(
+                "🎩 This trade has already been resolved!", ephemeral=True
+            )
+            return
+        initiator_col = _collections.get(self.initiator_id, [])
+        target_col = _collections.get(self.target_id, [])
+        if self.offer_key not in initiator_col:
+            self.completed = True
+            self.stop()
+            for item in self.children:
+                item.disabled = True
+            fail_embed = discord.Embed(
+                title="❌ Trade Failed",
+                description=f"The other performer no longer has {self.offer_data['emoji']} **{self.offer_data['name']}** to offer!",
+                color=0xFF4444
+            )
+            await interaction.response.edit_message(embed=fail_embed, view=self)
+            return
+        if self.want_key not in target_col:
+            await interaction.response.send_message(
+                f"🎩 You don't have {self.want_data['emoji']} **{self.want_data['name']}** in your collection to trade!", ephemeral=True
+            )
+            return
+        initiator_col.remove(self.offer_key)
+        initiator_col.append(self.want_key)
+        target_col.remove(self.want_key)
+        target_col.append(self.offer_key)
+        self.completed = True
+        self.stop()
+        for item in self.children:
+            item.disabled = True
+        success_embed = discord.Embed(
+            title="🤝 Trade Complete! The circus approves!",
+            description=(
+                f"{self.offer_data['emoji']} **{self.offer_data['name']}** ➜ went to <@{self.target_id}>\n"
+                f"{self.want_data['emoji']} **{self.want_data['name']}** ➜ went to <@{self.initiator_id}>"
+            ),
+            color=0x2ECC71
+        )
+        success_embed.set_footer(text="A fair deal! Caine is pleased. 🎪")
+        await interaction.response.edit_message(embed=success_embed, view=self)
+
+    @discord.ui.button(label="❌ Decline", style=discord.ButtonStyle.red)
+    async def decline_trade(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if interaction.user.id not in (self.target_id, self.initiator_id):
+            await interaction.response.send_message(
+                "🎩 This trade isn't for you!", ephemeral=True
+            )
+            return
+        if self.completed:
+            await interaction.response.send_message(
+                "🎩 This trade has already been resolved!", ephemeral=True
+            )
+            return
+        self.completed = True
+        self.stop()
+        for item in self.children:
+            item.disabled = True
+        declined_embed = discord.Embed(
+            title="❌ Trade Declined",
+            description=f"<@{interaction.user.id}> declined the trade. The circus moves on. 🎩",
+            color=0xFF4444
+        )
+        await interaction.response.edit_message(embed=declined_embed, view=self)
+
+    async def on_timeout(self):
+        for item in self.children:
+            item.disabled = True
+        self.completed = True
+
+
+@bot.tree.command(name="trade", description="Propose a character trade with another user!")
+@app_commands.describe(
+    user="Who to trade with",
+    offer="The character KEY you're offering (from your collection)",
+    want="The character KEY you want from them (they must have it)"
+)
+async def trade(interaction: discord.Interaction, user: discord.Member, offer: str, want: str):
+    if user.id == interaction.user.id:
+        await interaction.response.send_message(
+            "🎩 You can't trade with yourself — Caine says that's just shuffling, not trading!", ephemeral=True
+        )
+        return
+    if user.bot:
+        await interaction.response.send_message(
+            "🎩 Bots don't collect performers! Find a real circus member to trade with.", ephemeral=True
+        )
+        return
+    all_chars = _all_characters()
+    offer_key = offer.lower()
+    want_key = want.lower()
+    offer_data = all_chars.get(offer_key) or next(
+        (v for k, v in all_chars.items() if v["name"].lower() == offer_key), None
+    )
+    offer_key = next(
+        (k for k, v in all_chars.items() if k == offer_key or v["name"].lower() == offer_key), offer_key
+    )
+    want_data = all_chars.get(want_key) or next(
+        (v for k, v in all_chars.items() if v["name"].lower() == want_key), None
+    )
+    want_key = next(
+        (k for k, v in all_chars.items() if k == want_key or v["name"].lower() == want_key), want_key
+    )
+    if not offer_data:
+        names = ", ".join(f"`{v['name']}`" for v in all_chars.values())
+        await interaction.response.send_message(
+            f"🎩 Caine doesn't know **{offer}**! Available performers: {names}", ephemeral=True
+        )
+        return
+    if not want_data:
+        names = ", ".join(f"`{v['name']}`" for v in all_chars.values())
+        await interaction.response.send_message(
+            f"🎩 Caine doesn't know **{want}**! Available performers: {names}", ephemeral=True
+        )
+        return
+    my_col = _collections.get(interaction.user.id, [])
+    if offer_key not in my_col:
+        await interaction.response.send_message(
+            f"🎩 You don't have {offer_data['emoji']} **{offer_data['name']}** in your collection to offer!", ephemeral=True
+        )
+        return
+    their_col = _collections.get(user.id, [])
+    if want_key not in their_col:
+        await interaction.response.send_message(
+            f"🎩 {user.display_name} doesn't have {want_data['emoji']} **{want_data['name']}** to trade!", ephemeral=True
+        )
+        return
+    view = TradeView(interaction.user, user, offer_key, want_key, offer_data, want_data)
+    embed = discord.Embed(
+        title=f"🎪 {interaction.user.display_name}'s Trade Proposal",
+        description=f"Hey {user.mention}, **{interaction.user.display_name}** is proposing a trade!",
+        color=0x9B59B6
+    )
+    embed.add_field(
+        name=f"🎁 {interaction.user.display_name} offers",
+        value=f"{offer_data['emoji']} **{offer_data['name']}**\n{offer_data['rarity']}",
+        inline=True
+    )
+    embed.add_field(name="⇄", value="\u200b", inline=True)
+    embed.add_field(
+        name=f"🎯 Wants from {user.display_name}",
+        value=f"{want_data['emoji']} **{want_data['name']}**\n{want_data['rarity']}",
+        inline=True
+    )
+    embed.set_footer(text="Accept or Decline within 2 minutes 🎩")
+    await interaction.response.send_message(
+        content=f"{user.mention} — you've received a trade offer!",
+        embed=embed,
+        view=view
+    )
+
+
+# ════════════════════════════════════════════════════════════
 #  HELP
 # ════════════════════════════════════════════════════════════
 
@@ -939,7 +1213,8 @@ async def help_command(interaction: discord.Interaction):
     embed.add_field(name="🎪 Fun",        value="`/abstract [@user]` `/game` `/fortune` `/rate <thing>` `/trivia` `/8ball <question>`", inline=False)
     embed.add_field(name="🎯 Target",     value="`/roast @user` `/clown @user` `/bubble @user` `/ship @user1 @user2`", inline=False)
     embed.add_field(name="📖 Dex",        value="`/dex <character>` — full character stats & info\n`/listchars` — all characters in the pool\n`/collection [@user]` — view collected characters\n`/claim` — claim a spawned character", inline=False)
-    embed.add_field(name="🎟️ Events",     value="`/events` — see all events (past & active)\n*(Owner: `/addevent` `/startevent` `/endevent` `/addchar` `/spawn` `/give`)*", inline=False)
+    embed.add_field(name="🤝 Trading",    value="`/trade @user offer:<char> want:<char>` — propose a TADC-style trade!\n*(Both users must own the characters being traded)*", inline=False)
+    embed.add_field(name="🎟️ Events",     value="`/events` — see all events (past & active)\n*(Owner: `/addevent` `/startevent` `/endevent` `/addchar` `/spawn [char] [amount]` `/give @user char [amount]`)*", inline=False)
     embed.add_field(name="🏆 Leaderboard", value="`/leaderboard` — top collectors in the circus!", inline=False)
     embed.add_field(name="💬 Chat",       value="`/chat <message>` — talk to Caine in character!", inline=False)
     embed.add_field(name="🔊 Voice",      value="`/joinvc` — Caine joins your VC\n`/leavevc` — Caine dramatically exits", inline=False)
@@ -955,7 +1230,7 @@ async def help_command(interaction: discord.Interaction):
 
 @tasks.loop(minutes=10)
 async def auto_spawn_task():
-    global _spawned_character
+    global _spawned_characters
     if not _auto_spawn_enabled or not _spawn_channel_id:
         return
     channel = bot.get_channel(_spawn_channel_id)
@@ -964,14 +1239,17 @@ async def auto_spawn_task():
     all_chars = _all_characters()
     char_key = random.choice(list(all_chars.keys()))
     data = all_chars[char_key]
-    _spawned_character = char_key
-    event_bonus = ""
-    if _active_event and random.random() < 0.35:
-        event_bonus = f"\n\n🌟 **EVENT BONUS:** This performer is tied to the **{_active_event['name']}** event! Extra rare find!"
+    _spawned_characters.append(char_key)
+    if _active_event:
+        event_color = 0xFFD700 if _active_event.get("rare") else 0xFF6B6B
+        event_bonus = f"\n\n🌟 **{_active_event['name']} EVENT!** This is a special event spawn!"
+    else:
+        event_color = data["rarity_color"]
+        event_bonus = ""
     embed = discord.Embed(
         title="🎪 A wild performer has appeared!",
         description=f"## {data['emoji']} {data['name']}\n*\"{data['quote']}\"*\n\nUse `/claim` to add them to your collection!{event_bonus}",
-        color=data["rarity_color"]
+        color=event_color
     )
     embed.add_field(name="✨ Rarity", value=data["rarity"], inline=True)
     embed.add_field(name="🎭 Title",  value=data["title"],  inline=True)
