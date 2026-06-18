@@ -729,7 +729,9 @@ async def spawn(interaction: discord.Interaction, character: str = None, amount:
         data = all_chars[spawned_keys[0]]
     _spawned_characters.extend(spawned_keys)
     event_color = (_active_event["rare"] and 0xFFD700 or 0xFF6B6B) if _active_event else data["rarity_color"]
-    event_banner = f"\n\n🌟 **{_active_event['name']} EVENT SPAWN!**" if _active_event else ""
+    event_banner = (
+        f"\n\n🌟 **{_active_event['name']} EVENT!**\n*{_active_event['description']}*"
+    ) if _active_event else ""
     if amount == 1:
         desc = f"## {data['emoji']} {data['name']}\n*\"{data['quote']}\"*\n\nUse `/claim` to add them to your collection!{event_banner}"
         footer = "First to /claim wins! 🎩"
@@ -775,7 +777,7 @@ async def claim(interaction: discord.Interaction):
         title = f"🌟 EVENT CLAIM! {interaction.user.display_name} snagged {data['emoji']} {data['name']}!"
         desc = (
             f"**{data['name']}** was claimed during the **{event_name}** event!\n"
-            f"🎪 A special catch — the circus is buzzing!\n"
+            f"*{_active_event['description']}*\n\n"
             f"Use `/collection` to see your performers."
         )
         if remaining:
@@ -1242,7 +1244,7 @@ async def auto_spawn_task():
     _spawned_characters.append(char_key)
     if _active_event:
         event_color = 0xFFD700 if _active_event.get("rare") else 0xFF6B6B
-        event_bonus = f"\n\n🌟 **{_active_event['name']} EVENT!** This is a special event spawn!"
+        event_bonus = f"\n\n🌟 **{_active_event['name']} EVENT!**\n*{_active_event['description']}*"
     else:
         event_color = data["rarity_color"]
         event_bonus = ""
