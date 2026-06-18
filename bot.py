@@ -1324,6 +1324,247 @@ async def trade(interaction: discord.Interaction, user: discord.Member, offer: s
 
 
 # ════════════════════════════════════════════════════════════
+#  BATTLE SYSTEM
+# ════════════════════════════════════════════════════════════
+
+def _run_battle(a_data: dict, a_atk: int, a_hp: int,
+                b_data: dict, b_atk: int, b_hp: int):
+    """Simulate a turn-based battle. Returns ('a'|'b'|None, log list)."""
+    a_cur, b_cur = a_hp, b_hp
+    log = []
+    for rnd in range(1, 11):
+        a_dmg = max(1, int(a_atk * random.uniform(0.75, 1.25)))
+        b_dmg = max(1, int(b_atk * random.uniform(0.75, 1.25)))
+        b_cur -= a_dmg
+        a_cur -= b_dmg
+        log.append(
+            f"**Round {rnd}:** {a_data['emoji']} hits **{a_dmg}** dmg  •  "
+            f"{b_data['emoji']} hits **{b_dmg}** dmg\n"
+            f"└ {a_data['name']}: `{max(0, a_cur)} HP` | {b_data['name']}: `{max(0, b_cur)} HP`"
+        )
+        if a_cur <= 0 and b_cur <= 0:
+            return None, log
+        if a_cur <= 0:
+            return "b", log
+        if b_cur <= 0:
+            return "a", log
+    return ("a" if a_cur > b_cur else "b" if b_cur > a_cur else None), log
+
+
+def _build_fighter_options(user_id: int, all_chars: dict) -> list:
+    """Return sorted list of (entry, char_data, actual_atk, actual_hp) for a user."""
+    raw = _collections.get(user_id, [])
+    opts = []
+    for i, e in enumerate(raw):
+        entry = _parse_entry(e, i)
+        d = all_chars.get(entry["key"])
+        if not d:
+            continue
+        atk = int(d.get("base_atk", 100) * (1 + entry["atk_bonus"] / 100))
+        hp  = int(d.get("base_hp",  100) * (1 + entry["hp_bonus"]  / 100))
+        opts.append((entry, d, atk, hp))
+    opts.sort(key=lambda x: x[2], reverse=True)
+    return opts[:25]
+
+
+class FighterSelect(discord.ui.Select):
+    def __init__(self, owner_id: int, display_name: str, opts: list):
+        self.owner_id = owner_id
+        self.opts = opts
+        choices = [
+            discord.SelectOption(
+                label=f"{d['name']} #{e['id']}",
+                description=f"ATK {atk} • HP {hp}",
+                value=str(i),
+                emoji=d.get("emoji", "⚔️"),
+            )
+            for i, (e, d, atk, hp) in enumerate(opts)
+        ]
+        super().__init__(
+            placeholder=f"{display_name} — pick your fighter!",
+            options=choices, min_values=1, max_values=1,
+        )
+
+    async def callback(self, interaction: discord.Interaction):
+        if interaction.user.id != self.owner_id:
+            await interaction.response.send_message(
+                "🎩 That fighter slot isn't yours!", ephemeral=True
+            )
+            return
+        view: BattlePickView = self.view
+        idx = int(self.values[0])
+        pick = self.opts[idx]
+        if self.owner_id == view.a_id:
+            view.a_pick = pick
+        else:
+            view.b_pick = pick
+        self.disabled = True
+        if view.a_pick and view.b_pick:
+            await interaction.response.edit_message(embed=view._resolve(), view=None)
+        else:
+            waiting = view.fighter_b.display_name if view.a_pick else view.fighter_a.display_name
+            await interaction.response.edit_message(
+                content=f"⏳ Waiting for **{waiting}** to pick their fighter...", view=view
+            )
+
+
+class BattlePickView(discord.ui.View):
+    def __init__(self, fighter_a: discord.Member, fighter_b: discord.Member,
+                 a_opts: list, b_opts: list):
+        super().__init__(timeout=60)
+        self.fighter_a = fighter_a
+        self.fighter_b = fighter_b
+        self.a_id = fighter_a.id
+        self.b_id = fighter_b.id
+        self.a_pick = None
+        self.b_pick = None
+        self.add_item(FighterSelect(fighter_a.id, fighter_a.display_name, a_opts))
+        self.add_item(FighterSelect(fighter_b.id, fighter_b.display_name, b_opts))
+
+    def _resolve(self) -> discord.Embed:
+        a_entry, a_data, a_atk, a_hp = self.a_pick
+        b_entry, b_data, b_atk, b_hp = self.b_pick
+        winner, log = _run_battle(a_data, a_atk, a_hp, b_data, b_atk, b_hp)
+        shown_log = log[:6]
+        if len(log) > 6:
+            shown_log.append(f"*…{len(log)-6} more rounds…*")
+        if winner == "a":
+            title  = f"🏆 {self.fighter_a.display_name} WINS!"
+            color  = 0x2ECC71
+            footer = f"🎪 {a_data['name']} defeats {b_data['name']}!"
+        elif winner == "b":
+            title  = f"🏆 {self.fighter_b.display_name} WINS!"
+            color  = 0x2ECC71
+            footer = f"🎪 {b_data['name']} defeats {a_data['name']}!"
+        else:
+            title  = "⚔️ It's a DRAW! Both performers collapse simultaneously!"
+            color  = 0xFFD700
+            footer = "🎪 The crowd is stunned. Caine is... impressed."
+        embed = discord.Embed(
+            title=title,
+            description="\n".join(shown_log),
+            color=color,
+        )
+        embed.add_field(
+            name=f"{a_data['emoji']} {self.fighter_a.display_name}",
+            value=f"`#{a_entry['id']}` **{a_data['name']}**\nATK {a_atk} • HP {a_hp}",
+            inline=True,
+        )
+        embed.add_field(name="⚔️ VS", value="\u200b", inline=True)
+        embed.add_field(
+            name=f"{b_data['emoji']} {self.fighter_b.display_name}",
+            value=f"`#{b_entry['id']}` **{b_data['name']}**\nATK {b_atk} • HP {b_hp}",
+            inline=True,
+        )
+        embed.set_footer(text=footer)
+        return embed
+
+    async def on_timeout(self):
+        for item in self.children:
+            item.disabled = True
+
+
+class BattleAcceptView(discord.ui.View):
+    def __init__(self, challenger: discord.Member, target: discord.Member):
+        super().__init__(timeout=60)
+        self.challenger = challenger
+        self.target     = target
+        self.resolved   = False
+
+    @discord.ui.button(label="⚔️ Accept Battle!", style=discord.ButtonStyle.green)
+    async def accept(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if interaction.user.id != self.target.id:
+            await interaction.response.send_message("🎩 This challenge isn't for you!", ephemeral=True)
+            return
+        if self.resolved:
+            await interaction.response.send_message("🎩 This battle already started!", ephemeral=True)
+            return
+        self.resolved = True
+        self.stop()
+        all_chars = _all_characters()
+        a_opts = _build_fighter_options(self.challenger.id, all_chars)
+        b_opts = _build_fighter_options(self.target.id,     all_chars)
+        if not a_opts or not b_opts:
+            no_chars = self.challenger.display_name if not a_opts else self.target.display_name
+            embed = discord.Embed(
+                title="❌ Battle cancelled",
+                description=f"**{no_chars}** has no characters to fight with!",
+                color=0xFF4444,
+            )
+            await interaction.response.edit_message(embed=embed, view=None)
+            return
+        pick_view = BattlePickView(self.challenger, self.target, a_opts, b_opts)
+        accept_embed = discord.Embed(
+            title="⚔️ Battle Accepted — Pick your fighters!",
+            description=(
+                f"{self.challenger.mention} and {self.target.mention}, each select your champion below!\n"
+                f"⏳ You have **60 seconds** before the arena closes."
+            ),
+            color=0xF39C12,
+        )
+        await interaction.response.edit_message(content=None, embed=accept_embed, view=pick_view)
+
+    @discord.ui.button(label="❌ Decline", style=discord.ButtonStyle.red)
+    async def decline(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if interaction.user.id not in (self.target.id, self.challenger.id):
+            await interaction.response.send_message("🎩 This battle isn't yours!", ephemeral=True)
+            return
+        if self.resolved:
+            await interaction.response.send_message("🎩 Already resolved!", ephemeral=True)
+            return
+        self.resolved = True
+        self.stop()
+        for item in self.children:
+            item.disabled = True
+        embed = discord.Embed(
+            title="❌ Battle Declined",
+            description=f"**{interaction.user.display_name}** fled the arena. Caine sighs dramatically. 🎪",
+            color=0xFF4444,
+        )
+        await interaction.response.edit_message(embed=embed, view=self)
+
+    async def on_timeout(self):
+        for item in self.children:
+            item.disabled = True
+
+
+@bot.tree.command(name="battle", description="Challenge another user to a TADC character battle! ⚔️")
+@app_commands.describe(user="Who to challenge")
+async def battle(interaction: discord.Interaction, user: discord.Member):
+    if user.id == interaction.user.id:
+        await interaction.response.send_message(
+            "🎩 You can't battle yourself — Caine finds that deeply unsatisfying! 🎪", ephemeral=True
+        )
+        return
+    if user.bot:
+        await interaction.response.send_message("🎩 Bots don't collect performers!", ephemeral=True)
+        return
+    if not _collections.get(interaction.user.id):
+        await interaction.response.send_message(
+            "🎩 You need characters in your collection first — catch some when a performer spawns! 🎪", ephemeral=True
+        )
+        return
+    if not _collections.get(user.id):
+        await interaction.response.send_message(
+            f"🎩 **{user.display_name}** has no characters to fight with yet!", ephemeral=True
+        )
+        return
+    view = BattleAcceptView(interaction.user, user)
+    embed = discord.Embed(
+        title="⚔️ Battle Challenge!",
+        description=(
+            f"**{interaction.user.display_name}** is challenging {user.mention} to a **circus battle!**\n\n"
+            f"{user.mention} — do you accept? ⏳ 60 seconds to decide."
+        ),
+        color=0xFF6B00,
+    )
+    embed.set_footer(text="The Amazing Digital Circus Battle Arena 🎪")
+    await interaction.response.send_message(
+        content=f"{user.mention} — you have a battle challenge!", embed=embed, view=view
+    )
+
+
+# ════════════════════════════════════════════════════════════
 #  HELP
 # ════════════════════════════════════════════════════════════
 
@@ -1338,6 +1579,7 @@ async def help_command(interaction: discord.Interaction):
     embed.add_field(name="🎪 Fun",        value="`/abstract [@user]` `/game` `/fortune` `/rate <thing>` `/trivia` `/8ball <question>`", inline=False)
     embed.add_field(name="🎯 Target",     value="`/roast @user` `/clown @user` `/bubble @user` `/ship @user1 @user2`", inline=False)
     embed.add_field(name="📖 Dex",        value="`/dex <character>` — full character stats & info\n`/listchars` — all characters in the pool\n`/collection [@user]` — paginated Ballsdex-style collection", inline=False)
+    embed.add_field(name="⚔️ Battle",     value="`/battle @user` — challenge someone to a TADC character battle!\n*(Pick your fighter from your collection — turn-based, stats decide!)*", inline=False)
     embed.add_field(name="🤝 Trading",    value="`/trade @user offer:<char> want:<char>` — propose a TADC-style trade!\n*(Both users must own the characters being traded)*", inline=False)
     embed.add_field(name="🎟️ Events",     value="`/events` — see all events (past & active)\n*(Owner: `/addevent` `/startevent` `/endevent` `/addchar` `/spawn [char] [amount]` `/give @user char [amount]`)*", inline=False)
     embed.add_field(name="🏆 Leaderboard", value="`/leaderboard` — top collectors in the circus!", inline=False)
