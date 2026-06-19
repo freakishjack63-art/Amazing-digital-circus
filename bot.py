@@ -302,23 +302,215 @@ async def abstract(interaction: discord.Interaction, user: discord.Member = None
     await interaction.response.send_message(random.choice(messages))
 
 
-@bot.tree.command(name="game", description="Caine starts a new game for you")
+_GAME_LOCATIONS = {
+    "carousel": {
+        "emoji": "🎠", "label": "The Carousel",
+        "events": [
+            ("You hop on and it starts spinning. And spinning. *And spinning.*\nKinger waves from the centre. He's been there for hours.", "🌀 **Dizzy Souvenir** — a ticket stub that won't stop rotating"),
+            ("Ragatha is here, keeping the little ones calm. She smiles. It almost reaches her eyes.", "🌸 **Warm Feeling** — it fades quickly, but it was nice"),
+            ("You find a shiny lever. You pull it. The carousel goes *faster.*\nCaine applauds from somewhere unseen.", "⚙️ **Mystery Lever** — definitely shouldn't have pulled it"),
+            ("Something falls out of a pocket mid-spin: a crumpled note that reads *'they can hear you think.'*\nYou put it back.", "📝 **Ominous Note** — you chose not to read the rest"),
+        ],
+    },
+    "funhouse": {
+        "emoji": "🏰", "label": "The Funhouse",
+        "events": [
+            ("Jax is here. He rearranges the mirrors so every reflection is slightly wrong.\n'You're welcome,' he says, and leaves.", "🪞 **Warped Mirror Shard** — your reflection winks first"),
+            ("You solve a puzzle box! Inside is another puzzle box.\nInside *that* one is a tiny scroll that says *'gotcha.'*", "🧩 **Puzzle Box** — infinite recursion, finite patience"),
+            ("A room full of doors. One leads out. You spend 45 minutes picking.\nYou choose the correct one! ...It leads to more doors.", "🚪 **False Exit Token** — Caine had it framed"),
+            ("You find Gangle crying at a mirror because her comedy mask fell off.\nYou pick it up. She hugs you. It feels real.", "🎭 **Comedy Mask Fragment** — warm to the touch"),
+        ],
+    },
+    "void": {
+        "emoji": "🌀", "label": "The Void Corridor",
+        "events": [
+            ("You walk in. The corridor has no end.\nPomni is already here, pacing.\n'How long have you been here?' 'I don't know.' Neither do you.", "🔦 **Pomni's Flashlight** — borrowed indefinitely"),
+            ("Something in the void hands you a glowing orb.\nYou ask what it does. It dissolves. Classic void.", "🔮 **Dissolved Orb Residue** — smells like static"),
+            ("You find a door labelled EXIT. You grab the handle.\nIt says *'just kidding'* and vanishes.\nCaine's laughter echoes from nowhere.", "🚪 **Exit Handle** — doesn't open anything. Still yours."),
+            ("The void is completely silent.\nThen Kinger runs past screaming about chess.\nThe silence returns. You feel better, somehow.", "♟️ **Kinger's Spare Pawn** — he dropped it running"),
+        ],
+    },
+    "stage": {
+        "emoji": "🎭", "label": "The Stage",
+        "events": [
+            ("Caine is rehearsing a play. He casts you as the lead.\nYou have no lines. He says that's the *point.*\nThe audience applauds. You didn't see them arrive.", "📜 **Mystery Script** — entirely blank"),
+            ("You perform a number nobody asked for.\nCaine gives you a standing ovation for 4 minutes.\n'BRAVO! ...Now do it again but sadder.'", "🌟 **Golden Star Sticker** — Caine insists it's prestigious"),
+            ("Zooble is stagehanding and deeply unhappy about it.\nYou help move a backdrop. They say 'thanks' like it physically hurt them.", "🔧 **Zooble's Spare Bolt** — they'll want that back"),
+            ("The curtains rise on an empty stage.\nYou stand there for a moment.\nSomewhere, someone is crying. Could be Gangle. Could be you.", "🎪 **Empty Stage Pass** — admits one, to nowhere"),
+        ],
+    },
+}
+
+_GAME_EXTRA = {
+    "search": [
+        ("You dig under the bleachers and find Kinger's lost chess piece. He's been looking for it for *years.*\nYou hand it back. He cries. Good tears, you think.", "♟️ **Recovered Chess Piece** — Kinger's gratitude is priceless"),
+        ("You find a vending machine labelled 'DIGITAL SNACKS'.\nEverything inside is labelled 'EXISTENTIAL CRISIS FLAVOR.'\nYou get one anyway.", "🍬 **Existential Crisis Candy** — tastes like nothing, means everything"),
+        ("Behind a tent you find a small door. It opens onto a brick wall.\nA note is taped to the bricks: *'Nice try. — C'*", "📮 **Caine's Rejection Note** — hand-signed. Framed-worthy."),
+        ("You search your own pockets. You find a coin with Caine's face on both sides.\nYou didn't have pockets when you arrived.", "🪙 **Trick Coin** — Caine's face, both sides. Always."),
+    ],
+    "caine": [
+        ("Caine materialises immediately.\n'I KNEW you'd come! I've been waiting! The game is— well, I haven't *designed* it yet but the *ENTHUSIASM* is there!'", "🎩 **Caine's Unfinished Game Manifest** — mostly doodles"),
+        ("Caine is surprisingly quiet today.\nHe hands you a small envelope. Inside: a receipt for 'one (1) digital existence.'\n'Hold onto that,' he says, and disappears.", "📄 **Existence Receipt** — non-refundable"),
+        ("Caine is in the middle of constructing a new tent.\nIt folds into itself when he's done.\n'*Magnificent!*' he says. You nod. You have no idea.", "🏕️ **Blueprint Scrap** — doesn't match any tent you've seen"),
+        ("You find Caine staring at a wall.\nHe doesn't notice you for three minutes.\nThen: 'Oh! Hello! How long have YOU been abstract?'\nYou are not abstract. He seems unsure.", "🌀 **Abstract Diagnosis Slip** — probably wrong"),
+    ],
+}
+
+
+class GameView(discord.ui.View):
+    def __init__(self, user_id: int):
+        super().__init__(timeout=120)
+        self.user_id = user_id
+        self.steps = 0
+        self.items: list[str] = []
+
+    def _only_user(self, interaction: discord.Interaction) -> bool:
+        return interaction.user.id == self.user_id
+
+    def _result_embed(self, location: str, event_text: str, item: str) -> discord.Embed:
+        self.items.append(item)
+        self.steps += 1
+        embed = discord.Embed(
+            title=f"{location} 🎪",
+            description=event_text,
+            color=0x9B59B6,
+        )
+        embed.add_field(name="🎒 Found", value=item, inline=False)
+        if self.steps >= 3:
+            bag = "\n".join(f"• {i}" for i in self.items)
+            embed.add_field(name=f"🎒 Your haul ({len(self.items)} items)", value=bag, inline=False)
+            embed.set_footer(text="Adventure complete! Caine is mildly impressed. 🎩")
+        else:
+            embed.set_footer(text=f"Step {self.steps}/3 — keep exploring! 🎪")
+        return embed
+
+    def _disable_all(self):
+        for item in self.children:
+            item.disabled = True
+
+    async def _pick_location(self, interaction: discord.Interaction, loc_key: str):
+        if not self._only_user(interaction):
+            await interaction.response.send_message("🎩 This adventure belongs to someone else!", ephemeral=True)
+            return
+        loc = _GAME_LOCATIONS[loc_key]
+        event_text, item = random.choice(loc["events"])
+        embed = self._result_embed(f"{loc['emoji']} {loc['label']}", event_text, item)
+        if self.steps >= 3:
+            self._disable_all()
+            await interaction.response.edit_message(embed=embed, view=self)
+        else:
+            view = GameExploreView(self)
+            await interaction.response.edit_message(embed=embed, view=view)
+
+    @discord.ui.button(label="🎠 Carousel",        style=discord.ButtonStyle.primary)
+    async def go_carousel(self, i, b): await self._pick_location(i, "carousel")
+
+    @discord.ui.button(label="🏰 Funhouse",        style=discord.ButtonStyle.primary)
+    async def go_funhouse(self, i, b): await self._pick_location(i, "funhouse")
+
+    @discord.ui.button(label="🌀 Void Corridor",   style=discord.ButtonStyle.danger)
+    async def go_void(self, i, b): await self._pick_location(i, "void")
+
+    @discord.ui.button(label="🎭 The Stage",       style=discord.ButtonStyle.secondary)
+    async def go_stage(self, i, b): await self._pick_location(i, "stage")
+
+    async def on_timeout(self):
+        self._disable_all()
+
+
+class GameExploreView(discord.ui.View):
+    """Shown after visiting a location — offers more exploration options."""
+    def __init__(self, state: GameView):
+        super().__init__(timeout=120)
+        self.state = state
+
+    @discord.ui.button(label="🗺️ Explore more",    style=discord.ButtonStyle.primary)
+    async def explore_more(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if not self.state._only_user(interaction):
+            await interaction.response.send_message("🎩 Not your adventure!", ephemeral=True)
+            return
+        self._disable_all()
+        view = GameView.__new__(GameView)
+        discord.ui.View.__init__(view, timeout=120)
+        view.user_id = self.state.user_id
+        view.steps   = self.state.steps
+        view.items   = self.state.items
+        GameView.go_carousel.__set_name__(view, "go_carousel")
+        view = GameView(self.state.user_id)
+        view.steps = self.state.steps
+        view.items = self.state.items
+        embed = discord.Embed(
+            title="🎪 Where to next?",
+            description="*The circus stretches in every direction. Caine watches from above.*",
+            color=0xFFD700,
+        )
+        embed.set_footer(text=f"Step {self.state.steps}/3 complete • Keep exploring! 🎩")
+        await interaction.response.edit_message(embed=embed, view=view)
+
+    @discord.ui.button(label="🔍 Search the area", style=discord.ButtonStyle.secondary)
+    async def search_area(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if not self.state._only_user(interaction):
+            await interaction.response.send_message("🎩 Not your adventure!", ephemeral=True)
+            return
+        self._disable_all()
+        event_text, item = random.choice(_GAME_EXTRA["search"])
+        embed = self.state._result_embed("🔍 Searching...", event_text, item)
+        if self.state.steps >= 3:
+            await interaction.response.edit_message(embed=embed, view=None)
+        else:
+            await interaction.response.edit_message(embed=embed, view=GameExploreView(self.state))
+
+    @discord.ui.button(label="🎩 Find Caine",      style=discord.ButtonStyle.success)
+    async def find_caine(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if not self.state._only_user(interaction):
+            await interaction.response.send_message("🎩 Not your adventure!", ephemeral=True)
+            return
+        self._disable_all()
+        event_text, item = random.choice(_GAME_EXTRA["caine"])
+        embed = self.state._result_embed("🎩 Caine Encounter!", event_text, item)
+        if self.state.steps >= 3:
+            await interaction.response.edit_message(embed=embed, view=None)
+        else:
+            await interaction.response.edit_message(embed=embed, view=GameExploreView(self.state))
+
+    @discord.ui.button(label="🏠 Return to tent",  style=discord.ButtonStyle.danger)
+    async def return_tent(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if not self.state._only_user(interaction):
+            await interaction.response.send_message("🎩 Not your adventure!", ephemeral=True)
+            return
+        self._disable_all()
+        bag = ("\n".join(f"• {i}" for i in self.state.items)) if self.state.items else "*You came back empty-handed. Caine is disappointed.*"
+        embed = discord.Embed(
+            title="🏠 Back in your tent",
+            description="You collapse onto a circus cot that's somehow both too soft and deeply unsettling.\nCaine's voice echoes: *'Good adventure! Same time tomorrow!'*",
+            color=0x2ECC71,
+        )
+        embed.add_field(name=f"🎒 Items collected ({len(self.state.items)})", value=bag, inline=False)
+        embed.set_footer(text="Adventure over! Use /game again anytime. 🎪")
+        await interaction.response.edit_message(embed=embed, view=self)
+
+    def _disable_all(self):
+        for item in self.children:
+            item.disabled = True
+
+    async def on_timeout(self):
+        self._disable_all()
+
+
+@bot.tree.command(name="game", description="Explore the Amazing Digital Circus! 🎪")
 async def game(interaction: discord.Interaction):
-    games = [
-        "🎠 A carousel that spins a *little* too fast...",
-        "🃏 A card game where the rules change every round!",
-        "🎯 Target practice. The targets shoot back.",
-        "🏰 An escape room. (You won't escape.)",
-        "🎪 A talent show judged by Caine himself!",
-        "🌀 A maze. The walls are alive. Good luck!",
-        "🎭 A play where nobody knows their lines. Including the script.",
-        "🧩 A puzzle with one too many pieces. Or one too few. Caine forgot.",
-    ]
-    await interaction.response.send_message(
-        f"🎩 **Caine:** A new GAME has begun!\n"
-        f"Today's adventure: **{random.choice(games)}**\n\n"
-        "Try not to think about what lies beyond the tent. 🎪"
+    embed = discord.Embed(
+        title="🎪 Welcome to the Amazing Digital Circus!",
+        description=(
+            "Caine grins and gestures grandly at the glittering chaos around you.\n\n"
+            "*'A new ADVENTURE begins! Every tent, every corridor — full of WONDERS! "
+            "And definitely not danger. Mostly not danger.'*\n\n"
+            "**Where do you explore first?**"
+        ),
+        color=0x9B59B6,
     )
+    embed.set_footer(text="3 locations to visit • items to find • Caine is watching 🎩")
+    await interaction.response.send_message(embed=embed, view=GameView(interaction.user.id))
 
 
 @bot.tree.command(name="circus", description="About The Amazing Digital Circus")
@@ -453,26 +645,87 @@ async def ship(interaction: discord.Interaction, user1: discord.Member, user2: d
     )
 
 
+_TRIVIA_QUESTIONS = [
+    ("What colour is Pomni's hat?",                      "Red",                  ["Blue", "Red", "Yellow", "Purple"]),
+    ("What is Caine's role in the circus?",              "Ringmaster",           ["Clown", "Performer", "Ringmaster", "Janitor"]),
+    ("Which character has been in the circus longest?",  "Kinger",               ["Ragatha", "Jax", "Kinger", "Gangle"]),
+    ("What happens to performers who lose their minds?", "They go abstract",     ["They disappear", "They go abstract", "They escape", "They become clowns"]),
+    ("What does Gangle wear?",                           "Comedy/tragedy masks", ["A top hat", "A jester hat", "Comedy/tragedy masks", "A crown"]),
+    ("What game does Kinger love?",                      "Chess",                ["Checkers", "Chess", "Cards", "Mazes"]),
+    ("What colour is Jax?",                              "Purple",               ["Blue", "Purple", "Pink", "Red"]),
+    ("Who is the newest arrival in the circus?",         "Pomni",                ["Ragatha", "Zooble", "Pomni", "Gangle"]),
+    ("What shape is Zooble made of?",                    "Mixed shapes",         ["A circle", "Mixed shapes", "A cube", "A triangle"]),
+    ("What does Caine wear on his head?",                "A top hat",            ["A crown", "A top hat", "A bowler hat", "Nothing"]),
+    ("What emotion does Gangle's tragedy mask show?",    "Sadness",              ["Anger", "Sadness", "Fear", "Surprise"]),
+    ("What does 'abstract' mean in the circus?",         "Going insane",         ["Escaping", "Going insane", "Becoming a clown", "Winning a game"]),
+]
+
+
+class TriviaView(discord.ui.View):
+    def __init__(self, question: str, answer: str, options: list[str], asker_id: int):
+        super().__init__(timeout=30)
+        self.question  = question
+        self.answer    = answer
+        self.options   = options
+        self.asker_id  = asker_id
+        self.answered  = False
+        for i, opt in enumerate(options, 1):
+            btn = discord.ui.Button(label=str(i), style=discord.ButtonStyle.primary)
+            btn.callback = self._make_callback(i, opt)
+            self.add_item(btn)
+
+    def _make_callback(self, num: int, chosen: str):
+        async def callback(interaction: discord.Interaction):
+            if interaction.user.id != self.asker_id:
+                await interaction.response.send_message("🎩 This trivia is someone else's!", ephemeral=True)
+                return
+            if self.answered:
+                await interaction.response.send_message("🎩 Already answered!", ephemeral=True)
+                return
+            self.answered = True
+            self.stop()
+            for item in self.children:
+                item.disabled = True
+            correct = chosen == self.answer
+            opts_text = "\n".join(
+                f"{'✅' if o == self.answer else ('❌' if o == chosen and not correct else '▫️')} **{i}.** {o}"
+                for i, o in enumerate(self.options, 1)
+            )
+            if correct:
+                result = f"🎉 **Correct!** Caine is impressed.\n\n{opts_text}"
+                color  = 0x2ECC71
+                footer = "Well done! Even Kinger got that one eventually. 🎩"
+            else:
+                result = f"❌ **Wrong!** The correct answer was **{self.answer}**.\n\n{opts_text}"
+                color  = 0xFF4444
+                footer = "The circus judges harshly. Try again with /trivia! 🎪"
+            embed = discord.Embed(
+                title="🎪 TADC Trivia — Result!",
+                description=f"**{self.question}**\n\n{result}",
+                color=color,
+            )
+            embed.set_footer(text=footer)
+            await interaction.response.edit_message(embed=embed, view=self)
+        return callback
+
+    async def on_timeout(self):
+        for item in self.children:
+            item.disabled = True
+
+
 @bot.tree.command(name="trivia", description="Answer a TADC trivia question 🎪")
 async def trivia(interaction: discord.Interaction):
-    questions = [
-        ("What colour is Pomni's hat?", "Red", ["Blue", "Red", "Yellow", "Purple"]),
-        ("What is Caine's role in the circus?", "Ringmaster", ["Clown", "Performer", "Ringmaster", "Janitor"]),
-        ("Which character has been in the circus the longest?", "Kinger", ["Ragatha", "Jax", "Kinger", "Gangle"]),
-        ("What happens to performers who lose their minds?", "They go abstract", ["They disappear", "They go abstract", "They escape", "They become clowns"]),
-        ("What does Gangle wear?", "Comedy/tragedy masks", ["A top hat", "A jester hat", "Comedy/tragedy masks", "A crown"]),
-        ("What game does Kinger love?", "Chess", ["Checkers", "Chess", "Cards", "Mazes"]),
-    ]
-    q, answer, options = random.choice(questions)
+    q, answer, raw_options = random.choice(_TRIVIA_QUESTIONS)
+    options = raw_options[:]
     random.shuffle(options)
-    opts_text = "\n".join(f"• {o}" for o in options)
+    opts_text = "\n".join(f"**{i}.** {o}" for i, o in enumerate(options, 1))
     embed = discord.Embed(
         title="🎪 TADC Trivia!",
-        description=f"**{q}**\n\n{opts_text}",
-        color=0xFFD700
+        description=f"**{q}**\n\n{opts_text}\n\n*Click the number of your answer below!*",
+        color=0xFFD700,
     )
-    embed.set_footer(text=f"Answer: {answer} — no cheating! 🎩")
-    await interaction.response.send_message(embed=embed)
+    embed.set_footer(text="⏳ 30 seconds to answer! 🎩")
+    await interaction.response.send_message(embed=embed, view=TriviaView(q, answer, options, interaction.user.id))
 
 
 @bot.tree.command(name="bubble", description="Trap someone in a Caine bubble 🫧")
@@ -723,22 +976,32 @@ class CatchView(discord.ui.View):
             "caught": now,
             "event": _active_event["name"] if _active_event else None,
         }
+        already_had = uid in _collections and any(
+            _parse_entry(e, i).get("key") == char_key
+            for i, e in enumerate(_collections[uid])
+        )
         if uid not in _collections:
             _collections[uid] = []
         _collections[uid].append(entry)
         atk_str = f"{atk_bonus:+}%"
         hp_str  = f"{hp_bonus:+}%"
         await interaction.response.edit_message(view=self)
+        if already_had:
+            status_line = f"Added to your collection again! *(you already have a {char_data['name']})*"
+        else:
+            status_line = f"🎉 **New character added to your collection!**"
         if _active_event:
             msg = (
                 f"{interaction.user.mention}, **{char_data['name']}** secured! "
                 f"(`#{char_id}` {atk_str}/{hp_str})\n"
+                f"{status_line}\n"
                 f"🌟 *{_active_event['description']}*"
             )
         else:
             msg = (
                 f"{interaction.user.mention}, **{char_data['name']}** secured! "
-                f"(`#{char_id}` {atk_str}/{hp_str})"
+                f"(`#{char_id}` {atk_str}/{hp_str})\n"
+                f"{status_line}"
             )
         await interaction.followup.send(msg)
 
@@ -1605,7 +1868,9 @@ async def auto_spawn_task():
     all_chars = _all_characters()
     char_key = random.choice(list(all_chars.keys()))
     data = all_chars[char_key]
-    if _active_event:
+    # Events show on ~20% of auto-spawns to keep them feeling special
+    show_event = _active_event and random.random() < 0.20
+    if show_event:
         event_color = 0xFFD700 if _active_event.get("rare") else 0xFF6B6B
         event_banner = f"\n\n🌟 **{_active_event['name']} EVENT!**\n*{_active_event['description']}*"
     else:
