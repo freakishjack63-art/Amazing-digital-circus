@@ -7,7 +7,7 @@ from discord import app_commands
 from discord.ext import commands, tasks
 from keep_alive import keep_alive
 
-CUSTOM_CHAR_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/1/1e/Question_mark_%28Wikipedia%29.png"
+CUSTOM_CHAR_IMAGE = "https://raw.githubusercontent.com/freakishjack63-art/Amazing-digital-circus/main/images/unknown.png"
 COLLECTION_PER_PAGE = 5
 
 def generate_char_id() -> str:
@@ -44,12 +44,13 @@ def _save_data():
     """Persist all mutable bot state (collections, admins, events, stats…) to data.json."""
     try:
         payload = {
-            "collections":     {str(k): v for k, v in _collections.items()},
-            "admins":          list(_admins),
-            "blacklisted":     list(_blacklisted),
-            "user_stats":      {str(k): v for k, v in _user_stats.items()},
-            "all_events":      _all_events,
-            "spawn_channel_id": _spawn_channel_id,
+            "collections":        {str(k): v for k, v in _collections.items()},
+            "admins":             list(_admins),
+            "blacklisted":        list(_blacklisted),
+            "user_stats":         {str(k): v for k, v in _user_stats.items()},
+            "all_events":         _all_events,
+            "spawn_channel_id":   _spawn_channel_id,
+            "auto_spawn_enabled": _auto_spawn_enabled,
         }
         with open(DATA_FILE, "w") as f:
             json.dump(payload, f, indent=2)
@@ -58,18 +59,20 @@ def _save_data():
 
 def _load_data():
     """Restore mutable bot state from data.json on startup."""
-    global _collections, _admins, _blacklisted, _user_stats, _all_events, _spawn_channel_id
+    global _collections, _admins, _blacklisted, _user_stats, _all_events, _spawn_channel_id, _auto_spawn_enabled
     try:
         with open(DATA_FILE, "r") as f:
             d = json.load(f)
-        _collections     = {int(k): v for k, v in d.get("collections", {}).items()}
-        _admins          = set(d.get("admins", []))
-        _blacklisted     = set(d.get("blacklisted", []))
-        _user_stats      = {int(k): v for k, v in d.get("user_stats", {}).items()}
-        _all_events      = d.get("all_events", [])
+        _collections      = {int(k): v for k, v in d.get("collections", {}).items()}
+        _admins           = set(d.get("admins", []))
+        _blacklisted      = set(d.get("blacklisted", []))
+        _user_stats       = {int(k): v for k, v in d.get("user_stats", {}).items()}
+        _all_events       = d.get("all_events", [])
         _spawn_channel_id = d.get("spawn_channel_id")
+        _auto_spawn_enabled = d.get("auto_spawn_enabled", False)
         print(f"[INFO] Loaded data.json — {len(_collections)} collectors, "
-              f"{len(_admins)} admins, {len(_all_events)} events.")
+              f"{len(_admins)} admins, {len(_all_events)} events, "
+              f"auto-spawn={'ON' if _auto_spawn_enabled else 'OFF'}.")
     except FileNotFoundError:
         print("[INFO] No data.json found — starting fresh.")
     except Exception as e:
@@ -94,6 +97,11 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 async def on_ready():
     _load_custom_chars()
     _load_data()
+    # Resume auto-spawn task if it was running before restart
+    if _auto_spawn_enabled and _spawn_channel_id:
+        if not auto_spawn_task.is_running():
+            auto_spawn_task.start()
+        print(f"[INFO] Auto-spawn resumed (channel {_spawn_channel_id}).")
     await bot.tree.sync()
     print(f"The Amazing Digital Circus is open! Logged in as {bot.user}")
     print("Slash commands synced. Bot works in servers and DMs.")
@@ -2309,6 +2317,7 @@ async def togglespawn(interaction: discord.Interaction):
         )
         return
     _auto_spawn_enabled = not _auto_spawn_enabled
+    _save_data()
     if _auto_spawn_enabled:
         if not auto_spawn_task.is_running():
             auto_spawn_task.start()
