@@ -895,7 +895,7 @@ TADC_CHARACTERS = {
     "caine": {
         "name": "Caine", "emoji": "🎩", "title": "The Ringmaster",
         "rarity": "🌟🌟🌟🌟🌟 MYTHIC", "rarity_color": 0xFFD700,
-        "image_url": None,
+        "image_url": "https://raw.githubusercontent.com/freakishjack63-art/Amazing-digital-circus/main/images/caine.webp",
         "base_atk": 900, "base_hp": 999,
         "description": "The all-powerful ringmaster who built the entire digital world. Enthusiastic, dramatic, and deeply suspicious.",
         "stats": {"Sanity": 999, "Power": 100, "Enthusiasm": 100, "Trustworthiness": 12},
