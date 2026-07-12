@@ -1,0 +1,8022 @@
+{
+  "collections": {
+    "1198527966972477505": [
+      {
+        "key": "zooble",
+        "id": "6BCA471",
+        "atk_bonus": -11,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:25",
+        "event": null
+      }
+    ],
+    "1187437240910106816": [
+      {
+        "key": "jax",
+        "id": "DAA9252",
+        "atk_bonus": 22,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "35BCB16",
+        "atk_bonus": 5,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "417E560",
+        "atk_bonus": -22,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "86DC121",
+        "atk_bonus": -3,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4ABA545",
+        "atk_bonus": 15,
+        "hp_bonus": -8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4B1C869",
+        "atk_bonus": -2,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "972C33D",
+        "atk_bonus": 11,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9665ACE",
+        "atk_bonus": 11,
+        "hp_bonus": 14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A05C5EC",
+        "atk_bonus": 23,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "278D7D0",
+        "atk_bonus": -17,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5A7F9D7",
+        "atk_bonus": 10,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1FAF7BF",
+        "atk_bonus": -16,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7ABC7F9",
+        "atk_bonus": -8,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8394E25",
+        "atk_bonus": -19,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9EA5535",
+        "atk_bonus": 16,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A72BFB7",
+        "atk_bonus": -5,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C189D75",
+        "atk_bonus": -6,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D050361",
+        "atk_bonus": -13,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "06E3724",
+        "atk_bonus": 23,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D73B6EA",
+        "atk_bonus": -18,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6C00806",
+        "atk_bonus": 4,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "592B543",
+        "atk_bonus": -25,
+        "hp_bonus": 7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "68D34D0",
+        "atk_bonus": 12,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0673A76",
+        "atk_bonus": -15,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "88B1C7A",
+        "atk_bonus": 23,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B2DD6F5",
+        "atk_bonus": 4,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "00CBCFF",
+        "atk_bonus": 25,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "519E328",
+        "atk_bonus": -14,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9776F47",
+        "atk_bonus": -13,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3B3127E",
+        "atk_bonus": -9,
+        "hp_bonus": 10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "CAA92E6",
+        "atk_bonus": -9,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B2B1203",
+        "atk_bonus": 21,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8BEE71F",
+        "atk_bonus": -16,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "CDC0BE1",
+        "atk_bonus": 12,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EFFFE03",
+        "atk_bonus": -6,
+        "hp_bonus": 7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8811B56",
+        "atk_bonus": -17,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "840BBCA",
+        "atk_bonus": 24,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "818E3B7",
+        "atk_bonus": 21,
+        "hp_bonus": 15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0AFE267",
+        "atk_bonus": 3,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "95A616F",
+        "atk_bonus": 22,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "938A676",
+        "atk_bonus": 10,
+        "hp_bonus": -8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D181C71",
+        "atk_bonus": -3,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D58A282",
+        "atk_bonus": -13,
+        "hp_bonus": -18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "32F979B",
+        "atk_bonus": 14,
+        "hp_bonus": 2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F2BFB88",
+        "atk_bonus": -4,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "188EE60",
+        "atk_bonus": 14,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4C93E7F",
+        "atk_bonus": 5,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C02A548",
+        "atk_bonus": -5,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EFF6B5F",
+        "atk_bonus": 13,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8F227ED",
+        "atk_bonus": -8,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9B0A809",
+        "atk_bonus": -16,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AF7C829",
+        "atk_bonus": -18,
+        "hp_bonus": 23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "004C0D2",
+        "atk_bonus": 6,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "57610F6",
+        "atk_bonus": 6,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3DE01D7",
+        "atk_bonus": -14,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F58C520",
+        "atk_bonus": -10,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "63F705D",
+        "atk_bonus": -10,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4312F4A",
+        "atk_bonus": -20,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F28FCA8",
+        "atk_bonus": -8,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "56A7D04",
+        "atk_bonus": -1,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5F9BE05",
+        "atk_bonus": 13,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6E14368",
+        "atk_bonus": 18,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AB3E8BF",
+        "atk_bonus": 16,
+        "hp_bonus": -21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "17BB0F6",
+        "atk_bonus": -4,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C067CE4",
+        "atk_bonus": 4,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8C82226",
+        "atk_bonus": -25,
+        "hp_bonus": -4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B945A98",
+        "atk_bonus": -23,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "019CA2B",
+        "atk_bonus": 21,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F829F71",
+        "atk_bonus": 6,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "792C253",
+        "atk_bonus": 7,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A92905A",
+        "atk_bonus": -12,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E511783",
+        "atk_bonus": -2,
+        "hp_bonus": -8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3F3B984",
+        "atk_bonus": -7,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D0B9A24",
+        "atk_bonus": 13,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "54E5DB4",
+        "atk_bonus": -10,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C5AF5A4",
+        "atk_bonus": -2,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3958BB2",
+        "atk_bonus": 0,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5AE5DC3",
+        "atk_bonus": -22,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "42E4F7A",
+        "atk_bonus": 24,
+        "hp_bonus": 2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A051DAD",
+        "atk_bonus": -7,
+        "hp_bonus": 15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BCCFBCA",
+        "atk_bonus": -19,
+        "hp_bonus": -19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EBDA563",
+        "atk_bonus": -1,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E72BC5E",
+        "atk_bonus": -14,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4C1701C",
+        "atk_bonus": -23,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "90BF513",
+        "atk_bonus": 8,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "36BA29C",
+        "atk_bonus": 2,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DDB9CD9",
+        "atk_bonus": -25,
+        "hp_bonus": 23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B3FB0C3",
+        "atk_bonus": 23,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4E826DC",
+        "atk_bonus": -1,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6DDC15C",
+        "atk_bonus": 8,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F5975C0",
+        "atk_bonus": -15,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "13C9C1F",
+        "atk_bonus": -23,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4D25F12",
+        "atk_bonus": -12,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3162F5D",
+        "atk_bonus": -6,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2FB6673",
+        "atk_bonus": -10,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D8F4F8E",
+        "atk_bonus": -18,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "60C640A",
+        "atk_bonus": -8,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9EEE9F7",
+        "atk_bonus": 20,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "403BB1E",
+        "atk_bonus": 21,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3033279",
+        "atk_bonus": -16,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "30D2BE8",
+        "atk_bonus": -15,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8F94FD0",
+        "atk_bonus": -3,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "273DB79",
+        "atk_bonus": 20,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "83FB547",
+        "atk_bonus": 10,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6387830",
+        "atk_bonus": 0,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4DE143F",
+        "atk_bonus": 0,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E4743BC",
+        "atk_bonus": 1,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "20C7C28",
+        "atk_bonus": -14,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9CBEBE9",
+        "atk_bonus": -3,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EC5B67A",
+        "atk_bonus": -4,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2DCDB91",
+        "atk_bonus": 12,
+        "hp_bonus": -8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D1CA5E4",
+        "atk_bonus": -5,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EE079AB",
+        "atk_bonus": -25,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "813F9A9",
+        "atk_bonus": 13,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E52C9BD",
+        "atk_bonus": 1,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C43FEF8",
+        "atk_bonus": -24,
+        "hp_bonus": -17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "446DED1",
+        "atk_bonus": -20,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FA3B17F",
+        "atk_bonus": 14,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7C92C77",
+        "atk_bonus": 1,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EA4F006",
+        "atk_bonus": 12,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "19ECE16",
+        "atk_bonus": 2,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "169D920",
+        "atk_bonus": 10,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D91F9B9",
+        "atk_bonus": -23,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "83E2EB7",
+        "atk_bonus": 17,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B711A82",
+        "atk_bonus": -2,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C6C8E58",
+        "atk_bonus": -17,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3839216",
+        "atk_bonus": -24,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0495242",
+        "atk_bonus": 17,
+        "hp_bonus": 2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "671E1DA",
+        "atk_bonus": -14,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "704F00D",
+        "atk_bonus": 11,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "37931C0",
+        "atk_bonus": 11,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8EBD842",
+        "atk_bonus": -4,
+        "hp_bonus": 7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8C6FDE0",
+        "atk_bonus": -12,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "19AAB7E",
+        "atk_bonus": 14,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A41BD8B",
+        "atk_bonus": -25,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9657667",
+        "atk_bonus": -1,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E21CF91",
+        "atk_bonus": -12,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6CDA4A0",
+        "atk_bonus": 3,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C6EE723",
+        "atk_bonus": -1,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C466BF1",
+        "atk_bonus": -2,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "21955C7",
+        "atk_bonus": 8,
+        "hp_bonus": 23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9637056",
+        "atk_bonus": -25,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E927C6E",
+        "atk_bonus": 14,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6C39D2D",
+        "atk_bonus": -25,
+        "hp_bonus": -4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "CB40E9A",
+        "atk_bonus": -15,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "570EA3E",
+        "atk_bonus": -22,
+        "hp_bonus": 23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D9FAC85",
+        "atk_bonus": 7,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A630809",
+        "atk_bonus": 10,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6640BE5",
+        "atk_bonus": 20,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AB7CA6D",
+        "atk_bonus": -7,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3105FF1",
+        "atk_bonus": -6,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5BB325C",
+        "atk_bonus": 16,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9590106",
+        "atk_bonus": 0,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "569A0F1",
+        "atk_bonus": 4,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F7BB423",
+        "atk_bonus": -14,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "801D60E",
+        "atk_bonus": -3,
+        "hp_bonus": 14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3734FD7",
+        "atk_bonus": -19,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FB0118B",
+        "atk_bonus": -25,
+        "hp_bonus": -1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4D9A49A",
+        "atk_bonus": 4,
+        "hp_bonus": 10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5BA084B",
+        "atk_bonus": 22,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D9CE3BE",
+        "atk_bonus": -3,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "76ED0CF",
+        "atk_bonus": 0,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C1D3EEF",
+        "atk_bonus": -21,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FA21E3C",
+        "atk_bonus": 11,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D5DA4D6",
+        "atk_bonus": -16,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D99633E",
+        "atk_bonus": 1,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BAC6D54",
+        "atk_bonus": -5,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "40E0BBC",
+        "atk_bonus": 13,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2054E74",
+        "atk_bonus": 19,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "CC86492",
+        "atk_bonus": -22,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2D5EDFA",
+        "atk_bonus": 5,
+        "hp_bonus": -1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8061CC0",
+        "atk_bonus": -10,
+        "hp_bonus": -4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FE6A58C",
+        "atk_bonus": -22,
+        "hp_bonus": -17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DD556D6",
+        "atk_bonus": 2,
+        "hp_bonus": -4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AE90EBB",
+        "atk_bonus": 13,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D770D30",
+        "atk_bonus": -22,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8941B17",
+        "atk_bonus": 8,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1EC8991",
+        "atk_bonus": -15,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "087B2EE",
+        "atk_bonus": 9,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2C58A9B",
+        "atk_bonus": 7,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C6B8FAC",
+        "atk_bonus": -7,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1ACFE92",
+        "atk_bonus": 19,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4231BC9",
+        "atk_bonus": -6,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "323732E",
+        "atk_bonus": 6,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "266B767",
+        "atk_bonus": -7,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "683983F",
+        "atk_bonus": 11,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "271224D",
+        "atk_bonus": 6,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "79ED0FB",
+        "atk_bonus": -7,
+        "hp_bonus": -1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "72CF34B",
+        "atk_bonus": 9,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EC77E9E",
+        "atk_bonus": -20,
+        "hp_bonus": 15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "957F446",
+        "atk_bonus": -25,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "72FAEF7",
+        "atk_bonus": -23,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BC6D5CB",
+        "atk_bonus": -6,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "50EBF78",
+        "atk_bonus": 0,
+        "hp_bonus": 7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "494A3E3",
+        "atk_bonus": 12,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "ED44653",
+        "atk_bonus": -3,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "53B1DE2",
+        "atk_bonus": 9,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "962FBE5",
+        "atk_bonus": -13,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FA48C3C",
+        "atk_bonus": 17,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "27ACEB0",
+        "atk_bonus": -10,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0F8B587",
+        "atk_bonus": -2,
+        "hp_bonus": -19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6B389DB",
+        "atk_bonus": -12,
+        "hp_bonus": 2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F69C47B",
+        "atk_bonus": 22,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "105CB42",
+        "atk_bonus": 8,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D08D8FC",
+        "atk_bonus": -4,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "02C5656",
+        "atk_bonus": -5,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DDEA91B",
+        "atk_bonus": 25,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D69FBB2",
+        "atk_bonus": 4,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E5F94F7",
+        "atk_bonus": -22,
+        "hp_bonus": -4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0637CEE",
+        "atk_bonus": 25,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E0B47E2",
+        "atk_bonus": 16,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B39F798",
+        "atk_bonus": -14,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "33D45E2",
+        "atk_bonus": 5,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F97D824",
+        "atk_bonus": -19,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B096B69",
+        "atk_bonus": -21,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B4906AA",
+        "atk_bonus": -16,
+        "hp_bonus": 10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1766CC2",
+        "atk_bonus": -14,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C18D664",
+        "atk_bonus": -20,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D3B9D7E",
+        "atk_bonus": 13,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "24F610E",
+        "atk_bonus": -23,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "79185F3",
+        "atk_bonus": -21,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7F8F37B",
+        "atk_bonus": 25,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DF08080",
+        "atk_bonus": 5,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "986660F",
+        "atk_bonus": 17,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FB00431",
+        "atk_bonus": 9,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D4E5DD0",
+        "atk_bonus": -20,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "467DA43",
+        "atk_bonus": -2,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "78D6721",
+        "atk_bonus": -18,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C043927",
+        "atk_bonus": -9,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7AD2FAD",
+        "atk_bonus": -9,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C9371F1",
+        "atk_bonus": 14,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C0869F0",
+        "atk_bonus": -6,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "945FADE",
+        "atk_bonus": -1,
+        "hp_bonus": 7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "91491E7",
+        "atk_bonus": -20,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C99A7B3",
+        "atk_bonus": 13,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "12B5FEF",
+        "atk_bonus": 18,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "93AE02E",
+        "atk_bonus": -24,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "ABECBCC",
+        "atk_bonus": -22,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "97274AC",
+        "atk_bonus": -5,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "894C384",
+        "atk_bonus": -25,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6A77227",
+        "atk_bonus": 6,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E814F88",
+        "atk_bonus": -10,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C5297E1",
+        "atk_bonus": -13,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EACED58",
+        "atk_bonus": 17,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "259D763",
+        "atk_bonus": -19,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BFA53C6",
+        "atk_bonus": 16,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C9E1126",
+        "atk_bonus": -17,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F04BC2A",
+        "atk_bonus": 20,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "029DBA6",
+        "atk_bonus": -21,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "832316E",
+        "atk_bonus": 8,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0D14E22",
+        "atk_bonus": 13,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8EC4210",
+        "atk_bonus": 6,
+        "hp_bonus": 2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "072FDAB",
+        "atk_bonus": -11,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7FB956E",
+        "atk_bonus": 22,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DB75F56",
+        "atk_bonus": -1,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BF7761D",
+        "atk_bonus": 10,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "47CF494",
+        "atk_bonus": 18,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4408B1B",
+        "atk_bonus": -7,
+        "hp_bonus": -1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4CA5078",
+        "atk_bonus": -22,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A72D3BA",
+        "atk_bonus": -8,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E40E573",
+        "atk_bonus": -25,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "71B1720",
+        "atk_bonus": 3,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FFC280F",
+        "atk_bonus": -8,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C6DFF4B",
+        "atk_bonus": 2,
+        "hp_bonus": 7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B09006F",
+        "atk_bonus": -13,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FD3E19D",
+        "atk_bonus": -20,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "007A3E5",
+        "atk_bonus": -5,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "85B087E",
+        "atk_bonus": 6,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B736A4C",
+        "atk_bonus": -7,
+        "hp_bonus": -17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7AD611E",
+        "atk_bonus": -20,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5C7AE4C",
+        "atk_bonus": -20,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "84D18F2",
+        "atk_bonus": 21,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "334F3AE",
+        "atk_bonus": -24,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "91AA649",
+        "atk_bonus": -19,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "75A55B3",
+        "atk_bonus": 4,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "41E7702",
+        "atk_bonus": 6,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C5B6D95",
+        "atk_bonus": -22,
+        "hp_bonus": 14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F3F97E6",
+        "atk_bonus": -7,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "CA4AB56",
+        "atk_bonus": -15,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "45A0761",
+        "atk_bonus": -20,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B0790EB",
+        "atk_bonus": -7,
+        "hp_bonus": 23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D01C1BD",
+        "atk_bonus": 21,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5B551C1",
+        "atk_bonus": -10,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F32A7C0",
+        "atk_bonus": -24,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F0BB4C4",
+        "atk_bonus": -17,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D2475DA",
+        "atk_bonus": 22,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9AE1B03",
+        "atk_bonus": -3,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0A067AB",
+        "atk_bonus": -15,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3B727F0",
+        "atk_bonus": -8,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7FFEA88",
+        "atk_bonus": -7,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "564C61F",
+        "atk_bonus": 19,
+        "hp_bonus": -4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6BD7990",
+        "atk_bonus": 8,
+        "hp_bonus": -21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9D9F77C",
+        "atk_bonus": 12,
+        "hp_bonus": -4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DF4CB31",
+        "atk_bonus": 12,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9EB1D5E",
+        "atk_bonus": -4,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9835F1F",
+        "atk_bonus": -5,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8733817",
+        "atk_bonus": -23,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6E79AFE",
+        "atk_bonus": 13,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F510EDA",
+        "atk_bonus": 2,
+        "hp_bonus": -19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0CD89AA",
+        "atk_bonus": -8,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C2C71EF",
+        "atk_bonus": -20,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "718C20E",
+        "atk_bonus": -9,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0F4BB17",
+        "atk_bonus": -11,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8F128EE",
+        "atk_bonus": -21,
+        "hp_bonus": 14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8D36DF4",
+        "atk_bonus": -12,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E7B34E9",
+        "atk_bonus": 0,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "404A095",
+        "atk_bonus": -21,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BF518E1",
+        "atk_bonus": -9,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6E71B18",
+        "atk_bonus": 18,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EB527B2",
+        "atk_bonus": 15,
+        "hp_bonus": -17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "22C774B",
+        "atk_bonus": 1,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9C8B350",
+        "atk_bonus": 5,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B57E20A",
+        "atk_bonus": -21,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6BC7AF3",
+        "atk_bonus": 16,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E49EBD1",
+        "atk_bonus": 17,
+        "hp_bonus": -17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "82E984D",
+        "atk_bonus": -20,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1CBA53B",
+        "atk_bonus": -6,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "ADF1D6D",
+        "atk_bonus": 13,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DBB2226",
+        "atk_bonus": 5,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6F17C0C",
+        "atk_bonus": 17,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A4E83AC",
+        "atk_bonus": 8,
+        "hp_bonus": -1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C99B817",
+        "atk_bonus": -22,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2232DB2",
+        "atk_bonus": 20,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0C3C027",
+        "atk_bonus": 17,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6B10168",
+        "atk_bonus": 5,
+        "hp_bonus": 15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4509ADA",
+        "atk_bonus": -15,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "384EEE2",
+        "atk_bonus": 4,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "664D1C4",
+        "atk_bonus": -19,
+        "hp_bonus": -8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D6CF160",
+        "atk_bonus": 20,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "CB5E3F5",
+        "atk_bonus": 18,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "41BD920",
+        "atk_bonus": 25,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F088CE8",
+        "atk_bonus": -10,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "86453F2",
+        "atk_bonus": -4,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5F17AA3",
+        "atk_bonus": -15,
+        "hp_bonus": -21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1F46786",
+        "atk_bonus": 25,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "87AA7F5",
+        "atk_bonus": -5,
+        "hp_bonus": -4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FFCFCE4",
+        "atk_bonus": 17,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E28FABD",
+        "atk_bonus": -17,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5051AA4",
+        "atk_bonus": -19,
+        "hp_bonus": -21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C8F5AC7",
+        "atk_bonus": 6,
+        "hp_bonus": 7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BC94731",
+        "atk_bonus": 3,
+        "hp_bonus": -18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2DC0A22",
+        "atk_bonus": 24,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FEEB2D2",
+        "atk_bonus": 21,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "50E44AE",
+        "atk_bonus": -1,
+        "hp_bonus": -17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4C127BD",
+        "atk_bonus": 21,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C39912C",
+        "atk_bonus": 16,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5DC2D62",
+        "atk_bonus": 7,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4418A0D",
+        "atk_bonus": 25,
+        "hp_bonus": -19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "935EF0D",
+        "atk_bonus": 1,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "474B78C",
+        "atk_bonus": 11,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3C8ED77",
+        "atk_bonus": -2,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "44D85A6",
+        "atk_bonus": 6,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "071274C",
+        "atk_bonus": -24,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D73CA39",
+        "atk_bonus": 18,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2090914",
+        "atk_bonus": -12,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EFD96E9",
+        "atk_bonus": 25,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "480A42C",
+        "atk_bonus": 1,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0753F0B",
+        "atk_bonus": -4,
+        "hp_bonus": 10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0A7387F",
+        "atk_bonus": -3,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3733D16",
+        "atk_bonus": -7,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AC411CC",
+        "atk_bonus": -12,
+        "hp_bonus": -17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3CD3A76",
+        "atk_bonus": 9,
+        "hp_bonus": 2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8F2262B",
+        "atk_bonus": -19,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3328C07",
+        "atk_bonus": 21,
+        "hp_bonus": -21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C13CDEF",
+        "atk_bonus": -23,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BAB7083",
+        "atk_bonus": -7,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "243691A",
+        "atk_bonus": 9,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "59A5371",
+        "atk_bonus": -18,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "642FF8E",
+        "atk_bonus": -2,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "05C9198",
+        "atk_bonus": 12,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C79FE4E",
+        "atk_bonus": 6,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "468D347",
+        "atk_bonus": -9,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7CFE65E",
+        "atk_bonus": 21,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "11F2D7C",
+        "atk_bonus": -11,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "589DDB6",
+        "atk_bonus": 11,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "589B8B4",
+        "atk_bonus": -22,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0E868B5",
+        "atk_bonus": -16,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DEA30B5",
+        "atk_bonus": -17,
+        "hp_bonus": 15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E9C0447",
+        "atk_bonus": 8,
+        "hp_bonus": -21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8FDFFE8",
+        "atk_bonus": 22,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AC59309",
+        "atk_bonus": 0,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F20D5E9",
+        "atk_bonus": 3,
+        "hp_bonus": -1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "18847C9",
+        "atk_bonus": -12,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D1446A0",
+        "atk_bonus": -17,
+        "hp_bonus": 10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7CC534E",
+        "atk_bonus": -25,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BD55643",
+        "atk_bonus": -19,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EAE0EDC",
+        "atk_bonus": 9,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FA611EA",
+        "atk_bonus": 1,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "025AEAD",
+        "atk_bonus": 1,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2EE2049",
+        "atk_bonus": -16,
+        "hp_bonus": 23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4883AD6",
+        "atk_bonus": 23,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7BA63E1",
+        "atk_bonus": 12,
+        "hp_bonus": 15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6A4C8A6",
+        "atk_bonus": -12,
+        "hp_bonus": -8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "482D99B",
+        "atk_bonus": -6,
+        "hp_bonus": -4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5656088",
+        "atk_bonus": -20,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "157EDF6",
+        "atk_bonus": 18,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "738C7A3",
+        "atk_bonus": -25,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9ECC289",
+        "atk_bonus": 5,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7A883BD",
+        "atk_bonus": 3,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6A5D80D",
+        "atk_bonus": -21,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9833034",
+        "atk_bonus": -3,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "597128F",
+        "atk_bonus": -4,
+        "hp_bonus": 2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B51CFA6",
+        "atk_bonus": 21,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1C89C11",
+        "atk_bonus": -19,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AE93D63",
+        "atk_bonus": -11,
+        "hp_bonus": -19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0B6A1A0",
+        "atk_bonus": -9,
+        "hp_bonus": -4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AC08A3C",
+        "atk_bonus": 12,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "01DFE7A",
+        "atk_bonus": -19,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BE37DAB",
+        "atk_bonus": 13,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8FE1C1D",
+        "atk_bonus": 17,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C247126",
+        "atk_bonus": 13,
+        "hp_bonus": -8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4474335",
+        "atk_bonus": -9,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E51ECF8",
+        "atk_bonus": -9,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BC8394B",
+        "atk_bonus": -3,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "CF647BB",
+        "atk_bonus": -19,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7C27F13",
+        "atk_bonus": -8,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9377C66",
+        "atk_bonus": 18,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C78145C",
+        "atk_bonus": -20,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "324E450",
+        "atk_bonus": -23,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "04CE85B",
+        "atk_bonus": -4,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8B095F9",
+        "atk_bonus": 6,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2CABDB3",
+        "atk_bonus": -24,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4D73CE0",
+        "atk_bonus": -13,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "77F697E",
+        "atk_bonus": -16,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D852E18",
+        "atk_bonus": 22,
+        "hp_bonus": 23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D8DE465",
+        "atk_bonus": -14,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "44683D1",
+        "atk_bonus": 6,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A5DE08A",
+        "atk_bonus": 25,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3E73FCE",
+        "atk_bonus": 8,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F7983D4",
+        "atk_bonus": -22,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E6696AE",
+        "atk_bonus": -13,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8ACD6C9",
+        "atk_bonus": 9,
+        "hp_bonus": -1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3BDEE4E",
+        "atk_bonus": 7,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2A01F99",
+        "atk_bonus": -21,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E327940",
+        "atk_bonus": 22,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "278DBB0",
+        "atk_bonus": 18,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C341638",
+        "atk_bonus": 24,
+        "hp_bonus": 15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2C9D52F",
+        "atk_bonus": -3,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D67220A",
+        "atk_bonus": 22,
+        "hp_bonus": 10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D9D4443",
+        "atk_bonus": 2,
+        "hp_bonus": -1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5CF1DDB",
+        "atk_bonus": 12,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B3FC071",
+        "atk_bonus": 22,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F992855",
+        "atk_bonus": 6,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AFD9416",
+        "atk_bonus": -20,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9821BE2",
+        "atk_bonus": 7,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2463EBC",
+        "atk_bonus": -6,
+        "hp_bonus": -19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B0FF81C",
+        "atk_bonus": 6,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AC02A5E",
+        "atk_bonus": 14,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0483385",
+        "atk_bonus": 4,
+        "hp_bonus": 23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5E87E95",
+        "atk_bonus": -20,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9B47EA3",
+        "atk_bonus": -3,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6706F2E",
+        "atk_bonus": 6,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "58F1125",
+        "atk_bonus": 2,
+        "hp_bonus": -1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DF2CE2D",
+        "atk_bonus": -16,
+        "hp_bonus": 14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "94EA99D",
+        "atk_bonus": -11,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1E1EF89",
+        "atk_bonus": 22,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6651056",
+        "atk_bonus": -3,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "ADC56F1",
+        "atk_bonus": -2,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "538FDC9",
+        "atk_bonus": -24,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "658CA4E",
+        "atk_bonus": -13,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B2595DC",
+        "atk_bonus": -17,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FCBFF97",
+        "atk_bonus": 25,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1A3F30C",
+        "atk_bonus": -24,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3F1DCA5",
+        "atk_bonus": 5,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D234966",
+        "atk_bonus": 25,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "006AE99",
+        "atk_bonus": -6,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B3411F6",
+        "atk_bonus": 9,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4C464E8",
+        "atk_bonus": -2,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B0B5B08",
+        "atk_bonus": -12,
+        "hp_bonus": -17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C746983",
+        "atk_bonus": -17,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "10CEC2A",
+        "atk_bonus": 17,
+        "hp_bonus": -19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FFF4AAD",
+        "atk_bonus": -6,
+        "hp_bonus": -19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FD4325F",
+        "atk_bonus": 4,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E00D926",
+        "atk_bonus": 19,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C6847CE",
+        "atk_bonus": -15,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FF9E615",
+        "atk_bonus": -6,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "ABE5A9A",
+        "atk_bonus": 17,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "ABECE39",
+        "atk_bonus": 9,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "03A3E4C",
+        "atk_bonus": -4,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E80F74E",
+        "atk_bonus": 5,
+        "hp_bonus": -17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "559AAF1",
+        "atk_bonus": -23,
+        "hp_bonus": 14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F7E2A67",
+        "atk_bonus": -21,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8D361BA",
+        "atk_bonus": 19,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "341B9AC",
+        "atk_bonus": -22,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "674C7E2",
+        "atk_bonus": -9,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2D0EB05",
+        "atk_bonus": 4,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FF0571D",
+        "atk_bonus": 17,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "953585A",
+        "atk_bonus": -7,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9D8703C",
+        "atk_bonus": -7,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FB82106",
+        "atk_bonus": -20,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6883153",
+        "atk_bonus": -10,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0F70238",
+        "atk_bonus": 24,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D743BF7",
+        "atk_bonus": -17,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8C84531",
+        "atk_bonus": -1,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DE69A8B",
+        "atk_bonus": 17,
+        "hp_bonus": -17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A35297D",
+        "atk_bonus": -10,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5672AD9",
+        "atk_bonus": -11,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DCC127D",
+        "atk_bonus": -16,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "194DCF6",
+        "atk_bonus": -3,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "952D518",
+        "atk_bonus": 7,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3522064",
+        "atk_bonus": -21,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "48AF21E",
+        "atk_bonus": -15,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "72A51AD",
+        "atk_bonus": 6,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D2FF57B",
+        "atk_bonus": 8,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8A916F4",
+        "atk_bonus": 3,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4E8DC0C",
+        "atk_bonus": 7,
+        "hp_bonus": -18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "CE73C3C",
+        "atk_bonus": 2,
+        "hp_bonus": 23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "836C539",
+        "atk_bonus": -4,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0837AA1",
+        "atk_bonus": -24,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "ED575B1",
+        "atk_bonus": 9,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "134BE23",
+        "atk_bonus": -15,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "247029D",
+        "atk_bonus": 15,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A77357A",
+        "atk_bonus": -14,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "020FC5D",
+        "atk_bonus": -21,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8035A20",
+        "atk_bonus": 8,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "580A27D",
+        "atk_bonus": -19,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1161229",
+        "atk_bonus": 4,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "98013D9",
+        "atk_bonus": 16,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DE751BC",
+        "atk_bonus": -16,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "164141E",
+        "atk_bonus": -16,
+        "hp_bonus": -18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BE5C617",
+        "atk_bonus": -2,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0C9A5B7",
+        "atk_bonus": 20,
+        "hp_bonus": -1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EDE3A94",
+        "atk_bonus": -9,
+        "hp_bonus": 2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C1FCD84",
+        "atk_bonus": 14,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7AE8FBE",
+        "atk_bonus": 22,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5327C7E",
+        "atk_bonus": -1,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9C11B61",
+        "atk_bonus": 4,
+        "hp_bonus": -8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3B65F28",
+        "atk_bonus": -11,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5DD764A",
+        "atk_bonus": -11,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C6CE525",
+        "atk_bonus": 8,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B244627",
+        "atk_bonus": -17,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2C429E7",
+        "atk_bonus": 15,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F204501",
+        "atk_bonus": 8,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "452D616",
+        "atk_bonus": -7,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E19B10A",
+        "atk_bonus": -23,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1C5B222",
+        "atk_bonus": -20,
+        "hp_bonus": -18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5E59898",
+        "atk_bonus": 9,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "567A325",
+        "atk_bonus": 1,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9B3BEBD",
+        "atk_bonus": -22,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "35D4666",
+        "atk_bonus": 0,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B79C61C",
+        "atk_bonus": -5,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1C620BA",
+        "atk_bonus": 14,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7C47677",
+        "atk_bonus": 9,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2B9BF7C",
+        "atk_bonus": 25,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DCD9E16",
+        "atk_bonus": -20,
+        "hp_bonus": 15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "355084A",
+        "atk_bonus": -9,
+        "hp_bonus": 23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "98D0799",
+        "atk_bonus": 20,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "121F336",
+        "atk_bonus": -19,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "13203AA",
+        "atk_bonus": 25,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3CA37C8",
+        "atk_bonus": 0,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A6A6307",
+        "atk_bonus": -20,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "96917CC",
+        "atk_bonus": 18,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "ED22916",
+        "atk_bonus": -22,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9BD3D49",
+        "atk_bonus": -3,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F8DC10B",
+        "atk_bonus": 20,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8965AD0",
+        "atk_bonus": -20,
+        "hp_bonus": -21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "CCA5D4B",
+        "atk_bonus": 1,
+        "hp_bonus": 10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E18AB75",
+        "atk_bonus": 11,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "37C2938",
+        "atk_bonus": 5,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2193462",
+        "atk_bonus": 17,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "71AA1B8",
+        "atk_bonus": -17,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5794A67",
+        "atk_bonus": 10,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "73308FB",
+        "atk_bonus": 5,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A35C12E",
+        "atk_bonus": 7,
+        "hp_bonus": 15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B22F378",
+        "atk_bonus": 14,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3BBE36D",
+        "atk_bonus": 18,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8C64DEC",
+        "atk_bonus": -6,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "67797BE",
+        "atk_bonus": -14,
+        "hp_bonus": -18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "304ECA5",
+        "atk_bonus": 24,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A34094E",
+        "atk_bonus": 17,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DF07BCC",
+        "atk_bonus": 19,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "009546F",
+        "atk_bonus": 1,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7AB0BAB",
+        "atk_bonus": 23,
+        "hp_bonus": -1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3134D4A",
+        "atk_bonus": -15,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "38D4E8C",
+        "atk_bonus": 4,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C0E560C",
+        "atk_bonus": 21,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9A34BBD",
+        "atk_bonus": -15,
+        "hp_bonus": 10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F1D0FE2",
+        "atk_bonus": 5,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A8AA828",
+        "atk_bonus": 11,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "19D3515",
+        "atk_bonus": 0,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "74A9E29",
+        "atk_bonus": -14,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "099D955",
+        "atk_bonus": -23,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "58D69FE",
+        "atk_bonus": 19,
+        "hp_bonus": 2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "05F10B2",
+        "atk_bonus": -13,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "423D8FB",
+        "atk_bonus": 23,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "39ACE71",
+        "atk_bonus": 11,
+        "hp_bonus": -21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "96E1838",
+        "atk_bonus": -19,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6365F15",
+        "atk_bonus": 2,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7387FEA",
+        "atk_bonus": -25,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DDE510B",
+        "atk_bonus": 7,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "46261B4",
+        "atk_bonus": -20,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FD0F3E1",
+        "atk_bonus": -22,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "949EA76",
+        "atk_bonus": -21,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "CD325E9",
+        "atk_bonus": -8,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0C604CF",
+        "atk_bonus": -4,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DFE1578",
+        "atk_bonus": -25,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FB256B2",
+        "atk_bonus": -1,
+        "hp_bonus": -8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "64984DE",
+        "atk_bonus": -6,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4B4CF8A",
+        "atk_bonus": 23,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "369ED07",
+        "atk_bonus": 25,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C2A4304",
+        "atk_bonus": 0,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DC46746",
+        "atk_bonus": 8,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "609A905",
+        "atk_bonus": 25,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2418EB5",
+        "atk_bonus": 21,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FDA834B",
+        "atk_bonus": -13,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E384ED3",
+        "atk_bonus": -16,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "04957CE",
+        "atk_bonus": 19,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FB0C0FC",
+        "atk_bonus": 6,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5939E9E",
+        "atk_bonus": 4,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5359DE5",
+        "atk_bonus": -13,
+        "hp_bonus": -8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "966FA69",
+        "atk_bonus": -20,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4050A27",
+        "atk_bonus": -15,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "823211F",
+        "atk_bonus": -8,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "23A8BE4",
+        "atk_bonus": -3,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "61F63CD",
+        "atk_bonus": -24,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C2B30FD",
+        "atk_bonus": -9,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AE431FC",
+        "atk_bonus": -7,
+        "hp_bonus": 2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B79983D",
+        "atk_bonus": 13,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D032B8C",
+        "atk_bonus": -11,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AA3655F",
+        "atk_bonus": 25,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6EEEDE7",
+        "atk_bonus": -1,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D72A48F",
+        "atk_bonus": 0,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BA5CA5D",
+        "atk_bonus": -9,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AB9425C",
+        "atk_bonus": 23,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BB2F45D",
+        "atk_bonus": -22,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3B29B1A",
+        "atk_bonus": -22,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9CEDB1A",
+        "atk_bonus": -19,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9D12235",
+        "atk_bonus": 13,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F3661FA",
+        "atk_bonus": -24,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "646EFE6",
+        "atk_bonus": -22,
+        "hp_bonus": -18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8D4AC44",
+        "atk_bonus": 5,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5BE23FC",
+        "atk_bonus": -8,
+        "hp_bonus": -1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B05E3E5",
+        "atk_bonus": -1,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "73C45BC",
+        "atk_bonus": 11,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2C5755D",
+        "atk_bonus": -7,
+        "hp_bonus": -17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3E63F0E",
+        "atk_bonus": 20,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D589FC6",
+        "atk_bonus": -5,
+        "hp_bonus": -18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B914AD1",
+        "atk_bonus": -12,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "12E9D44",
+        "atk_bonus": -18,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4563BB6",
+        "atk_bonus": 7,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FAFBB70",
+        "atk_bonus": 9,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "639FE6D",
+        "atk_bonus": -9,
+        "hp_bonus": 14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BC3FCF4",
+        "atk_bonus": -16,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F402AA7",
+        "atk_bonus": 1,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "43D5FE0",
+        "atk_bonus": 16,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F6F0E00",
+        "atk_bonus": -22,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "920F783",
+        "atk_bonus": 21,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6CAE53F",
+        "atk_bonus": -12,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6CAED3B",
+        "atk_bonus": 2,
+        "hp_bonus": 14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B8532A9",
+        "atk_bonus": -8,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9E59D0D",
+        "atk_bonus": 11,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A57BFAC",
+        "atk_bonus": -24,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6A1E288",
+        "atk_bonus": 1,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F81E350",
+        "atk_bonus": -4,
+        "hp_bonus": 7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F48ADA1",
+        "atk_bonus": -17,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9C3D999",
+        "atk_bonus": -4,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0D2B2A6",
+        "atk_bonus": 0,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3AB4ED8",
+        "atk_bonus": -14,
+        "hp_bonus": -21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3E587B2",
+        "atk_bonus": 7,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9744EA9",
+        "atk_bonus": -7,
+        "hp_bonus": 2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "77D24DA",
+        "atk_bonus": -13,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "678E4C0",
+        "atk_bonus": -16,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "686ED93",
+        "atk_bonus": -15,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EBF3FED",
+        "atk_bonus": 12,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "358E46E",
+        "atk_bonus": 8,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C843A74",
+        "atk_bonus": 9,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AED4BB3",
+        "atk_bonus": 14,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5C9DCB1",
+        "atk_bonus": 21,
+        "hp_bonus": -17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1FA26F8",
+        "atk_bonus": 1,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D92A97D",
+        "atk_bonus": 17,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F588BE6",
+        "atk_bonus": 16,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D3522E7",
+        "atk_bonus": -10,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EAE89B0",
+        "atk_bonus": -8,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2B14C9F",
+        "atk_bonus": 5,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "39DCF4D",
+        "atk_bonus": -24,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F55F14C",
+        "atk_bonus": 2,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3375B3D",
+        "atk_bonus": 11,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "37D8F05",
+        "atk_bonus": -11,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6DE6A54",
+        "atk_bonus": 20,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "01F2C54",
+        "atk_bonus": 19,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C837FFC",
+        "atk_bonus": -12,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4FF610D",
+        "atk_bonus": 3,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A86019D",
+        "atk_bonus": -25,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "81A329F",
+        "atk_bonus": 24,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EFD213B",
+        "atk_bonus": 15,
+        "hp_bonus": 10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "62BEDEF",
+        "atk_bonus": -14,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "286988D",
+        "atk_bonus": 25,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "70460BE",
+        "atk_bonus": 13,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FAACE1C",
+        "atk_bonus": 8,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "66F30C3",
+        "atk_bonus": -23,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F08DF0D",
+        "atk_bonus": 18,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C20D108",
+        "atk_bonus": 24,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0B26FF0",
+        "atk_bonus": -7,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5EC5BFF",
+        "atk_bonus": -23,
+        "hp_bonus": -17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5D02D72",
+        "atk_bonus": -6,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1D6FA2A",
+        "atk_bonus": -6,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C3D2372",
+        "atk_bonus": -20,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "13CBA03",
+        "atk_bonus": 3,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BE94D24",
+        "atk_bonus": 5,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "31C5D3B",
+        "atk_bonus": 11,
+        "hp_bonus": 7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E559827",
+        "atk_bonus": -3,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4A56867",
+        "atk_bonus": -5,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1C23210",
+        "atk_bonus": -24,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "16184D8",
+        "atk_bonus": -5,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D7F5BF7",
+        "atk_bonus": 12,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F2D2E09",
+        "atk_bonus": 6,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0F2403F",
+        "atk_bonus": -16,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F2F0F8C",
+        "atk_bonus": -21,
+        "hp_bonus": 14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A82F46C",
+        "atk_bonus": 10,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "34ADA20",
+        "atk_bonus": 6,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0E4DF03",
+        "atk_bonus": 23,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BAF3CAD",
+        "atk_bonus": -21,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0DDD86F",
+        "atk_bonus": -21,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "43B7349",
+        "atk_bonus": -17,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9909270",
+        "atk_bonus": -2,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E7894FC",
+        "atk_bonus": 13,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "47E2DF8",
+        "atk_bonus": 9,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4D67CCC",
+        "atk_bonus": 13,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "ED6E8AD",
+        "atk_bonus": -5,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AF1DE82",
+        "atk_bonus": -18,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "98FEBFB",
+        "atk_bonus": 5,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "894B1A2",
+        "atk_bonus": 5,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BBF9D8D",
+        "atk_bonus": -17,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "85EB6AA",
+        "atk_bonus": -24,
+        "hp_bonus": -8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DB30A3C",
+        "atk_bonus": 19,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B239D61",
+        "atk_bonus": -8,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4377C9A",
+        "atk_bonus": -22,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DC54496",
+        "atk_bonus": 15,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "06CF367",
+        "atk_bonus": 5,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3F02C70",
+        "atk_bonus": -1,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "12AEBB0",
+        "atk_bonus": -13,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B031B00",
+        "atk_bonus": -3,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "816E7EA",
+        "atk_bonus": 23,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C8CB410",
+        "atk_bonus": -24,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "71D2DAC",
+        "atk_bonus": -11,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C9B6275",
+        "atk_bonus": 17,
+        "hp_bonus": 14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "CB8DC9D",
+        "atk_bonus": -13,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C6779D8",
+        "atk_bonus": -11,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1B4C033",
+        "atk_bonus": -22,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1D21118",
+        "atk_bonus": 5,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C422C1D",
+        "atk_bonus": -22,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F45E45A",
+        "atk_bonus": 8,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D39C264",
+        "atk_bonus": 7,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D79F630",
+        "atk_bonus": 11,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4054EAD",
+        "atk_bonus": 8,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "ECB1117",
+        "atk_bonus": 10,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "216A038",
+        "atk_bonus": -13,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3EE4B8A",
+        "atk_bonus": -25,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DF1E737",
+        "atk_bonus": 12,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4B21E98",
+        "atk_bonus": -17,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A16AD72",
+        "atk_bonus": -13,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D9B59F4",
+        "atk_bonus": -22,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "263C669",
+        "atk_bonus": 14,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "21275BD",
+        "atk_bonus": -23,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5F0FD8A",
+        "atk_bonus": -3,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2D6DEBE",
+        "atk_bonus": 14,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DFF5C43",
+        "atk_bonus": -10,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C209404",
+        "atk_bonus": 16,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C9CF90A",
+        "atk_bonus": 5,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "145087C",
+        "atk_bonus": -2,
+        "hp_bonus": -4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2E9EF9D",
+        "atk_bonus": -6,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "95D6CFA",
+        "atk_bonus": -17,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "83040C3",
+        "atk_bonus": -21,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "97C7B3D",
+        "atk_bonus": -25,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "54E36D6",
+        "atk_bonus": 5,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "623C2CA",
+        "atk_bonus": 24,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "62BF7AA",
+        "atk_bonus": -23,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EF7EAFD",
+        "atk_bonus": 14,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "94C80CA",
+        "atk_bonus": 16,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "51B8695",
+        "atk_bonus": 11,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "29E1157",
+        "atk_bonus": -24,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B99ADDD",
+        "atk_bonus": 24,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F427891",
+        "atk_bonus": 16,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2DF9070",
+        "atk_bonus": 1,
+        "hp_bonus": 7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6976C35",
+        "atk_bonus": -14,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FF1E88A",
+        "atk_bonus": 23,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8AB0346",
+        "atk_bonus": 19,
+        "hp_bonus": -18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3A9E5DA",
+        "atk_bonus": 20,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3A392C9",
+        "atk_bonus": -19,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B9BD5B1",
+        "atk_bonus": -14,
+        "hp_bonus": -19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "68EB84C",
+        "atk_bonus": -19,
+        "hp_bonus": -1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8F75A16",
+        "atk_bonus": 11,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AB7F7ED",
+        "atk_bonus": -10,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DD08D08",
+        "atk_bonus": -24,
+        "hp_bonus": -19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DBA53A9",
+        "atk_bonus": 21,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AD59580",
+        "atk_bonus": 25,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F1B04D7",
+        "atk_bonus": -8,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9299E35",
+        "atk_bonus": -6,
+        "hp_bonus": 23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7E6C0DE",
+        "atk_bonus": 15,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DAE29A2",
+        "atk_bonus": 24,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7ABD75F",
+        "atk_bonus": -8,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0FE4065",
+        "atk_bonus": 20,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1237146",
+        "atk_bonus": -10,
+        "hp_bonus": -21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1EE677C",
+        "atk_bonus": 17,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0EDDA10",
+        "atk_bonus": -6,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FC86765",
+        "atk_bonus": -15,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DE229D2",
+        "atk_bonus": 2,
+        "hp_bonus": -18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "90F96BC",
+        "atk_bonus": -14,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "95ADF24",
+        "atk_bonus": 21,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "44E027A",
+        "atk_bonus": 18,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7F4FE3B",
+        "atk_bonus": 22,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3B09E61",
+        "atk_bonus": 15,
+        "hp_bonus": -17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4D77B27",
+        "atk_bonus": -24,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4FEAFAC",
+        "atk_bonus": 6,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5BE4B16",
+        "atk_bonus": -12,
+        "hp_bonus": -4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "56F1CBC",
+        "atk_bonus": -11,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "999B224",
+        "atk_bonus": -25,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "56E1E43",
+        "atk_bonus": -21,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "21BFD79",
+        "atk_bonus": -6,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1611F01",
+        "atk_bonus": -7,
+        "hp_bonus": -21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D32FF51",
+        "atk_bonus": -25,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "04FA180",
+        "atk_bonus": -1,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "CCA9647",
+        "atk_bonus": 6,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BAD3A6D",
+        "atk_bonus": 1,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0B32AE1",
+        "atk_bonus": 11,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "89D52DF",
+        "atk_bonus": 0,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EB0D3E9",
+        "atk_bonus": 23,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "05F1BB5",
+        "atk_bonus": -16,
+        "hp_bonus": 15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3A2D914",
+        "atk_bonus": -25,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4BD1A84",
+        "atk_bonus": -21,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "67BA93B",
+        "atk_bonus": -21,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C716DD3",
+        "atk_bonus": -16,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A0B146F",
+        "atk_bonus": 19,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A4C0A63",
+        "atk_bonus": 17,
+        "hp_bonus": -18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "06517CB",
+        "atk_bonus": -18,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8A47F42",
+        "atk_bonus": -1,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2D7DBD3",
+        "atk_bonus": -3,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4533FA1",
+        "atk_bonus": -8,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A6E5674",
+        "atk_bonus": -1,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C0A08F4",
+        "atk_bonus": 15,
+        "hp_bonus": -8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EA7DEC9",
+        "atk_bonus": -11,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6ACCA00",
+        "atk_bonus": 14,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "686B7F4",
+        "atk_bonus": 11,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F946703",
+        "atk_bonus": 4,
+        "hp_bonus": -17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "29D00F4",
+        "atk_bonus": -22,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "142825F",
+        "atk_bonus": -3,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9D05771",
+        "atk_bonus": 13,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "588CB20",
+        "atk_bonus": -23,
+        "hp_bonus": -18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "95A061D",
+        "atk_bonus": -13,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "46AB3A0",
+        "atk_bonus": -17,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "33E4D8A",
+        "atk_bonus": -19,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "70CC6FD",
+        "atk_bonus": -15,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "49A450B",
+        "atk_bonus": -13,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F0A1D0F",
+        "atk_bonus": -2,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A5A3D71",
+        "atk_bonus": 23,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B785BC3",
+        "atk_bonus": 3,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5DC3844",
+        "atk_bonus": 9,
+        "hp_bonus": 7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A674086",
+        "atk_bonus": -8,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B4B2484",
+        "atk_bonus": 16,
+        "hp_bonus": -18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2282B75",
+        "atk_bonus": -12,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9F1085F",
+        "atk_bonus": 18,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1218583",
+        "atk_bonus": 1,
+        "hp_bonus": 23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A4E3520",
+        "atk_bonus": -22,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FBD0AF7",
+        "atk_bonus": -25,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AAE7F74",
+        "atk_bonus": -16,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "975ADC7",
+        "atk_bonus": -22,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2F709D2",
+        "atk_bonus": -18,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4A5AA24",
+        "atk_bonus": -14,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "10BC9CB",
+        "atk_bonus": -17,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0211F5B",
+        "atk_bonus": -9,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C1F7AAC",
+        "atk_bonus": 10,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0BD2B72",
+        "atk_bonus": -8,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5B27F3C",
+        "atk_bonus": 24,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "69629FF",
+        "atk_bonus": 3,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1CCD4F1",
+        "atk_bonus": -20,
+        "hp_bonus": 14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EA1EC2C",
+        "atk_bonus": 7,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C8C97E0",
+        "atk_bonus": 18,
+        "hp_bonus": -1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3EB8863",
+        "atk_bonus": -23,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BD5B509",
+        "atk_bonus": -12,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8D18E8B",
+        "atk_bonus": 14,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AA621AD",
+        "atk_bonus": 4,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A77889D",
+        "atk_bonus": -22,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "851CBB2",
+        "atk_bonus": 19,
+        "hp_bonus": 2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "84B697F",
+        "atk_bonus": 13,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "19B0732",
+        "atk_bonus": -10,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9CADF62",
+        "atk_bonus": -14,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F86CB84",
+        "atk_bonus": -11,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B80B3E8",
+        "atk_bonus": 17,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FD0B61E",
+        "atk_bonus": 7,
+        "hp_bonus": 15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "93ED842",
+        "atk_bonus": 8,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C898061",
+        "atk_bonus": -17,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "835FEEF",
+        "atk_bonus": 25,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "369D85F",
+        "atk_bonus": -6,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "118C909",
+        "atk_bonus": 13,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "093387E",
+        "atk_bonus": 14,
+        "hp_bonus": 2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4C8878C",
+        "atk_bonus": -22,
+        "hp_bonus": 10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5B79CA5",
+        "atk_bonus": -22,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "30620DE",
+        "atk_bonus": -16,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EEB8F6C",
+        "atk_bonus": 23,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8665157",
+        "atk_bonus": 13,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "4839667",
+        "atk_bonus": -22,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FD57271",
+        "atk_bonus": 20,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "30F29F0",
+        "atk_bonus": -6,
+        "hp_bonus": 3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9EDAD40",
+        "atk_bonus": -21,
+        "hp_bonus": 23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5337573",
+        "atk_bonus": -13,
+        "hp_bonus": 2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D5CB531",
+        "atk_bonus": -18,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B57F936",
+        "atk_bonus": 10,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "255EF2C",
+        "atk_bonus": 18,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1B4FD52",
+        "atk_bonus": -24,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "25EE383",
+        "atk_bonus": 11,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E650B40",
+        "atk_bonus": -25,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BB6387C",
+        "atk_bonus": -5,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "849D930",
+        "atk_bonus": 12,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A2CCA47",
+        "atk_bonus": -19,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E4230C7",
+        "atk_bonus": 2,
+        "hp_bonus": -4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9EC0A98",
+        "atk_bonus": -16,
+        "hp_bonus": 7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "95F5315",
+        "atk_bonus": 23,
+        "hp_bonus": 15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EC7B5DD",
+        "atk_bonus": 9,
+        "hp_bonus": -7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E2D903C",
+        "atk_bonus": -4,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8098E78",
+        "atk_bonus": -5,
+        "hp_bonus": 7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "381E918",
+        "atk_bonus": 5,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9D7214F",
+        "atk_bonus": -8,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "762C2F4",
+        "atk_bonus": 23,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8A516B2",
+        "atk_bonus": -22,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A059F09",
+        "atk_bonus": 18,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6871333",
+        "atk_bonus": 23,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B97C030",
+        "atk_bonus": -4,
+        "hp_bonus": 14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2BC586E",
+        "atk_bonus": 7,
+        "hp_bonus": -1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "973F492",
+        "atk_bonus": -8,
+        "hp_bonus": -18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E876E51",
+        "atk_bonus": -23,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EE4937E",
+        "atk_bonus": 3,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AAF38F4",
+        "atk_bonus": -19,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7C862C8",
+        "atk_bonus": -16,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BE5495C",
+        "atk_bonus": 20,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "171E750",
+        "atk_bonus": 10,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EC18B16",
+        "atk_bonus": -23,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5F29F36",
+        "atk_bonus": 23,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "ADA7F75",
+        "atk_bonus": 17,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "FA9750A",
+        "atk_bonus": -2,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6C79DBD",
+        "atk_bonus": -15,
+        "hp_bonus": 22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5182AE3",
+        "atk_bonus": -6,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "CEDB3BE",
+        "atk_bonus": -15,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "0C5BC7B",
+        "atk_bonus": 18,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "540C479",
+        "atk_bonus": 23,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EABC807",
+        "atk_bonus": -2,
+        "hp_bonus": -3,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7BFF014",
+        "atk_bonus": 25,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E96922B",
+        "atk_bonus": 4,
+        "hp_bonus": 20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AD1EA6B",
+        "atk_bonus": -9,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5F3592C",
+        "atk_bonus": -2,
+        "hp_bonus": -19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "31426D7",
+        "atk_bonus": -1,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9C3907F",
+        "atk_bonus": -7,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3032124",
+        "atk_bonus": -8,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "A4E16FB",
+        "atk_bonus": 7,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C8B4D24",
+        "atk_bonus": -5,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2955BF4",
+        "atk_bonus": -10,
+        "hp_bonus": -25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B648451",
+        "atk_bonus": -9,
+        "hp_bonus": -19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "34D8017",
+        "atk_bonus": -5,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3B710C9",
+        "atk_bonus": -23,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "46D2AAC",
+        "atk_bonus": 25,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9DC1ADF",
+        "atk_bonus": -10,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "CDA0D43",
+        "atk_bonus": -9,
+        "hp_bonus": -10,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7DCFE00",
+        "atk_bonus": -11,
+        "hp_bonus": -20,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5AAA171",
+        "atk_bonus": -9,
+        "hp_bonus": 4,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "E435E44",
+        "atk_bonus": 7,
+        "hp_bonus": 13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "274C49E",
+        "atk_bonus": 18,
+        "hp_bonus": -11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C678AE0",
+        "atk_bonus": 7,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "10FF18B",
+        "atk_bonus": 12,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "81C5557",
+        "atk_bonus": -14,
+        "hp_bonus": 12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "C53FDFA",
+        "atk_bonus": -23,
+        "hp_bonus": 21,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9399FD2",
+        "atk_bonus": -8,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3398446",
+        "atk_bonus": 10,
+        "hp_bonus": -22,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "268C419",
+        "atk_bonus": -6,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "77A78DB",
+        "atk_bonus": -3,
+        "hp_bonus": 7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "6B5E917",
+        "atk_bonus": 7,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "68E518A",
+        "atk_bonus": -15,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "CE91535",
+        "atk_bonus": -8,
+        "hp_bonus": -16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F04098D",
+        "atk_bonus": 11,
+        "hp_bonus": -9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AFAFA2D",
+        "atk_bonus": 0,
+        "hp_bonus": -24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5250C51",
+        "atk_bonus": -25,
+        "hp_bonus": -5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BE713BF",
+        "atk_bonus": 2,
+        "hp_bonus": -15,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "277627A",
+        "atk_bonus": -23,
+        "hp_bonus": 2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "92F2BFA",
+        "atk_bonus": -11,
+        "hp_bonus": -6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "AABA087",
+        "atk_bonus": -3,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "1B2C68C",
+        "atk_bonus": 18,
+        "hp_bonus": -13,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "99D1DF7",
+        "atk_bonus": -5,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5C3ADFE",
+        "atk_bonus": 0,
+        "hp_bonus": 8,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "EA3969D",
+        "atk_bonus": 2,
+        "hp_bonus": 24,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "8AC51E8",
+        "atk_bonus": 23,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "5873600",
+        "atk_bonus": 7,
+        "hp_bonus": 16,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "DB1F81A",
+        "atk_bonus": 25,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "89A97D9",
+        "atk_bonus": -14,
+        "hp_bonus": 18,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "3FD2F28",
+        "atk_bonus": -8,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2B8D5C5",
+        "atk_bonus": -12,
+        "hp_bonus": 23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "2F14DA4",
+        "atk_bonus": -13,
+        "hp_bonus": 17,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7A6CE8B",
+        "atk_bonus": -23,
+        "hp_bonus": 25,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "BB9D8F7",
+        "atk_bonus": 1,
+        "hp_bonus": 5,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "50D18E8",
+        "atk_bonus": 22,
+        "hp_bonus": 23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "88F824D",
+        "atk_bonus": 5,
+        "hp_bonus": 0,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "F8AAF4B",
+        "atk_bonus": -25,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "05DB889",
+        "atk_bonus": -2,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "7C1F2A4",
+        "atk_bonus": -3,
+        "hp_bonus": -14,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "B6A91D3",
+        "atk_bonus": -15,
+        "hp_bonus": 9,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "983485D",
+        "atk_bonus": 12,
+        "hp_bonus": -2,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "92140BE",
+        "atk_bonus": -11,
+        "hp_bonus": 19,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "566C5F6",
+        "atk_bonus": -8,
+        "hp_bonus": -12,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "ED2A534",
+        "atk_bonus": -25,
+        "hp_bonus": -23,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "182103F",
+        "atk_bonus": 0,
+        "hp_bonus": 11,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "60E814D",
+        "atk_bonus": 8,
+        "hp_bonus": 1,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "D12D9D9",
+        "atk_bonus": -12,
+        "hp_bonus": 6,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "9D2FF93",
+        "atk_bonus": -24,
+        "hp_bonus": 7,
+        "caught": "2026/07/12 | 19:26",
+        "event": null
+      }
+    ]
+  },
+  "admins": [],
+  "blacklisted": [],
+  "user_stats": {},
+  "all_events": [],
+  "spawn_channel_id": 1517606755918676143,
+  "auto_spawn_enabled": true
+}
