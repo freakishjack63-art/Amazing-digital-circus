@@ -1,11 +1,17 @@
 import os
 import json
 import random
+import base64
+import urllib.request
 import discord
 from datetime import datetime
 from discord import app_commands
 from discord.ext import commands, tasks
 from keep_alive import keep_alive
+
+GITHUB_TOKEN     = os.environ.get("GITHUB_TOKEN", "")
+GITHUB_REPO      = "freakishjack63-art/Amazing-digital-circus"
+GITHUB_DATA_PATH = "backup/data.json"
 
 CUSTOM_CHAR_IMAGE = "https://raw.githubusercontent.com/freakishjack63-art/Amazing-digital-circus/main/images/unknown.png"
 COLLECTION_PER_PAGE = 5
@@ -78,6 +84,59 @@ def _load_data():
     except Exception as e:
         print(f"[WARN] Could not load data: {e}")
 
+def _gh_headers() -> dict:
+    return {"Authorization": f"token {GITHUB_TOKEN}",
+            "Accept": "application/vnd.github.v3+json",
+            "Content-Type": "application/json"}
+
+def _backup_to_github():
+    """Push data.json to GitHub repo as a persistent backup (runs every 5 min)."""
+    if not GITHUB_TOKEN or not os.path.exists(DATA_FILE):
+        return
+    try:
+        sha = None
+        try:
+            req = urllib.request.Request(
+                f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_DATA_PATH}",
+                headers=_gh_headers()
+            )
+            with urllib.request.urlopen(req) as r:
+                sha = json.load(r).get("sha")
+        except Exception:
+            pass
+        with open(DATA_FILE, "rb") as f:
+            content = base64.b64encode(f.read()).decode()
+        payload = {"message": "auto: data backup", "content": content}
+        if sha:
+            payload["sha"] = sha
+        req2 = urllib.request.Request(
+            f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_DATA_PATH}",
+            data=json.dumps(payload).encode(), method="PUT", headers=_gh_headers()
+        )
+        with urllib.request.urlopen(req2):
+            pass
+        print("[INFO] data.json backed up to GitHub.")
+    except Exception as e:
+        print(f"[WARN] GitHub backup failed: {e}")
+
+def _restore_from_github():
+    """Pull data.json from GitHub if local copy is missing (runs on startup)."""
+    if not GITHUB_TOKEN or os.path.exists(DATA_FILE):
+        return
+    try:
+        req = urllib.request.Request(
+            f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_DATA_PATH}",
+            headers=_gh_headers()
+        )
+        with urllib.request.urlopen(req) as r:
+            info = json.load(r)
+        raw = base64.b64decode(info["content"])
+        with open(DATA_FILE, "wb") as f:
+            f.write(raw)
+        print("[INFO] data.json restored from GitHub backup.")
+    except Exception as e:
+        print(f"[INFO] No GitHub backup to restore ({e}).")
+
 # ============================================================
 #  BOT TOKEN — stored in Replit Secrets as  BOT_TOKEN
 # ============================================================
@@ -96,12 +155,17 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 @bot.event
 async def on_ready():
     _load_custom_chars()
+    _restore_from_github()   # pulls backup from GitHub if data.json is missing
     _load_data()
     # Resume auto-spawn task if it was running before restart
     if _auto_spawn_enabled and _spawn_channel_id:
         if not auto_spawn_task.is_running():
             auto_spawn_task.start()
         print(f"[INFO] Auto-spawn resumed (channel {_spawn_channel_id}).")
+    # Start periodic GitHub backup (every 5 min) if token is configured
+    if GITHUB_TOKEN and not github_backup_task.is_running():
+        github_backup_task.start()
+        print("[INFO] GitHub backup task started.")
     await bot.tree.sync()
     print(f"The Amazing Digital Circus is open! Logged in as {bot.user}")
     print("Slash commands synced. Bot works in servers and DMs.")
@@ -1219,6 +1283,14 @@ async def _do_auto_spawn():
 async def auto_spawn_task():
     if _auto_spawn_enabled:
         await _do_auto_spawn()
+
+
+@tasks.loop(minutes=5)
+async def github_backup_task():
+    """Pushes data.json to GitHub every 5 minutes so it survives Render redeploys."""
+    import asyncio
+    loop = asyncio.get_event_loop()
+    await loop.run_in_executor(None, _backup_to_github)
 
 
 @bot.tree.command(name="spawn", description="[OWNER ONLY] Spawn character(s) to catch!")
