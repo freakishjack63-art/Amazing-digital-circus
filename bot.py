@@ -876,7 +876,7 @@ TADC_CHARACTERS = {
     "pomni": {
         "name": "Pomni", "emoji": "🔴", "title": "The New Arrival",
         "rarity": "⭐⭐⭐⭐⭐ Legendary", "rarity_color": 0xFF4444,
-        "image_url": "https://static.wikia.nocookie.net/amazingdigitalcircus/images/f/f3/Pomni.png/revision/latest",
+        "image_url": "https://raw.githubusercontent.com/freakishjack63-art/Amazing-digital-circus/main/images/pomni.jpeg",
         "base_atk": 450, "base_hp": 420,
         "description": "The newest performer in the circus. Desperately searching for an exit and struggling to keep her sanity intact.",
         "stats": {"Sanity": 30, "Courage": 60, "Panic": 95, "Cuteness": 85},
@@ -887,7 +887,7 @@ TADC_CHARACTERS = {
     "caine": {
         "name": "Caine", "emoji": "🎩", "title": "The Ringmaster",
         "rarity": "🌟🌟🌟🌟🌟 MYTHIC", "rarity_color": 0xFFD700,
-        "image_url": "https://static.wikia.nocookie.net/amazingdigitalcircus/images/3/3b/Caine.png/revision/latest",
+        "image_url": None,
         "base_atk": 900, "base_hp": 999,
         "description": "The all-powerful ringmaster who built the entire digital world. Enthusiastic, dramatic, and deeply suspicious.",
         "stats": {"Sanity": 999, "Power": 100, "Enthusiasm": 100, "Trustworthiness": 12},
@@ -898,7 +898,7 @@ TADC_CHARACTERS = {
     "jax": {
         "name": "Jax", "emoji": "🐰", "title": "The Troublemaker",
         "rarity": "⭐⭐⭐⭐ Epic", "rarity_color": 0x9B59B6,
-        "image_url": "https://static.wikia.nocookie.net/amazingdigitalcircus/images/8/8d/Jax.png/revision/latest",
+        "image_url": "https://raw.githubusercontent.com/freakishjack63-art/Amazing-digital-circus/main/images/jax.jpeg",
         "base_atk": 310, "base_hp": 260,
         "description": "A tall rabbit who finds everything hilarious, especially other people's suffering. Not malicious — just deeply unbothered.",
         "stats": {"Sanity": 70, "Cruelty": 80, "Humour": 95, "Empathy": 5},
@@ -909,7 +909,7 @@ TADC_CHARACTERS = {
     "ragatha": {
         "name": "Ragatha", "emoji": "🌸", "title": "The Optimist",
         "rarity": "⭐⭐⭐⭐ Epic", "rarity_color": 0xFF69B4,
-        "image_url": "https://static.wikia.nocookie.net/amazingdigitalcircus/images/5/5d/Ragatha.png/revision/latest",
+        "image_url": "https://raw.githubusercontent.com/freakishjack63-art/Amazing-digital-circus/main/images/ragatha.webp",
         "base_atk": 270, "base_hp": 320,
         "description": "A cheerful rag doll who holds everything together with kindness and sheer willpower. Hiding more than she lets on.",
         "stats": {"Sanity": 65, "Kindness": 100, "Resilience": 90, "Honesty": 60},
@@ -920,7 +920,7 @@ TADC_CHARACTERS = {
     "kinger": {
         "name": "Kinger", "emoji": "♟️", "title": "The Veteran",
         "rarity": "⭐⭐⭐⭐⭐ Legendary", "rarity_color": 0xF39C12,
-        "image_url": "https://static.wikia.nocookie.net/amazingdigitalcircus/images/9/9d/Kinger.png/revision/latest",
+        "image_url": "https://raw.githubusercontent.com/freakishjack63-art/Amazing-digital-circus/main/images/kinger.webp",
         "base_atk": 480, "base_hp": 390,
         "description": "A chess king who has been in the circus the longest. Deeply unhinged in the most loveable way. Knows things he won't say.",
         "stats": {"Sanity": 10, "Experience": 100, "Chess Skill": 100, "Memory": 3},
@@ -931,7 +931,7 @@ TADC_CHARACTERS = {
     "gangle": {
         "name": "Gangle", "emoji": "🎭", "title": "The Emotional One",
         "rarity": "⭐⭐⭐ Rare", "rarity_color": 0x3498DB,
-        "image_url": "https://static.wikia.nocookie.net/amazingdigitalcircus/images/4/4c/Gangle.png/revision/latest",
+        "image_url": "https://raw.githubusercontent.com/freakishjack63-art/Amazing-digital-circus/main/images/gangle.jpeg",
         "base_atk": 160, "base_hp": 140,
         "description": "A ribbon-bodied performer with comedy and tragedy masks. The tragedy mask is her real face. The comedy one is coping.",
         "stats": {"Sanity": 50, "Emotion": 100, "Fragility": 90, "Comedy": 40},
@@ -942,7 +942,7 @@ TADC_CHARACTERS = {
     "zooble": {
         "name": "Zooble", "emoji": "🔧", "title": "The Realist",
         "rarity": "⭐⭐⭐ Rare", "rarity_color": 0x2ECC71,
-        "image_url": "https://static.wikia.nocookie.net/amazingdigitalcircus/images/6/64/Zooble.png/revision/latest",
+        "image_url": "https://raw.githubusercontent.com/freakishjack63-art/Amazing-digital-circus/main/images/zooble.jpeg",
         "base_atk": 140, "base_hp": 170,
         "description": "A mismatched collection of parts who is absolutely done with everyone's nonsense. Surprisingly grounded.",
         "stats": {"Sanity": 75, "Patience": 15, "Sarcasm": 100, "Practicality": 95},
