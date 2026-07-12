@@ -984,7 +984,7 @@ class CatchView(discord.ui.View):
         self.char_data_map = char_data_map
         self.catchers: set = set()
 
-    @discord.ui.button(label="🎪 Catch me!", style=discord.ButtonStyle.blurple)
+    @discord.ui.button(label="Catch me", style=discord.ButtonStyle.secondary)
     async def catch_button(self, interaction: discord.Interaction, button: discord.ui.Button):
         uid = interaction.user.id
         if uid in self.catchers:
@@ -1178,6 +1178,41 @@ async def dex(interaction: discord.Interaction, character: str):
     await interaction.response.send_message(embed=embed)
 
 
+def _build_spawn_embed(data: dict) -> discord.Embed:
+    """Ballsdex-style spawn embed — just the character image, nothing else."""
+    image_url = data.get("image_url") or CUSTOM_CHAR_IMAGE
+    embed = discord.Embed(color=data.get("rarity_color", 0xFFD700))
+    embed.set_image(url=image_url)
+    return embed
+
+
+async def _do_auto_spawn():
+    """Pick a random character and post a spawn message in the configured channel."""
+    if not _spawn_channel_id:
+        return
+    channel = bot.get_channel(_spawn_channel_id)
+    if not channel:
+        return
+    all_chars = _all_characters()
+    if not all_chars:
+        return
+    char_key = random.choice(list(all_chars.keys()))
+    data = all_chars[char_key]
+    embed = _build_spawn_embed(data)
+    view = CatchView([char_key], {char_key: data})
+    await channel.send(
+        content=f"A wild **{data['emoji']} {data['name']}** appeared!",
+        embed=embed,
+        view=view,
+    )
+
+
+@tasks.loop(minutes=10)
+async def auto_spawn_task():
+    if _auto_spawn_enabled:
+        await _do_auto_spawn()
+
+
 @bot.tree.command(name="spawn", description="[OWNER ONLY] Spawn character(s) to catch!")
 @app_commands.describe(
     character="Character to spawn (leave empty for random)",
@@ -1208,24 +1243,19 @@ async def spawn(interaction: discord.Interaction, character: str = None, amount:
         pool = [random.choice(list(all_chars.keys())) for _ in range(amount)]
         data = all_chars[pool[0]]
     char_data_map = {k: all_chars[k] for k in set(pool)}
+    embed = _build_spawn_embed(data)
+    view = CatchView(pool, char_data_map)
     if amount == 1:
-        embed = _build_spawn_embed(data)
+        content = f"A wild **{data['emoji']} {data['name']}** appeared!"
     else:
         unique: dict = {}
         for k in pool:
             unique[k] = unique.get(k, 0) + 1
-        lines = "\n".join(
+        parts = ", ".join(
             f"{all_chars[k]['emoji']} **{all_chars[k]['name']}** ×{n}" for k, n in unique.items()
         )
-        embed = discord.Embed(
-            title=f"✨ {amount} performers have appeared!",
-            description=lines,
-            color=data["rarity_color"],
-        )
-        embed.set_image(url=data.get("image_url") or CUSTOM_CHAR_IMAGE)
-        embed.set_footer(text=f"{amount} catches available — be quick! 🎩")
-    view = CatchView(pool, char_data_map)
-    await interaction.response.send_message(embed=embed, view=view)
+        content = f"✨ **{amount} performers appeared!** — {parts}\n*{amount} catches available — be quick!*"
+    await interaction.response.send_message(content=content, embed=embed, view=view)
 
 
 @bot.tree.command(name="collection", description="View your TADC character collection 🎪")
