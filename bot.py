@@ -19,6 +19,7 @@ def _parse_entry(entry, idx: int = 0) -> dict:
     return entry
 
 CUSTOM_CHARS_FILE = "custom_chars.json"
+DATA_FILE          = "data.json"
 
 def _save_custom_chars():
     try:
@@ -39,6 +40,41 @@ def _load_custom_chars():
         print(f"[WARN] Could not load custom chars: {e}")
         _custom_chars = {}
 
+def _save_data():
+    """Persist all mutable bot state (collections, admins, events, stats…) to data.json."""
+    try:
+        payload = {
+            "collections":     {str(k): v for k, v in _collections.items()},
+            "admins":          list(_admins),
+            "blacklisted":     list(_blacklisted),
+            "user_stats":      {str(k): v for k, v in _user_stats.items()},
+            "all_events":      _all_events,
+            "spawn_channel_id": _spawn_channel_id,
+        }
+        with open(DATA_FILE, "w") as f:
+            json.dump(payload, f, indent=2)
+    except Exception as e:
+        print(f"[WARN] Could not save data: {e}")
+
+def _load_data():
+    """Restore mutable bot state from data.json on startup."""
+    global _collections, _admins, _blacklisted, _user_stats, _all_events, _spawn_channel_id
+    try:
+        with open(DATA_FILE, "r") as f:
+            d = json.load(f)
+        _collections     = {int(k): v for k, v in d.get("collections", {}).items()}
+        _admins          = set(d.get("admins", []))
+        _blacklisted     = set(d.get("blacklisted", []))
+        _user_stats      = {int(k): v for k, v in d.get("user_stats", {}).items()}
+        _all_events      = d.get("all_events", [])
+        _spawn_channel_id = d.get("spawn_channel_id")
+        print(f"[INFO] Loaded data.json — {len(_collections)} collectors, "
+              f"{len(_admins)} admins, {len(_all_events)} events.")
+    except FileNotFoundError:
+        print("[INFO] No data.json found — starting fresh.")
+    except Exception as e:
+        print(f"[WARN] Could not load data: {e}")
+
 # ============================================================
 #  BOT TOKEN — stored in Replit Secrets as  BOT_TOKEN
 # ============================================================
@@ -57,6 +93,7 @@ bot = commands.Bot(command_prefix="!", intents=intents)
 @bot.event
 async def on_ready():
     _load_custom_chars()
+    _load_data()
     await bot.tree.sync()
     print(f"The Amazing Digital Circus is open! Logged in as {bot.user}")
     print("Slash commands synced. Bot works in servers and DMs.")
@@ -986,6 +1023,7 @@ class CatchView(discord.ui.View):
         if uid not in _collections:
             _collections[uid] = []
         _collections[uid].append(entry)
+        _save_data()
         atk_str = f"{atk_bonus:+}%"
         hp_str  = f"{hp_bonus:+}%"
         await interaction.response.edit_message(view=self)
@@ -1248,6 +1286,7 @@ async def give(interaction: discord.Interaction, user: discord.Member, character
             "event": None,
         })
     _collections[user.id].extend(new_entries)
+    _save_data()
     qty = f"×{amount:,}" if amount > 1 else ""
     await interaction.response.send_message(
         f"🎩 **Caine gifts** {data['emoji']} **{data['name']}** {qty} to {user.mention}!\n*A generous ringmaster indeed.* 🎪"
@@ -1332,6 +1371,7 @@ async def addevent(interaction: discord.Interaction, name: str, description: str
         return
     event = {"name": name, "description": description, "rare": rare, "active": False, "runs": 0}
     _all_events.append(event)
+    _save_data()
     tag = "🌟 **RARE EVENT**" if rare else "🎪 Standard Event"
     await interaction.response.send_message(
         f"✅ Event **\"{name}\"** created! ({tag})\n"
@@ -1360,6 +1400,7 @@ async def startevent(interaction: discord.Interaction, name: str):
     event["active"] = True
     event["runs"] += 1
     _active_event = event
+    _save_data()
     color = 0xFFD700 if event["rare"] else 0xFF6B6B
     tag = "🌟" if event["rare"] else "🎪"
     embed = discord.Embed(
@@ -1385,6 +1426,7 @@ async def endevent(interaction: discord.Interaction):
     name = _active_event["name"]
     _active_event["active"] = False
     _active_event = None
+    _save_data()
     await interaction.response.send_message(
         f"🎩 **\"{name}\"** has ended!\n"
         f"It's saved — use `/startevent {name}` to run it again anytime. 🎪"
@@ -1421,17 +1463,31 @@ async def events_cmd(interaction: discord.Interaction):
 #  TRADE SYSTEM  (Ballsdex-style, TADC themed)
 # ════════════════════════════════════════════════════════════
 
+def _col_has_key(col: list, key: str) -> bool:
+    """Check if a collection (list of dicts) contains an entry with the given character key."""
+    return any(_parse_entry(e, i).get("key") == key for i, e in enumerate(col))
+
+def _col_pop_key(col: list, key: str) -> dict | None:
+    """Remove and return the first entry matching key, or None if not found."""
+    for i, e in enumerate(col):
+        entry = _parse_entry(e, i)
+        if entry.get("key") == key:
+            col.pop(i)
+            return entry
+    return None
+
+
 class TradeView(discord.ui.View):
     def __init__(self, initiator: discord.Member, target: discord.Member,
-                 offer_key: str, want_key: str, offer_data: dict, want_data: dict):
+                 offer_entry: dict, want_key: str, offer_data: dict, want_data: dict):
         super().__init__(timeout=120)
-        self.initiator_id = initiator.id
-        self.target_id = target.id
-        self.offer_key = offer_key
-        self.want_key = want_key
-        self.offer_data = offer_data
-        self.want_data = want_data
-        self.completed = False
+        self.initiator_id  = initiator.id
+        self.target_id     = target.id
+        self.offer_entry   = offer_entry   # full dict that will physically move
+        self.want_key      = want_key
+        self.offer_data    = offer_data
+        self.want_data     = want_data
+        self.completed     = False
 
     @discord.ui.button(label="✅ Accept Trade", style=discord.ButtonStyle.green)
     async def accept_trade(self, interaction: discord.Interaction, button: discord.ui.Button):
@@ -1446,8 +1502,10 @@ class TradeView(discord.ui.View):
             )
             return
         initiator_col = _collections.get(self.initiator_id, [])
-        target_col = _collections.get(self.target_id, [])
-        if self.offer_key not in initiator_col:
+        target_col    = _collections.get(self.target_id,    [])
+        # Re-verify the offered entry still exists (initiator may have traded it away)
+        offer_key     = self.offer_entry.get("key", "")
+        if not _col_has_key(initiator_col, offer_key):
             self.completed = True
             self.stop()
             for item in self.children:
@@ -1459,24 +1517,29 @@ class TradeView(discord.ui.View):
             )
             await interaction.response.edit_message(embed=fail_embed, view=self)
             return
-        if self.want_key not in target_col:
+        want_entry = _col_pop_key(target_col, self.want_key)
+        if want_entry is None:
             await interaction.response.send_message(
-                f"🎩 You don't have {self.want_data['emoji']} **{self.want_data['name']}** in your collection to trade!", ephemeral=True
+                f"🎩 You don't have {self.want_data['emoji']} **{self.want_data['name']}** in your collection to trade!",
+                ephemeral=True
             )
             return
-        initiator_col.remove(self.offer_key)
-        initiator_col.append(self.want_key)
-        target_col.remove(self.want_key)
-        target_col.append(self.offer_key)
+        # Remove offered entry from initiator and hand to target; hand want_entry to initiator
+        _col_pop_key(initiator_col, offer_key)
+        initiator_col.append(want_entry)
+        target_col.append(self.offer_entry)
         self.completed = True
         self.stop()
         for item in self.children:
             item.disabled = True
+        _save_data()
+        offer_id = self.offer_entry.get("id", "?")
+        want_id  = want_entry.get("id", "?")
         success_embed = discord.Embed(
             title="🤝 Trade Complete! The circus approves!",
             description=(
-                f"{self.offer_data['emoji']} **{self.offer_data['name']}** ➜ went to <@{self.target_id}>\n"
-                f"{self.want_data['emoji']} **{self.want_data['name']}** ➜ went to <@{self.initiator_id}>"
+                f"{self.offer_data['emoji']} **{self.offer_data['name']}** `#{offer_id}` ➜ <@{self.target_id}>\n"
+                f"{self.want_data['emoji']} **{self.want_data['name']}** `#{want_id}` ➜ <@{self.initiator_id}>"
             ),
             color=0x2ECC71
         )
@@ -1557,18 +1620,22 @@ async def trade(interaction: discord.Interaction, user: discord.Member, offer: s
         )
         return
     my_col = _collections.get(interaction.user.id, [])
-    if offer_key not in my_col:
+    if not _col_has_key(my_col, offer_key):
         await interaction.response.send_message(
             f"🎩 You don't have {offer_data['emoji']} **{offer_data['name']}** in your collection to offer!", ephemeral=True
         )
         return
     their_col = _collections.get(user.id, [])
-    if want_key not in their_col:
+    if not _col_has_key(their_col, want_key):
         await interaction.response.send_message(
             f"🎩 {user.display_name} doesn't have {want_data['emoji']} **{want_data['name']}** to trade!", ephemeral=True
         )
         return
-    view = TradeView(interaction.user, user, offer_key, want_key, offer_data, want_data)
+    # Grab the actual entry dict that will be moved on accept
+    offer_entry = next(
+        (_parse_entry(e, i) for i, e in enumerate(my_col) if _parse_entry(e, i).get("key") == offer_key), {}
+    )
+    view = TradeView(interaction.user, user, offer_entry, want_key, offer_data, want_data)
     embed = discord.Embed(
         title=f"🎪 {interaction.user.display_name}'s Trade Proposal",
         description=f"Hey {user.mention}, **{interaction.user.display_name}** is proposing a trade!",
@@ -1862,6 +1929,7 @@ async def addadmin(interaction: discord.Interaction, user: discord.Member):
         await interaction.response.send_message("🎩 Bots can't be admins!", ephemeral=True)
         return
     _admins.add(user.id)
+    _save_data()
     await interaction.response.send_message(
         f"🎩 **{user.display_name}** is now a circus admin! They can use owner-level commands. 🎪"
     )
@@ -1877,6 +1945,7 @@ async def removeadmin(interaction: discord.Interaction, user: discord.Member):
         await interaction.response.send_message(f"🎩 **{user.display_name}** isn't an admin!", ephemeral=True)
         return
     _admins.discard(user.id)
+    _save_data()
     await interaction.response.send_message(
         f"🎩 **{user.display_name}**'s admin status has been removed. 🎪"
     )
@@ -1916,6 +1985,7 @@ async def blacklist_cmd(interaction: discord.Interaction, user: discord.Member):
         await interaction.response.send_message("🎩 Bots aren't circus performers to ban!", ephemeral=True)
         return
     _blacklisted.add(user.id)
+    _save_data()
     await interaction.response.send_message(
         f"🚫 **{user.display_name}** has been removed from the circus. They can no longer use bot commands. 🎪"
     )
@@ -1931,6 +2001,7 @@ async def unblacklist_cmd(interaction: discord.Interaction, user: discord.Member
         await interaction.response.send_message(f"🎩 **{user.display_name}** isn't blacklisted!", ephemeral=True)
         return
     _blacklisted.discard(user.id)
+    _save_data()
     await interaction.response.send_message(
         f"✅ **{user.display_name}** has been welcomed back to the circus! 🎪"
     )
@@ -1949,6 +2020,7 @@ async def setstrength(interaction: discord.Interaction, text: str):
     if interaction.user.id not in _user_stats:
         _user_stats[interaction.user.id] = {}
     _user_stats[interaction.user.id]["strength"] = text
+    _save_data()
     await interaction.response.send_message(
         f"💪 Battle strength set: **{text}**\nThis will now appear when you fight! ⚔️", ephemeral=True
     )
@@ -1963,6 +2035,7 @@ async def setweakness(interaction: discord.Interaction, text: str):
     if interaction.user.id not in _user_stats:
         _user_stats[interaction.user.id] = {}
     _user_stats[interaction.user.id]["weakness"] = text
+    _save_data()
     await interaction.response.send_message(
         f"💀 Battle weakness set: **{text}**\nThis will now appear when you fight! ⚔️", ephemeral=True
     )
@@ -2055,6 +2128,7 @@ class BossView(discord.ui.View):
                 if a_id not in _collections:
                     _collections[a_id] = []
                 _collections[a_id].append(entry)
+                _save_data()
                 try:
                     u    = bot.get_user(a_id) or await bot.fetch_user(a_id)
                     name = u.display_name
@@ -2190,6 +2264,7 @@ async def setspawnchannel(interaction: discord.Interaction, channel: discord.Tex
         await interaction.response.send_message("🎩 Owner only!", ephemeral=True)
         return
     _spawn_channel_id = channel.id
+    _save_data()
     await interaction.response.send_message(
         f"✅ Spawn channel set to {channel.mention}!\nUse `/togglespawn` to turn auto-spawning on. 🎪"
     )
