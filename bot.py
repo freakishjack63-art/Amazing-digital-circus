@@ -923,6 +923,9 @@ _active_event: dict = None
 _auto_spawn_enabled: bool = False
 _spawn_channel_id: int = None
 _custom_commands: dict = {}
+_admins: set = set()
+_blacklisted: set = set()
+_user_stats: dict = {}   # uid -> {"strength": str, "weakness": str}
 
 RARITY_MAP = {
     "common":    ("⭐ Common",              0xAAAAAA, 80,  80),
@@ -1095,6 +1098,18 @@ def _all_characters() -> dict:
 def _is_owner(interaction: discord.Interaction) -> bool:
     return interaction.user.id == OWNER_ID
 
+def _is_admin(interaction: discord.Interaction) -> bool:
+    return interaction.user.id == OWNER_ID or interaction.user.id in _admins
+
+@bot.tree.interaction_check
+async def global_blacklist_check(interaction: discord.Interaction) -> bool:
+    if interaction.user.id in _blacklisted:
+        await interaction.response.send_message(
+            "🎩 You've been removed from the circus by the ringmaster. 🚫", ephemeral=True
+        )
+        return False
+    return True
+
 
 @bot.tree.command(name="dex", description="Look up any character in the circus dex 📖")
 @app_commands.describe(character="Character name (type their name)")
@@ -1155,14 +1170,8 @@ async def spawn(interaction: discord.Interaction, character: str = None, amount:
         pool = [random.choice(list(all_chars.keys())) for _ in range(amount)]
         data = all_chars[pool[0]]
     char_data_map = {k: all_chars[k] for k in set(pool)}
-    event_color = (0xFFD700 if _active_event and _active_event["rare"] else 0xFF6B6B) if _active_event else data["rarity_color"]
-    event_banner = (
-        f"\n\n🌟 **{_active_event['name']} EVENT!**\n*{_active_event['description']}*"
-    ) if _active_event else ""
     if amount == 1:
-        title = "A wild performer has appeared!"
-        desc  = f"*\"{data['quote']}\"*{event_banner}"
-        img   = data.get("image_url") or CUSTOM_CHAR_IMAGE
+        embed = _build_spawn_embed(data)
     else:
         unique: dict = {}
         for k in pool:
@@ -1170,15 +1179,13 @@ async def spawn(interaction: discord.Interaction, character: str = None, amount:
         lines = "\n".join(
             f"{all_chars[k]['emoji']} **{all_chars[k]['name']}** ×{n}" for k, n in unique.items()
         )
-        title = f"{amount} performers have appeared!"
-        desc  = f"{lines}{event_banner}"
-        img   = data.get("image_url") or CUSTOM_CHAR_IMAGE
-    embed = discord.Embed(title=title, description=desc, color=event_color)
-    embed.set_image(url=img)
-    if amount == 1:
-        embed.add_field(name=f"{data['emoji']} {data['name']}", value=data["rarity"], inline=True)
-        embed.add_field(name="🎭 Title", value=data["title"], inline=True)
-    embed.set_footer(text=f"{'First to catch wins' if amount == 1 else f'{amount} catches available'} 🎩")
+        embed = discord.Embed(
+            title=f"✨ {amount} performers have appeared!",
+            description=lines,
+            color=data["rarity_color"],
+        )
+        embed.set_image(url=data.get("image_url") or CUSTOM_CHAR_IMAGE)
+        embed.set_footer(text=f"{amount} catches available — be quick! 🎩")
     view = CatchView(pool, char_data_map)
     await interaction.response.send_message(embed=embed, view=view)
 
@@ -1708,15 +1715,26 @@ class BattlePickView(discord.ui.View):
             description="\n".join(shown_log),
             color=color,
         )
+        a_stats = _user_stats.get(self.fighter_a.id, {})
+        b_stats = _user_stats.get(self.fighter_b.id, {})
+        a_str = a_stats.get("strength", "")
+        a_wk  = a_stats.get("weakness", "")
+        b_str = b_stats.get("strength", "")
+        b_wk  = b_stats.get("weakness", "")
+        def _stat_lines(strength, weakness):
+            parts = []
+            if strength: parts.append(f"💪 *{strength}*")
+            if weakness: parts.append(f"💀 *{weakness}*")
+            return "\n".join(parts) if parts else "\u200b"
         embed.add_field(
             name=f"{a_data['emoji']} {self.fighter_a.display_name}",
-            value=f"`#{a_entry['id']}` **{a_data['name']}**\nATK {a_atk} • HP {a_hp}",
+            value=f"`#{a_entry['id']}` **{a_data['name']}**\nATK {a_atk} • HP {a_hp}\n{_stat_lines(a_str, a_wk)}",
             inline=True,
         )
         embed.add_field(name="⚔️ VS", value="\u200b", inline=True)
         embed.add_field(
             name=f"{b_data['emoji']} {self.fighter_b.display_name}",
-            value=f"`#{b_entry['id']}` **{b_data['name']}**\nATK {b_atk} • HP {b_hp}",
+            value=f"`#{b_entry['id']}` **{b_data['name']}**\nATK {b_atk} • HP {b_hp}\n{_stat_lines(b_str, b_wk)}",
             inline=True,
         )
         embed.set_footer(text=footer)
@@ -1828,6 +1846,280 @@ async def battle(interaction: discord.Interaction, user: discord.Member):
 
 
 # ════════════════════════════════════════════════════════════
+#  ADMIN SYSTEM  (owner-only management)
+# ════════════════════════════════════════════════════════════
+
+@bot.tree.command(name="addadmin", description="[OWNER] Promote a user to circus admin")
+@app_commands.describe(user="User to make an admin")
+async def addadmin(interaction: discord.Interaction, user: discord.Member):
+    if not _is_owner(interaction):
+        await interaction.response.send_message("🎩 Only the ringmaster can appoint admins!", ephemeral=True)
+        return
+    if user.id == OWNER_ID:
+        await interaction.response.send_message("🎩 You're already the ringmaster!", ephemeral=True)
+        return
+    if user.bot:
+        await interaction.response.send_message("🎩 Bots can't be admins!", ephemeral=True)
+        return
+    _admins.add(user.id)
+    await interaction.response.send_message(
+        f"🎩 **{user.display_name}** is now a circus admin! They can use owner-level commands. 🎪"
+    )
+
+
+@bot.tree.command(name="removeadmin", description="[OWNER] Remove a user's admin status")
+@app_commands.describe(user="User to demote")
+async def removeadmin(interaction: discord.Interaction, user: discord.Member):
+    if not _is_owner(interaction):
+        await interaction.response.send_message("🎩 Only the ringmaster can demote admins!", ephemeral=True)
+        return
+    if user.id not in _admins:
+        await interaction.response.send_message(f"🎩 **{user.display_name}** isn't an admin!", ephemeral=True)
+        return
+    _admins.discard(user.id)
+    await interaction.response.send_message(
+        f"🎩 **{user.display_name}**'s admin status has been removed. 🎪"
+    )
+
+
+@bot.tree.command(name="listadmins", description="List all current circus admins")
+async def listadmins(interaction: discord.Interaction):
+    if not _admins:
+        await interaction.response.send_message("🎩 No admins yet! Owner can add one with `/addadmin`. 🎪", ephemeral=True)
+        return
+    lines = []
+    for uid in _admins:
+        try:
+            u = bot.get_user(uid) or await bot.fetch_user(uid)
+            lines.append(f"🎩 {u.display_name}")
+        except Exception:
+            lines.append(f"🎩 `#{uid}`")
+    embed = discord.Embed(title="🎪 Circus Admins", description="\n".join(lines), color=0xFFD700)
+    embed.set_footer(text="Admins can use boss fights, spawn, and moderation commands.")
+    await interaction.response.send_message(embed=embed)
+
+
+# ════════════════════════════════════════════════════════════
+#  BLACKLIST SYSTEM  (owner + admin)
+# ════════════════════════════════════════════════════════════
+
+@bot.tree.command(name="blacklist", description="[ADMIN] Ban a user from using the bot")
+@app_commands.describe(user="User to blacklist")
+async def blacklist_cmd(interaction: discord.Interaction, user: discord.Member):
+    if not _is_admin(interaction):
+        await interaction.response.send_message("🎩 Admin only!", ephemeral=True)
+        return
+    if user.id == OWNER_ID or user.id in _admins:
+        await interaction.response.send_message("🎩 You can't blacklist an admin or the owner!", ephemeral=True)
+        return
+    if user.bot:
+        await interaction.response.send_message("🎩 Bots aren't circus performers to ban!", ephemeral=True)
+        return
+    _blacklisted.add(user.id)
+    await interaction.response.send_message(
+        f"🚫 **{user.display_name}** has been removed from the circus. They can no longer use bot commands. 🎪"
+    )
+
+
+@bot.tree.command(name="unblacklist", description="[ADMIN] Restore a user's access to the bot")
+@app_commands.describe(user="User to unblacklist")
+async def unblacklist_cmd(interaction: discord.Interaction, user: discord.Member):
+    if not _is_admin(interaction):
+        await interaction.response.send_message("🎩 Admin only!", ephemeral=True)
+        return
+    if user.id not in _blacklisted:
+        await interaction.response.send_message(f"🎩 **{user.display_name}** isn't blacklisted!", ephemeral=True)
+        return
+    _blacklisted.discard(user.id)
+    await interaction.response.send_message(
+        f"✅ **{user.display_name}** has been welcomed back to the circus! 🎪"
+    )
+
+
+# ════════════════════════════════════════════════════════════
+#  BATTLE STATS  (set personal strength / weakness)
+# ════════════════════════════════════════════════════════════
+
+@bot.tree.command(name="setstrength", description="Set your battle strength description (shown in battles!)")
+@app_commands.describe(text="Your fighter's strength (e.g. 'Fast attacker', 'Never gives up')")
+async def setstrength(interaction: discord.Interaction, text: str):
+    if len(text) > 60:
+        await interaction.response.send_message("🎩 Keep it under 60 characters!", ephemeral=True)
+        return
+    if interaction.user.id not in _user_stats:
+        _user_stats[interaction.user.id] = {}
+    _user_stats[interaction.user.id]["strength"] = text
+    await interaction.response.send_message(
+        f"💪 Battle strength set: **{text}**\nThis will now appear when you fight! ⚔️", ephemeral=True
+    )
+
+
+@bot.tree.command(name="setweakness", description="Set your battle weakness description (shown in battles!)")
+@app_commands.describe(text="Your fighter's weakness (e.g. 'Slow starter', 'Freezes under pressure')")
+async def setweakness(interaction: discord.Interaction, text: str):
+    if len(text) > 60:
+        await interaction.response.send_message("🎩 Keep it under 60 characters!", ephemeral=True)
+        return
+    if interaction.user.id not in _user_stats:
+        _user_stats[interaction.user.id] = {}
+    _user_stats[interaction.user.id]["weakness"] = text
+    await interaction.response.send_message(
+        f"💀 Battle weakness set: **{text}**\nThis will now appear when you fight! ⚔️", ephemeral=True
+    )
+
+
+@bot.tree.command(name="mystats", description="View your current battle strength and weakness")
+async def mystats(interaction: discord.Interaction):
+    stats = _user_stats.get(interaction.user.id, {})
+    strength = stats.get("strength", "*Not set — use `/setstrength`*")
+    weakness = stats.get("weakness", "*Not set — use `/setweakness`*")
+    embed = discord.Embed(
+        title=f"⚔️ {interaction.user.display_name}'s Battle Profile",
+        color=0x9B59B6,
+    )
+    embed.add_field(name="💪 Strength", value=strength, inline=False)
+    embed.add_field(name="💀 Weakness", value=weakness, inline=False)
+    embed.set_footer(text="Stats appear in battle results for everyone to see! 🎪")
+    await interaction.response.send_message(embed=embed)
+
+
+# ════════════════════════════════════════════════════════════
+#  BOSS FIGHT SYSTEM  (owner + admin only)
+# ════════════════════════════════════════════════════════════
+
+class BossView(discord.ui.View):
+    def __init__(self, boss_name: str, boss_emoji: str, max_hp: int, reward_key: str, reward_data: dict):
+        super().__init__(timeout=300)
+        self.boss_name   = boss_name
+        self.boss_emoji  = boss_emoji
+        self.max_hp      = max_hp
+        self.current_hp  = max_hp
+        self.reward_key  = reward_key
+        self.reward_data = reward_data
+        self.attackers: dict = {}   # uid -> total dmg
+        self.defeated    = False
+
+    def _hp_bar(self) -> str:
+        ratio  = max(0, self.current_hp / self.max_hp)
+        filled = round(ratio * 12)
+        return f"{'█' * filled}{'░' * (12 - filled)}  `{self.current_hp:,}/{self.max_hp:,} HP`"
+
+    def _build_embed(self, latest: str = "") -> discord.Embed:
+        pct   = self.current_hp / self.max_hp
+        color = 0xFF0000 if pct > 0.5 else (0xFF6600 if pct > 0.25 else 0xFFAA00)
+        desc  = f"**{self._hp_bar()}**"
+        if latest:
+            desc += f"\n\n{latest}"
+        embed = discord.Embed(
+            title=f"⚠️ BOSS FIGHT: {self.boss_emoji} {self.boss_name}!",
+            description=desc,
+            color=color,
+        )
+        embed.add_field(
+            name="🏆 Reward",
+            value=f"{self.reward_data['emoji']} **{self.reward_data['name']}** for all who deal damage!",
+            inline=True,
+        )
+        embed.add_field(name="⚔️ Attackers", value=str(len(self.attackers)), inline=True)
+        embed.set_footer(text="Click ⚔️ Attack! to deal damage — everyone who attacks earns a reward! 🎪")
+        return embed
+
+    @discord.ui.button(label="⚔️ Attack!", style=discord.ButtonStyle.red, emoji="⚔️")
+    async def attack_boss(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if self.defeated:
+            await interaction.response.send_message("🎩 The boss is already defeated!", ephemeral=True)
+            return
+        uid  = interaction.user.id
+        dmg  = random.randint(15, 60)
+        self.current_hp            = max(0, self.current_hp - dmg)
+        self.attackers[uid]        = self.attackers.get(uid, 0) + dmg
+        latest = f"**{interaction.user.display_name}** dealt **{dmg}** damage! 🗡️"
+        if self.current_hp <= 0:
+            self.defeated = True
+            self.stop()
+            button.disabled = True
+            button.label    = "Defeated! 💀"
+            # Give reward to every attacker
+            all_chars = _all_characters()
+            now       = datetime.now().strftime("%Y/%m/%d | %H:%M")
+            winner_lines = []
+            for a_id, dmg_dealt in sorted(self.attackers.items(), key=lambda x: x[1], reverse=True):
+                entry = {
+                    "key":       self.reward_key,
+                    "id":        generate_char_id(),
+                    "atk_bonus": random.randint(0, 25),   # Boss rewards always positive!
+                    "hp_bonus":  random.randint(0, 25),
+                    "caught":    now,
+                    "event":     "Boss Reward",
+                }
+                if a_id not in _collections:
+                    _collections[a_id] = []
+                _collections[a_id].append(entry)
+                try:
+                    u    = bot.get_user(a_id) or await bot.fetch_user(a_id)
+                    name = u.display_name
+                except Exception:
+                    name = f"#{a_id}"
+                winner_lines.append(f"🏆 **{name}** — {dmg_dealt:,} total dmg")
+            top5 = "\n".join(winner_lines[:5])
+            if len(winner_lines) > 5:
+                top5 += f"\n*…and {len(winner_lines)-5} more!*"
+            embed = discord.Embed(
+                title=f"💀 {self.boss_emoji} {self.boss_name} has been DEFEATED!",
+                description=(
+                    f"**{len(self.attackers)} heroes** brought down the boss!\n\n"
+                    f"**Top attackers:**\n{top5}\n\n"
+                    f"Everyone who attacked received a "
+                    f"{self.reward_data['emoji']} **{self.reward_data['name']}**! 🎉"
+                ),
+                color=0x2ECC71,
+            )
+            embed.set_footer(text="Check your /collection to see your boss reward! 🎪")
+            await interaction.response.edit_message(embed=embed, view=self)
+        else:
+            await interaction.response.edit_message(embed=self._build_embed(latest), view=self)
+
+    async def on_timeout(self):
+        self.attack_boss.disabled = True
+        self.attack_boss.label    = "Time's up! ⏰"
+
+
+@bot.tree.command(name="bossfight", description="[ADMIN] Spawn a boss fight that the whole server can join!")
+@app_commands.describe(
+    name="Boss name",
+    emoji="Boss emoji",
+    hp="Boss HP (suggested: 500–5000)",
+    reward="Reward character key (e.g. caine, pomni, kinger)",
+)
+async def bossfight(interaction: discord.Interaction, name: str, emoji: str, hp: int, reward: str):
+    if not _is_admin(interaction):
+        await interaction.response.send_message("🎩 Only admins can start boss fights!", ephemeral=True)
+        return
+    all_chars  = _all_characters()
+    reward_key = next(
+        (k for k, v in all_chars.items() if k == reward.lower() or v["name"].lower() == reward.lower()), None
+    )
+    if not reward_key:
+        names = ", ".join(f"`{v['name']}`" for v in all_chars.values())
+        await interaction.response.send_message(f"🎩 Unknown reward character! Try: {names}", ephemeral=True)
+        return
+    hp = max(100, min(hp, 50000))
+    reward_data = all_chars[reward_key]
+    view  = BossView(name, emoji, hp, reward_key, reward_data)
+    embed = view._build_embed()
+    embed.description = (
+        f"**{view._hp_bar()}**\n\n"
+        f"*The boss has appeared! Everyone attack to earn a "
+        f"{reward_data['emoji']} **{reward_data['name']}**!*"
+    )
+    await interaction.response.send_message(
+        content="@everyone ⚠️ A boss has appeared! Attack now!",
+        embed=embed,
+        view=view,
+    )
+
+
+# ════════════════════════════════════════════════════════════
 #  HELP
 # ════════════════════════════════════════════════════════════
 
@@ -1841,52 +2133,18 @@ async def help_command(interaction: discord.Interaction):
     embed.add_field(name="🎭 Characters", value="`/pomni` `/caine` `/jax` `/gangle` `/ragatha` `/kinger` `/zooble`", inline=False)
     embed.add_field(name="🎪 Fun",        value="`/abstract [@user]` `/game` `/fortune` `/rate <thing>` `/trivia` `/8ball <question>`", inline=False)
     embed.add_field(name="🎯 Target",     value="`/roast @user` `/clown @user` `/bubble @user` `/ship @user1 @user2`", inline=False)
-    embed.add_field(name="📖 Dex",        value="`/dex <character>` — full character stats & info\n`/listchars` — all characters in the pool\n`/collection [@user]` — paginated Ballsdex-style collection", inline=False)
-    embed.add_field(name="⚔️ Battle",     value="`/battle @user` — challenge someone to a TADC character battle!\n*(Pick your fighter from your collection — turn-based, stats decide!)*", inline=False)
-    embed.add_field(name="🤝 Trading",    value="`/trade @user offer:<char> want:<char>` — propose a TADC-style trade!\n*(Both users must own the characters being traded)*", inline=False)
-    embed.add_field(name="🎟️ Events",     value="`/events` — see all events (past & active)\n*(Owner: `/addevent` `/startevent` `/endevent` `/addchar` `/spawn [char] [amount]` `/give @user char [amount]`)*", inline=False)
+    embed.add_field(name="📖 Dex",        value="`/dex <character>` • `/listchars` • `/collection [@user]`", inline=False)
+    embed.add_field(name="⚔️ Battle",     value="`/battle @user` — challenge to a character battle!\n`/setstrength <text>` `/setweakness <text>` `/mystats` — your fighter profile", inline=False)
+    embed.add_field(name="💀 Boss Fights", value="`/bossfight` — *Admin only* — spawn a server-wide boss everyone can attack for rewards!", inline=False)
+    embed.add_field(name="🤝 Trading",    value="`/trade @user offer:<char> want:<char>` — propose a character trade", inline=False)
+    embed.add_field(name="🎟️ Events",     value="`/events` — see all events\n*(Admin: `/addevent` `/startevent` `/endevent`)*", inline=False)
+    embed.add_field(name="🎪 Spawning",   value="`/togglespawn` — turn auto-spawning on/off (anyone!)\n*(Admin: `/setspawnchannel` `/spawn` `/give @user char`)*", inline=False)
     embed.add_field(name="🏆 Leaderboard", value="`/leaderboard` — top collectors in the circus!", inline=False)
     embed.add_field(name="💬 Chat",       value="`/chat <message>` — talk to Caine in character!", inline=False)
-    embed.add_field(name="🔊 Voice",      value="`/joinvc` — Caine joins your VC\n`/leavevc` — Caine dramatically exits", inline=False)
-    embed.add_field(name="📋 Custom",     value="`/listcmds` — see custom commands\n*(Owner: `/addcmd` `/setspawnchannel` `/togglespawn`)*", inline=False)
-    embed.add_field(name="ℹ️ Info",       value="`/hello` `/circus` `/help`", inline=False)
-    embed.set_footer(text="Every day is a new adventure. (You can't leave.)")
+    embed.add_field(name="🔊 Voice",      value="`/joinvc` `/leavevc`", inline=False)
+    embed.add_field(name="🛡️ Admin",      value="*(Owner: `/addadmin` `/removeadmin` `/listadmins`)*\n*(Admin: `/blacklist @user` `/unblacklist @user`)*\n*(Owner: `/addchar` `/addcmd` `/removecmd`)*", inline=False)
+    embed.set_footer(text="Every day is a new adventure. (You can't leave.) 🎪")
     await interaction.response.send_message(embed=embed)
-
-
-# ════════════════════════════════════════════════════════════
-#  AUTO-SPAWN TASK (every 10 minutes when enabled)
-# ════════════════════════════════════════════════════════════
-
-@tasks.loop(minutes=10)
-async def auto_spawn_task():
-    if not _auto_spawn_enabled or not _spawn_channel_id:
-        return
-    channel = bot.get_channel(_spawn_channel_id)
-    if not channel:
-        return
-    all_chars = _all_characters()
-    char_key = random.choice(list(all_chars.keys()))
-    data = all_chars[char_key]
-    # Events show on ~20% of auto-spawns to keep them feeling special
-    show_event = _active_event and random.random() < 0.20
-    if show_event:
-        event_color = 0xFFD700 if _active_event.get("rare") else 0xFF6B6B
-        event_banner = f"\n\n🌟 **{_active_event['name']} EVENT!**\n*{_active_event['description']}*"
-    else:
-        event_color = data["rarity_color"]
-        event_banner = ""
-    embed = discord.Embed(
-        title="A wild performer has appeared!",
-        description=f"*\"{data['quote']}\"*{event_banner}",
-        color=event_color
-    )
-    embed.set_image(url=data.get("image_url") or CUSTOM_CHAR_IMAGE)
-    embed.add_field(name=f"{data['emoji']} {data['name']}", value=data["rarity"], inline=True)
-    embed.add_field(name="🎭 Title", value=data["title"], inline=True)
-    embed.set_footer(text="Auto-spawn 🎩 • First to catch wins!")
-    view = CatchView([char_key], {char_key: data})
-    await channel.send(embed=embed, view=view)
 
 
 # ════════════════════════════════════════════════════════════
@@ -1937,15 +2195,12 @@ async def setspawnchannel(interaction: discord.Interaction, channel: discord.Tex
     )
 
 
-@bot.tree.command(name="togglespawn", description="[OWNER] Turn auto-spawning on or off (spawns every 10 min)")
+@bot.tree.command(name="togglespawn", description="Turn auto-spawning on or off (anyone can use!)")
 async def togglespawn(interaction: discord.Interaction):
     global _auto_spawn_enabled
-    if not _is_owner(interaction):
-        await interaction.response.send_message("🎩 Owner only!", ephemeral=True)
-        return
     if not _spawn_channel_id:
         await interaction.response.send_message(
-            "🎩 Set a spawn channel first with `/setspawnchannel`!", ephemeral=True
+            "🎩 No spawn channel set yet! An admin must use `/setspawnchannel` first.", ephemeral=True
         )
         return
     _auto_spawn_enabled = not _auto_spawn_enabled
@@ -1954,9 +2209,10 @@ async def togglespawn(interaction: discord.Interaction):
             auto_spawn_task.start()
         channel = bot.get_channel(_spawn_channel_id)
         await interaction.response.send_message(
-            f"✅ **Auto-spawn is ON!** 🎪\nA performer will appear in {channel.mention} every **10 minutes**.\n"
-            f"{'🌟 Event bonus active — spawns may carry event rewards!' if _active_event else ''}"
+            f"✅ **Auto-spawn is ON!** 🎪\nA performer appears in {channel.mention} every **10 minutes**.\n"
+            f"*Spawning one right now...*"
         )
+        await _do_auto_spawn()
     else:
         if auto_spawn_task.is_running():
             auto_spawn_task.cancel()
