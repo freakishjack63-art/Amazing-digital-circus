@@ -8,6 +8,22 @@
         "hp_bonus": 21,
         "caught": "2026/07/12 | 19:25",
         "event": null
+      },
+      {
+        "key": "kinger",
+        "id": "AD1A9C0",
+        "atk_bonus": 23,
+        "hp_bonus": 13,
+        "caught": "2026/07/13 | 16:46",
+        "event": null
+      },
+      {
+        "key": "gangle",
+        "id": "3FB5C2E",
+        "atk_bonus": -12,
+        "hp_bonus": -15,
+        "caught": "2026/07/13 | 16:57",
+        "event": null
       }
     ],
     "1187437240910106816": [
@@ -8018,5 +8034,5 @@
   "user_stats": {},
   "all_events": [],
   "spawn_channel_id": 1517606755918676143,
-  "auto_spawn_enabled": false
+  "auto_spawn_enabled": true
 }
