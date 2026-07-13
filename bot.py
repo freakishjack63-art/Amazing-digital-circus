@@ -9,7 +9,7 @@ from discord import app_commands
 from discord.ext import commands, tasks
 from keep_alive import keep_alive
 
-GITHUB_TOKEN     = os.environ.get("GITHUB_TOKEN", "")
+GITHUB_TOKEN     = os.environ.get("GITHUB_TOKEN") or os.environ.get("GITHUB_PERSONAL_ACCESS_TOKEN", "")
 GITHUB_REPO      = "freakishjack63-art/Amazing-digital-circus"
 GITHUB_DATA_PATH = "backup/data.json"
 
@@ -46,8 +46,11 @@ def _load_custom_chars():
         print(f"[WARN] Could not load custom chars: {e}")
         _custom_chars = {}
 
+_pending_backup: bool = False
+
 def _save_data():
     """Persist all mutable bot state (collections, admins, events, stats…) to data.json."""
+    global _pending_backup
     try:
         payload = {
             "collections":        {str(k): v for k, v in _collections.items()},
@@ -60,6 +63,7 @@ def _save_data():
         }
         with open(DATA_FILE, "w") as f:
             json.dump(payload, f, indent=2)
+        _pending_backup = True  # signal backup task to push to GitHub ASAP
     except Exception as e:
         print(f"[WARN] Could not save data: {e}")
 
@@ -1056,7 +1060,7 @@ class CatchView(discord.ui.View):
         self.char_data_map = char_data_map
         self.catchers: set = set()
 
-    @discord.ui.button(label="Catch me", style=discord.ButtonStyle.secondary)
+    @discord.ui.button(label="🎩 Catch!", style=discord.ButtonStyle.success)
     async def catch_button(self, interaction: discord.Interaction, button: discord.ui.Button):
         uid = interaction.user.id
         if uid in self.catchers:
@@ -1099,24 +1103,14 @@ class CatchView(discord.ui.View):
         atk_str = f"{atk_bonus:+}%"
         hp_str  = f"{hp_bonus:+}%"
         await interaction.response.edit_message(view=self)
+        card = _build_catch_card(char_data, entry, interaction.user.display_name)
         if already_had:
-            status_line = f"Added to your collection again! *(you already have a {char_data['name']})*"
+            header = f"{interaction.user.mention} caught **{char_data['name']}** again! *(duplicate)*"
         else:
-            status_line = f"🎉 **New character added to your collection!**"
+            header = f"🎉 {interaction.user.mention} caught a new performer — **{char_data['name']}**!"
         if _active_event:
-            msg = (
-                f"{interaction.user.mention}, **{char_data['name']}** secured! "
-                f"(`#{char_id}` {atk_str}/{hp_str})\n"
-                f"{status_line}\n"
-                f"🌟 *{_active_event['description']}*"
-            )
-        else:
-            msg = (
-                f"{interaction.user.mention}, **{char_data['name']}** secured! "
-                f"(`#{char_id}` {atk_str}/{hp_str})\n"
-                f"{status_line}"
-            )
-        await interaction.followup.send(msg)
+            header += f"\n🌟 *{_active_event['description']}*"
+        await interaction.followup.send(content=header, embed=card)
 
     async def on_timeout(self):
         for item in self.children:
@@ -1250,16 +1244,51 @@ async def dex(interaction: discord.Interaction, character: str):
     await interaction.response.send_message(embed=embed)
 
 
+def _spawn_weight(data: dict) -> int:
+    """Return spawn weight based on rarity — higher = spawns more often."""
+    r = data.get("rarity", "").lower()
+    if "mythic"    in r: return 2
+    if "legendary" in r: return 8
+    if "epic"      in r: return 20
+    if "rare"      in r: return 50
+    if "uncommon"  in r: return 75
+    return 100  # common
+
+def _weighted_random_char(all_chars: dict) -> str:
+    """Pick a character key using rarity-based weights (rare = harder to get)."""
+    keys    = list(all_chars.keys())
+    weights = [_spawn_weight(all_chars[k]) for k in keys]
+    return random.choices(keys, weights=weights, k=1)[0]
+
 def _build_spawn_embed(data: dict) -> discord.Embed:
-    """Ballsdex-style spawn embed — just the character image, nothing else."""
+    """Ballsdex-style spawn embed — rarity-coloured border, image, subtle footer."""
     image_url = data.get("image_url") or CUSTOM_CHAR_IMAGE
     embed = discord.Embed(color=data.get("rarity_color", 0xFFD700))
     embed.set_image(url=image_url)
+    embed.set_footer(text="🎪 A new performer from the digital circus has appeared!")
+    return embed
+
+def _build_catch_card(data: dict, entry: dict, catcher: str) -> discord.Embed:
+    """Character card embed shown after a successful catch — like a bdex ball card."""
+    atk = entry["atk_bonus"]
+    hp  = entry["hp_bonus"]
+    embed = discord.Embed(
+        title=f"{data['emoji']} {data['name']} — {data.get('title', '')}",
+        description=f"*\"{data.get('quote', '')}\"*",
+        color=data.get("rarity_color", 0xFFD700),
+    )
+    embed.add_field(name="✨ Rarity",  value=data["rarity"], inline=True)
+    embed.add_field(name="🆔 ID",      value=f"`#{entry['id']}`", inline=True)
+    embed.add_field(name="📊 Bonuses", value=f"⚔️ ATK {atk:+}%  ❤️ HP {hp:+}%", inline=True)
+    if data.get("image_url"):
+        embed.set_thumbnail(url=data["image_url"])
+    ts = entry.get("caught", "?")
+    embed.set_footer(text=f"Caught by {catcher} • {ts}")
     return embed
 
 
 async def _do_auto_spawn():
-    """Pick a random character and post a spawn message in the configured channel."""
+    """Pick a weighted-random character and post a Ballsdex-style spawn message."""
     if not _spawn_channel_id:
         return
     channel = bot.get_channel(_spawn_channel_id)
@@ -1268,26 +1297,30 @@ async def _do_auto_spawn():
     all_chars = _all_characters()
     if not all_chars:
         return
-    char_key = random.choice(list(all_chars.keys()))
-    data = all_chars[char_key]
-    embed = _build_spawn_embed(data)
-    view = CatchView([char_key], {char_key: data})
+    char_key = _weighted_random_char(all_chars)
+    data     = all_chars[char_key]
+    embed    = _build_spawn_embed(data)
+    view     = CatchView([char_key], {char_key: data})
     await channel.send(
-        content=f"A wild **{data['emoji']} {data['name']}** appeared!",
+        content=f"✨ A wild **{data['emoji']} {data['name']}** appeared!",
         embed=embed,
         view=view,
     )
 
 
-@tasks.loop(minutes=10)
+@tasks.loop(minutes=15)
 async def auto_spawn_task():
     if _auto_spawn_enabled:
         await _do_auto_spawn()
 
 
-@tasks.loop(minutes=5)
+@tasks.loop(minutes=1)
 async def github_backup_task():
-    """Pushes data.json to GitHub every 5 minutes so it survives Render redeploys."""
+    """Backs up data.json to GitHub whenever a change has been made (max 1 min delay)."""
+    global _pending_backup
+    if not _pending_backup:
+        return
+    _pending_backup = False
     import asyncio
     loop = asyncio.get_event_loop()
     await loop.run_in_executor(None, _backup_to_github)
@@ -1320,13 +1353,13 @@ async def spawn(interaction: discord.Interaction, character: str = None, amount:
         pool = [found_key] * amount
         data = all_chars[found_key]
     else:
-        pool = [random.choice(list(all_chars.keys())) for _ in range(amount)]
+        pool = [_weighted_random_char(all_chars) for _ in range(amount)]
         data = all_chars[pool[0]]
     char_data_map = {k: all_chars[k] for k in set(pool)}
     embed = _build_spawn_embed(data)
     view = CatchView(pool, char_data_map)
     if amount == 1:
-        content = f"A wild **{data['emoji']} {data['name']}** appeared!"
+        content = f"✨ A wild **{data['emoji']} {data['name']}** appeared!"
     else:
         unique: dict = {}
         for k in pool:
