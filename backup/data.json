@@ -10,18 +10,18 @@
         "event": null
       },
       {
-        "key": "kinger",
-        "id": "AD1A9C0",
-        "atk_bonus": 23,
-        "hp_bonus": 13,
-        "caught": "2026/07/13 | 16:46",
+        "key": "jax",
+        "id": "319458A",
+        "atk_bonus": -11,
+        "hp_bonus": -4,
+        "caught": "2026/07/13 | 16:56",
         "event": null
       },
       {
-        "key": "gangle",
-        "id": "3FB5C2E",
-        "atk_bonus": -12,
-        "hp_bonus": -15,
+        "key": "ragatha",
+        "id": "952B2E1",
+        "atk_bonus": -25,
+        "hp_bonus": 10,
         "caught": "2026/07/13 | 16:57",
         "event": null
       }
@@ -8034,5 +8034,5 @@
   "user_stats": {},
   "all_events": [],
   "spawn_channel_id": 1517606755918676143,
-  "auto_spawn_enabled": true
+  "auto_spawn_enabled": false
 }
