@@ -1263,9 +1263,12 @@ def _weighted_random_char(all_chars: dict) -> str:
 def _build_spawn_embed(data: dict) -> discord.Embed:
     """Ballsdex-style spawn embed — rarity-coloured border, image, subtle footer."""
     image_url = data.get("image_url") or CUSTOM_CHAR_IMAGE
-    embed = discord.Embed(color=data.get("rarity_color", 0xFFD700))
+    embed = discord.Embed(
+        description=f"**{data['rarity']}**",
+        color=data.get("rarity_color", 0xFFD700),
+    )
     embed.set_image(url=image_url)
-    embed.set_footer(text="🎪 A new performer from the digital circus has appeared!")
+    embed.set_footer(text="🎪 Click the button before someone else does!")
     return embed
 
 def _build_catch_card(data: dict, entry: dict, catcher: str) -> discord.Embed:
@@ -1308,7 +1311,7 @@ async def _do_auto_spawn():
     )
 
 
-@tasks.loop(minutes=15)
+@tasks.loop(minutes=20)
 async def auto_spawn_task():
     if _auto_spawn_enabled:
         await _do_auto_spawn()
