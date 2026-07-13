@@ -110,7 +110,7 @@ def _backup_to_github():
             pass
         with open(DATA_FILE, "rb") as f:
             content = base64.b64encode(f.read()).decode()
-        payload = {"message": "auto: data backup", "content": content}
+        payload = {"message": "auto: data backup [skip render]", "content": content}
         if sha:
             payload["sha"] = sha
         req2 = urllib.request.Request(
