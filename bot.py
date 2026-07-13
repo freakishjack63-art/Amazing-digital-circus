@@ -1084,13 +1084,17 @@ class CatchView(discord.ui.View):
         atk_bonus = random.randint(-25, 25)
         hp_bonus  = random.randint(-25, 25)
         now = datetime.now().strftime("%Y/%m/%d | %H:%M")
+        # Events are rare — only 15% chance this specific catch is an event catch
+        event_tag = None
+        if _active_event and random.random() < 0.15:
+            event_tag = _active_event["name"]
         entry = {
             "key": char_key,
             "id": char_id,
             "atk_bonus": atk_bonus,
             "hp_bonus": hp_bonus,
             "caught": now,
-            "event": _active_event["name"] if _active_event else None,
+            "event": event_tag,
         }
         already_had = uid in _collections and any(
             _parse_entry(e, i).get("key") == char_key
@@ -1100,16 +1104,15 @@ class CatchView(discord.ui.View):
             _collections[uid] = []
         _collections[uid].append(entry)
         _save_data()
-        atk_str = f"{atk_bonus:+}%"
-        hp_str  = f"{hp_bonus:+}%"
         await interaction.response.edit_message(view=self)
         card = _build_catch_card(char_data, entry, interaction.user.display_name)
         if already_had:
             header = f"{interaction.user.mention} caught **{char_data['name']}** again! *(duplicate)*"
         else:
             header = f"🎉 {interaction.user.mention} caught a new performer — **{char_data['name']}**!"
-        if _active_event:
-            header += f"\n🌟 *{_active_event['description']}*"
+        # Only reveal event tag if this specific catch was lucky
+        if event_tag:
+            header += f"\n🌟 **EVENT CATCH!** *{_active_event['description']}*"
         await interaction.followup.send(content=header, embed=card)
 
     async def on_timeout(self):
