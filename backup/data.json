@@ -8,6 +8,22 @@
         "hp_bonus": 21,
         "caught": "2026/07/12 | 19:25",
         "event": null
+      },
+      {
+        "key": "zooble",
+        "id": "EF5F63F",
+        "atk_bonus": 22,
+        "hp_bonus": 21,
+        "caught": "2026/07/13 | 15:21",
+        "event": null
+      },
+      {
+        "key": "jax",
+        "id": "61248E7",
+        "atk_bonus": -17,
+        "hp_bonus": 5,
+        "caught": "2026/07/13 | 15:22",
+        "event": null
       }
     ],
     "1187437240910106816": [
