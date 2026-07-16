@@ -8029,7 +8029,9 @@
       }
     ]
   },
-  "admins": [],
+  "admins": [
+    1479493013741895700
+  ],
   "blacklisted": [],
   "user_stats": {},
   "all_events": [],
